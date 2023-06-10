@@ -1,6 +1,6 @@
 <div align="center">
-  <img width="100%" height = "100%" src= "https://github.com/kathryncaruso/kathryncaruso.github.io/blob/fc0d2901894c1bb4824965838bcaa057891393c3/assets/img/appalachian-roan-mountain.jpeg" alt="Roan Mountain" />
-</div>, 
+  <img width="50%" height = "50%" src= "https://github.com/kathryncaruso/kathryncaruso.github.io/blob/fc0d2901894c1bb4824965838bcaa057891393c3/assets/img/appalachian-roan-mountain.jpeg" alt="Roan Mountain" />
+</div> 
 
 Hi there! 
 
