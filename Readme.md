@@ -5,6 +5,6 @@
 ### Hi there! 
 I'm a researcher with experience in R, Python, and HTML.
 
-For more information about me, please navigate to my [website](https://kathryncaruso.github.io).
+For more information about me, please navigate to my [website](https://katie-caruso.github.io).
 
 If you'd like to get in touch, please reach out to me via email at [caruso.k.e@gmail.com](mailto:caruso.k.e@gmail.com).
