@@ -1,6 +1,6 @@
 <h1 align="center"> Hi there, I'm Katie! 🌱</h1>
 
-I'm a researcher based in Asheville, NC with experience in R, Python, and HTML. I am fascinated by ecology and love bryphytes and lichens.
+I'm a researcher based in Asheville, NC with experience in R, Python, and HTML. I am fascinated by ecology and learning about forests, bryphytes, and lichens.
 
 For more information about me, please navigate to my [website](https://katie-caruso.github.io).
 
