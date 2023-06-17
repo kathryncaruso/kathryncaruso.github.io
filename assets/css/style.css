@@ -6,7 +6,8 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Roboto", Times, sans-serif;
+  font-weight: 300
   color: #272829;
 }
 
