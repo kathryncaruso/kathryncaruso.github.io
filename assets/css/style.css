@@ -80,6 +80,33 @@ h6 {
 # Preloader
 --------------------------------------------------------------*/
 #preloader {
+  display:block;
+  width:258px;
+  height:258px;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+}
+
+.circle-mask {
+  transform-origin: 50% 90%;
+  animation: scale 5s infinite ease-out;
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: scale(0.0);
+  }
+  7%, 90% {
+    transform: scale(0.4);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+<!-- {
   position: fixed;
   top: 0;
   left: 0;
@@ -112,7 +139,7 @@ h6 {
   100% {
     transform: rotate(360deg);
   }
-}
+} -->
 
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
@@ -441,6 +468,7 @@ section {
   font-size: 26px;
   color: #231F20;
   margin: 15px 0 0 0;
+  margin-bottom: 30px;
   font-weight: 150;
   font-family: "Roboto", sans-serif;
 }
@@ -469,10 +497,12 @@ section {
 }
 
 .about .content ul i {
-  font-size: 16px;
-  margin-right: 5px;
+  font-size: 18px;
+  margin-right: 7px;
   color: #B2DF8A;
-  line-height: 0;
+  line-height: 5;
+  font-weight: 100;
+  font-family: "Roboto", sans-serif;
 }
 
 .about .content p:last-child {
