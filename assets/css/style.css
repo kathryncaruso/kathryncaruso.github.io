@@ -440,41 +440,41 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
-#about h2 {
+.about .content h2 {
+  font-size: 40px;
+  color: #231F20;
+  margin: 15px 0 0 0;
+  font-weight: 300;
+  font-family: "Roboto", sans-serif;
+}
+
+.about .content h3 {
   font-size: 36px;
   color: #231F20;
   margin: 15px 0 0 0;
-  font-weight: 100;
+  font-weight: 300;
   font-family: "Roboto", sans-serif;
 }
 
-#about h3 {
-  font-size: 32px;
-  color: #231F20;
-  margin: 15px 0 0 0;
-  font-weight: 100;
-  font-family: "Roboto", sans-serif;
-}
-
-#about h4 {
-  font-size: 26px;
+.about .content h4 {
+  font-size: 20px;
   color: #757575;
   margin: 15px 0 0 0;
   font-weight: 100;
   font-family: "Roboto", sans-serif;
 }
 
-#about h5 {
-  font-size: 26px;
+.about .content h5 {
+  font-size: 18px;
   color: #231F20;
   margin: 15px 0 0 0;
   margin-bottom: 30px;
-  font-weight: 150;
+  font-weight: 200;
   font-family: "Roboto", sans-serif;
 }
 
-#about p {
-  font-size: 20px;
+.about .content p {
+  font-size: 16px;
   color: #231F20;
   margin: 15px 0 0 0;
   font-weight: 100;
