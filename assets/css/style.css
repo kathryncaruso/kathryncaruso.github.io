@@ -311,7 +311,7 @@ h6 {
   font-size: 64px;
   font-weight: 400;
   line-height: 56px;
-  color: #F0F0F0;
+  color: #231F20;
 }
 
 #hero p {
@@ -376,12 +376,12 @@ section {
 
 .section-title h2 {
   font-size: 32px;
-  font-weight: bold;
-  text-transform: uppercase;
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
   color: #231F20;
+  font-weight: 200;
+  font-family: "Roboto", sans-serif;
 }
 
 .section-title h2::before {
@@ -413,10 +413,44 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+.about .content h2 {
+  font-size: 36px;
+  color: #231F20;
+  margin: 15px 0 0 0;
+  font-weight: 100;
+  font-family: "Roboto", sans-serif;
+}
+
 .about .content h3 {
-  font-weight: 700;
+  font-size: 32px;
+  color: #231F20;
+  margin: 15px 0 0 0;
+  font-weight: 100;
+  font-family: "Roboto", sans-serif;
+}
+
+.about .content h4 {
   font-size: 26px;
-  color: #728394;
+  color: #757575;
+  margin: 15px 0 0 0;
+  font-weight: 100;
+  font-family: "Roboto", sans-serif;
+}
+
+.about .content h5 {
+  font-size: 26px;
+  color: #231F20;
+  margin: 15px 0 0 0;
+  font-weight: 150;
+  font-family: "Roboto", sans-serif;
+}
+
+.about .content p {
+  font-size: 20px;
+  color: #231F20;
+  margin: 15px 0 0 0;
+  font-weight: 100;
+  font-family: "Roboto", sans-serif;
 }
 
 .about .content ul {
