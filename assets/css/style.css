@@ -461,7 +461,6 @@ section {
 }
 
 .about .content ul li {
-  margin-bottom: 6px;
   display: flex;
   align-items: center;
 }
@@ -471,13 +470,21 @@ section {
 }
 
 .about .content ul i {
-  margin-bottom: 6px;
   font-size: 20px;
   margin-right: 7px;
   color: #B2DF8A;
   line-height: 0;
   font-weight: 100;
   font-family: "Roboto", sans-serif;
+}
+
+}
+.about .content ul span {
+  font-size: 20px;
+  margin-right: 7px;
+  color: #B2DF8A;
+  line-height: 0;
+  font-weight: 100;
 }
 
 .about .content p:last-child {
@@ -504,6 +511,14 @@ section {
 /*--------------------------------------------------------------
 # Facts
 --------------------------------------------------------------*/
+.facts .content p {
+  font-size: 20px;
+  color: #231F20;
+  margin: 15px 0 0 0;
+  font-weight: 100;
+  font-family: "Roboto", sans-serif;
+}
+
 .facts .count-box {
   padding: 30px 30px 25px 30px;
   margin-top: 30px;
@@ -530,7 +545,7 @@ section {
 }
 
 .facts .count-box span {
-  font-size: 50px;
+  font-size: 75px;
   display: block;
   font-weight: 100;
   color: #B2DF8A;
@@ -544,7 +559,7 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Akills
+# Skills
 --------------------------------------------------------------*/
 .skills .progress {
   height: 60px;
