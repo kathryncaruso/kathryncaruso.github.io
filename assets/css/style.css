@@ -6,21 +6,12 @@
 # Avatar Image
 --------------------------------------------------------------*/
 
-.image-cropper {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
-}
-
 .avatar {
-  display: inline;
-  margin: 0 auto;
-  margin-bottom: -25%; //centers the image
-  width: 100%;
-  height: auto;
-}
+   width: 200%;
+   height: 200%;
+   object-fit: cover;
+   border-radius: 50%;
+ }
 
 /*--------------------------------------------------------------
 # General
