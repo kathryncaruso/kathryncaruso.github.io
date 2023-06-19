@@ -418,7 +418,7 @@ section {
   font-size: 40px;
   color: #231F20;
   margin: 15px 0 0 0;
-  font-weight: 300;
+  font-weight: 500;
   font-family: "Roboto", sans-serif;
 }
 
@@ -426,7 +426,7 @@ section {
   font-size: 36px;
   color: #231F20;
   margin: 15px 0 0 0;
-  font-weight: 300;
+  font-weight: 400;
   font-family: "Roboto", sans-serif;
 }
 
@@ -443,7 +443,7 @@ section {
   color: #231F20;
   margin: 15px 0 0 0;
   margin-bottom: 10px;
-  font-weight: 200;
+  font-weight: 300;
   font-family: "Roboto", sans-serif;
 }
 
