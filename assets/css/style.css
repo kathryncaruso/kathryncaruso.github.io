@@ -478,8 +478,7 @@ section {
   font-family: "Roboto", sans-serif;
 }
 
-}
-.about .content ul span {
+#about ul span {
   font-size: 20px;
   margin-right: 7px;
   color: #B2DF8A;
