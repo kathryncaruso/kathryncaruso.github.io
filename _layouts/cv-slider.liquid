@@ -16,6 +16,7 @@ layout: default
     background: var(--global-bg-color);
     border-bottom: 1px solid var(--global-divider-color);
     padding: 0.8rem 0;
+    margin: 0.5rem -15px 0.5rem;
     transition: box-shadow 0.3s ease;
   }
   .cv-slider-container.scrolled {
@@ -359,26 +360,11 @@ layout: default
   }
 </style>
 
-<!-- Page title + description (rendered by al-folio's default layout) -->
+<!-- Page title (rendered by al-folio's default layout) -->
 <div class="post">
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-description">{{ page.description }}</p>
   </header>
-
-  <!-- ═══════ SLIDER ═══════ -->
-  <div class="cv-slider-container" id="cv-slider-container">
-    <div class="cv-slider-inner">
-      <span class="cv-slider-label left">Resume<br>Less detail</span>
-      <div class="cv-slider-track">
-        <input type="range" id="detail-slider" min="1" max="5" step="1" value="3" aria-label="Detail level">
-        <div class="cv-tick-marks">
-          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-        </div>
-      </div>
-      <span class="cv-slider-label right">Full CV<br>More detail</span>
-    </div>
-  </div>
 
   <!-- ═══════ CV BODY ═══════ -->
   <article class="cv-content">
@@ -411,6 +397,20 @@ layout: default
       </div>
       <div class="cv-contact-detail" data-level="5">
         <a href="mailto:caruso.k.e@gmail.com">caruso.k.e@gmail.com</a> (personal)
+      </div>
+    </div>
+
+    <!-- ═══════ SLIDER ═══════ -->
+    <div class="cv-slider-container" id="cv-slider-container">
+      <div class="cv-slider-inner">
+        <span class="cv-slider-label left">Resume<br>Less detail</span>
+        <div class="cv-slider-track">
+          <input type="range" id="detail-slider" min="1" max="5" step="1" value="3" aria-label="Detail level">
+          <div class="cv-tick-marks">
+            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+          </div>
+        </div>
+        <span class="cv-slider-label right">Full CV<br>More detail</span>
       </div>
     </div>
 
