@@ -7,3 +7,4 @@ nav: true
 nav_order: 2
 cv_pdf: https://github.com/katie-caruso/KathrynCaruso_CV/blob/main/main.pdf
 ---
+<!-- rebuild -->
