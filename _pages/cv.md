@@ -1,5 +1,5 @@
 ---
-layout: cv
+layout: page
 title: cv
 permalink: /cv/
 description: Education, research positions, publications, and more.
