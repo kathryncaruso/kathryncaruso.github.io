@@ -7,7 +7,7 @@ subtitle: >
 
 profile:
   align: right
-  image: profile-img.jpg  # place your photo in assets/img/
+  image: prof_pic.jpg  # place your photo in assets/img/
   image_circular: false
   more_info: >
     <p>Center for Biofilm Engineering</p>
@@ -35,7 +35,7 @@ I'm passionate about open science, thoughtful documentation, and making research
 
 <!-- ============================================================
   NOTES FOR KATIE:
-  - Replace profile-img.jpg with your actual headshot
+  - Replace prof_pic.jpg with your actual headshot
   - Feel free to adjust the tone — this is a starting draft!
   - The "more_info" section under profile shows your address
   - Set news: true if you want a news/updates ticker on the homepage
