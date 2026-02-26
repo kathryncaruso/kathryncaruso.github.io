@@ -21,22 +21,17 @@ social: true
 
 <!-- ============================================================
   EDIT YOUR BIO BELOW
-  This is the main landing page visitors will see. Keep it concise
-  and personal — think of Gina Cova's clean, approachable style.
 ============================================================ -->
 
-I'm a microbiology PhD student at Montana State University studying **bioengineering in extreme environments**. My current research focuses on applications of cold-adapted bacterial isolates for biocementation in permafrost — essentially asking whether microbes from glaciers and ice sheets can help stabilize infrastructure in thawing Arctic environments.
+I'm a microbiology PhD student at Montana State University studying **bioengineering in extreme environments**. My current research focuses on applications of cold-adapted bacterial isolates for biocementation in permafrost — essentially asking whether microbes can stabilize infrastructure in thawing Arctic environments.
 
 Before grad school, I spent three years with the [NASA DEVELOP National Program](https://appliedsciences.nasa.gov/what-we-do/capacity-building/develop), where I designed and managed research projects applying NASA Earth observations to environmental management decisions. I've collaborated with over a dozen federal, academic, and non-profit organizations on projects ranging from Venus flytrap habitat modeling to wildfire severity monitoring.
 
-My path to microbiology started in the forests of southern Appalachia, where I studied mycorrhizal fungi in declining hemlock stands and worked to conserve the federally threatened *Spiraea virginiana*. I've since followed my curiosity from forest ecology to remote sensing to the intersection of microbiology and engineering.
+I came to microbiology through forest ecology — studying mycorrhizal fungi in hemlock stands and working to conserve the federally threatened *Spiraea virginiana* in Southern Appalachia.
 
-I'm passionate about open science, thoughtful documentation, and making research methods accessible. You can explore my [research methods](/methods/) to see protocols and computational notebooks from my current work.
+You can explore my [research methods](/methods/) to see protocols and computational notebooks from my current work.
 
 <!-- ============================================================
-  NOTES FOR KATIE:
-  - Replace prof_pic.jpg with your actual headshot
-  - Feel free to adjust the tone — this is a starting draft!
-  - The "more_info" section under profile shows your address
+  NOTES:
   - Set news: true if you want a news/updates ticker on the homepage
 ============================================================ -->
