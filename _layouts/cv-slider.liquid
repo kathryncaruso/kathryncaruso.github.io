@@ -96,6 +96,104 @@ layout: default
     -webkit-font-smoothing: antialiased;
   }
 
+  /* ─── HEADER / CONTACT ─── */
+
+  .cv-header {
+    text-align: center;
+    padding: 0.5rem 0 0.8rem;
+    font-family: 'Roboto', sans-serif;
+  }
+  .cv-header-name {
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    margin: 0 0 0.15rem;
+    color: var(--global-text-color);
+  }
+  .cv-header-position {
+    font-size: 0.92rem;
+    font-weight: 400;
+    color: var(--global-text-color-light);
+    margin: 0 0 0.1rem;
+  }
+  .cv-header-affiliation {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--global-text-color-light);
+    margin: 0 0 0.6rem;
+  }
+  .cv-header-affiliation a {
+    color: var(--global-theme-color);
+    text-decoration: none;
+  }
+  .cv-header-affiliation a:hover { text-decoration: underline; }
+
+  .cv-header-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.82rem;
+  }
+  .cv-header-links li {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .cv-header-links a {
+    color: var(--global-theme-color);
+    text-decoration: none;
+  }
+  .cv-header-links a:hover { text-decoration: underline; }
+  .cv-header-links .cv-icon {
+    width: 15px;
+    height: 15px;
+    opacity: 0.6;
+  }
+
+  /* Full contact details at higher detail levels */
+  .cv-contact-detail {
+    font-size: 0.82rem;
+    color: var(--global-text-color-light);
+    margin-top: 0.5rem;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  /* ─── HIGHLIGHTS ─── */
+
+  .cv-highlights {
+    margin: 0.8rem 0 0.5rem;
+    font-family: 'Roboto', sans-serif;
+  }
+  .cv-highlights ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .cv-highlights li {
+    position: relative;
+    padding: 0.35rem 0 0.35rem 1.1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .cv-highlights li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.72rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--global-theme-color);
+  }
+  .cv-highlights li strong {
+    font-weight: 500;
+  }
+
   .cv-summary-box {
     background: var(--global-card-bg-color, var(--global-bg-color));
     border-radius: 6px;
@@ -218,23 +316,6 @@ layout: default
     border: 1px solid var(--global-divider-color);
   }
 
-  .cv-contact-table {
-    font-size: 0.88rem;
-    margin: 0.5rem 0 1rem;
-    font-family: 'Roboto', sans-serif;
-  }
-  .cv-contact-table td {
-    padding: 0.15rem 0;
-    vertical-align: top;
-  }
-  .cv-contact-table td:first-child {
-    font-weight: 500;
-    padding-right: 1.2rem;
-    white-space: nowrap;
-    color: var(--global-text-color-light);
-  }
-  .cv-contact-table a { color: var(--global-theme-color); }
-
   /* ═══════ DETAIL LEVEL VISIBILITY ═══════ */
   [data-level] {
     transition: opacity 0.3s ease, max-height 0.4s ease, margin 0.3s ease, padding 0.3s ease;
@@ -265,6 +346,7 @@ layout: default
     .cv-slider-container { display: none !important; }
     .cv-entry { break-inside: avoid; }
     .cv-summary-box { break-inside: avoid; }
+    .cv-highlights { break-inside: avoid; }
   }
 
   @media (max-width: 640px) {
@@ -272,6 +354,8 @@ layout: default
     .cv-entry-date { margin-bottom: 0.05rem; }
     .cv-slider-label { min-width: 55px; font-size: 0.65rem; }
     .cv-slider-container { top: 0; }
+    .cv-header-name { font-size: 1.35rem; }
+    .cv-header-links { gap: 0.4rem 0.8rem; }
   }
 </style>
 
@@ -299,6 +383,7 @@ layout: default
   <!-- ═══════ CV BODY ═══════ -->
   <article class="cv-content">
 
+<<<<<<< Updated upstream
     <div class="cv-summary-box">
       This document is dynamic! Adjust the slider below to see more or less detail.
     </div>
@@ -326,32 +411,73 @@ layout: default
         <div class="cv-entry-detail" data-level="2">Advisor: Christine Foreman, PhD · Center for Biofilm Engineering</div>
         <div class="cv-entry-detail" data-level="3">NSF Extreme Biofilms National Research Traineeship</div>
         <div class="cv-entry-detail" data-level="4">GPA: 4.00/4.00</div>
+=======
+    <!-- ═══════ HEADER ═══════ -->
+    <div class="cv-header">
+      <h2 class="cv-header-name">Kathryn (Katie) E. Caruso</h2>
+      <p class="cv-header-position">PhD Student — Microbiology &amp; Cell Biology</p>
+      <p class="cv-header-affiliation"><a href="https://www.montana.edu/biofilm/">Center for Biofilm Engineering</a>, Montana State University</p>
+      <ul class="cv-header-links">
+        <li>
+          <!-- envelope icon (inline SVG keeps it self-contained) -->
+          <svg class="cv-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <a href="mailto:kathryncaruso@montana.edu">kathryncaruso@montana.edu</a>
+        </li>
+        <li>
+          <!-- globe icon -->
+          <svg class="cv-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://katie-caruso.github.io">katie-caruso.github.io</a>
+        </li>
+        <li>
+          <!-- github icon -->
+          <svg class="cv-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          <a href="https://github.com/katie-caruso">katie-caruso</a>
+        </li>
+      </ul>
+      <!-- Extended contact at higher detail levels -->
+      <div class="cv-contact-detail" data-level="4">
+        +1 (919) 667-5773 · 366 Barnard Hall, Bozeman, MT 59717
+      </div>
+      <div class="cv-contact-detail" data-level="5">
+        <a href="mailto:caruso.k.e@gmail.com">caruso.k.e@gmail.com</a> (personal)
+>>>>>>> Stashed changes
       </div>
     </div>
 
-    <div class="cv-entry" data-level="3">
-      <div class="cv-entry-date">2025</div>
-      <div>
-        <div class="cv-entry-title"><strong>Molecular and Cell Biology of Symbiosis</strong></div>
-        <div class="cv-entry-org"><a href="https://www.mbl.edu/">Marine Biological Laboratory</a></div>
-      </div>
+    <!-- ═══════ HIGHLIGHTS ═══════ -->
+    <h2 class="cv-section-title">Highlights</h2>
+    <div class="cv-highlights">
+      <ul>
+        <li>
+          Pursuing a <strong>PhD in Microbiology &amp; Cell Biology</strong> at Montana State University's
+          <a href="https://www.montana.edu/biofilm/">Center for Biofilm Engineering</a>,
+          studying cold-adapted bacteria for <strong>biocementation in thawing permafrost environments</strong>.
+        </li>
+        <li>
+          Author of <strong>three peer-reviewed publications</strong> spanning microbial ecology, conservation genetics, and environmental microbiology,
+          with fieldwork from <strong>Appalachian forests to the Greenland Ice Sheet</strong>.
+        </li>
+        <li>
+          As <strong>NASA DEVELOP North Carolina Center Lead</strong>, designed and managed <strong>six Earth-observation research projects</strong>
+          in collaboration with 14 partner organizations, earning two NASA awards.
+        </li>
+        <li>
+          Recipient of <strong>over $145K in competitive funding</strong>, including an
+          <strong>NSF Extreme Biofilms National Research Traineeship</strong> and a Presidential Fellowship.
+        </li>
+        <li data-level="2">
+          Presented research at <strong>AGU</strong>, <strong>oSTEM</strong>, and <strong>Botanical Society of America</strong> conferences,
+          and completed <strong>Software Carpentry Instructor</strong> certification through The Carpentries.
+        </li>
+      </ul>
     </div>
 
-    <div class="cv-entry" data-level="1">
-      <div class="cv-entry-date">2016 – 2020</div>
-      <div>
-        <div class="cv-entry-title"><strong>BSc, Biology</strong> · Minor: Religious Studies</div>
-        <div class="cv-entry-org"><a href="https://www.unca.edu/">University of North Carolina, Asheville</a></div>
-        <div class="cv-entry-detail" data-level="2"><em>summa cum laude</em> · GPA: 3.97/4.00</div>
-        <div class="cv-entry-detail" data-level="3">Advisor: Jonathan Horton, PhD</div>
-        <div class="cv-entry-detail" data-level="4">
-          <p>Thesis: "Assessing the effect of eastern hemlock (<em>Tsuga canadensis</em>) decline from hemlock woolly adelgid (<em>Adelges tsugae</em>) infestation on ectomycorrhizal colonization and growth of red oak (<em>Quercus rubra</em>) seedlings"</p>
-        </div>
-      </div>
+    <div class="cv-summary-box" data-level="3">
+      <em>This document is dynamic!</em> Adjust the slider above to see more or less detail.
     </div>
 
-    <!-- RESEARCH POSITIONS -->
-    <h2 class="cv-section-title">Research Positions</h2>
+    <!-- ═══════ RESEARCH EXPERIENCE ═══════ -->
+    <h2 class="cv-section-title">Research Experience</h2>
 
     <div class="cv-entry" data-level="1">
       <div class="cv-entry-date">2024 – Present</div>
@@ -419,7 +545,42 @@ layout: default
       </div>
     </div>
 
-    <!-- PEER-REVIEWED PUBLICATIONS -->
+    <!-- ═══════ EDUCATION ═══════ -->
+    <h2 class="cv-section-title">Education</h2>
+
+    <div class="cv-entry" data-level="1">
+      <div class="cv-entry-date">2024 – Present</div>
+      <div>
+        <div class="cv-entry-title"><strong>PhD, Microbiology and Cell Biology</strong></div>
+        <div class="cv-entry-org"><a href="https://www.montana.edu/">Montana State University</a></div>
+        <div class="cv-entry-detail" data-level="2">Advisor: Christine Foreman, PhD · Center for Biofilm Engineering</div>
+        <div class="cv-entry-detail" data-level="3">NSF Extreme Biofilms National Research Traineeship</div>
+        <div class="cv-entry-detail" data-level="4">GPA: 4.00/4.00</div>
+      </div>
+    </div>
+
+    <div class="cv-entry" data-level="3">
+      <div class="cv-entry-date">2025</div>
+      <div>
+        <div class="cv-entry-title"><strong>Molecular and Cell Biology of Symbiosis</strong></div>
+        <div class="cv-entry-org"><a href="https://www.mbl.edu/">Marine Biological Laboratory</a></div>
+      </div>
+    </div>
+
+    <div class="cv-entry" data-level="1">
+      <div class="cv-entry-date">2016 – 2020</div>
+      <div>
+        <div class="cv-entry-title"><strong>BSc, Biology</strong> · Minor: Religious Studies</div>
+        <div class="cv-entry-org"><a href="https://www.unca.edu/">University of North Carolina, Asheville</a></div>
+        <div class="cv-entry-detail" data-level="2"><em>summa cum laude</em> · GPA: 3.97/4.00</div>
+        <div class="cv-entry-detail" data-level="3">Advisor: Jonathan Horton, PhD</div>
+        <div class="cv-entry-detail" data-level="4">
+          <p>Thesis: "Assessing the effect of eastern hemlock (<em>Tsuga canadensis</em>) decline from hemlock woolly adelgid (<em>Adelges tsugae</em>) infestation on ectomycorrhizal colonization and growth of red oak (<em>Quercus rubra</em>) seedlings"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ PEER-REVIEWED PUBLICATIONS ═══════ -->
     <h2 class="cv-section-title">Peer-Reviewed Publications</h2>
 
     <div class="cv-pub" data-level="1">
@@ -441,7 +602,7 @@ layout: default
       <span class="venue">American Midland Naturalist, 186:16–34.</span>
     </div>
 
-    <!-- NASA TECHNICAL REPORTS -->
+    <!-- ═══════ NASA TECHNICAL REPORTS ═══════ -->
     <h2 class="cv-section-title" data-level="3">NASA Technical Reports</h2>
 
     <div class="cv-pub" data-level="3">
@@ -457,7 +618,7 @@ layout: default
       <span class="venue">NASA Technical Reports Server.</span>
     </div>
 
-    <!-- FUNDING & SCHOLARSHIPS -->
+    <!-- ═══════ FUNDING & SCHOLARSHIPS ═══════ -->
     <h2 class="cv-section-title">Funding &amp; Scholarships</h2>
     <ul class="cv-list">
       <li data-level="1"><strong>2025</strong> — Crawford Wildlife Habitat Scholarship <span class="cv-award-amount">$10,000</span></li>
@@ -470,7 +631,7 @@ layout: default
       <li data-level="2"><strong>2016</strong> — Laurels Fellowship <span class="cv-award-amount">$19,000</span></li>
     </ul>
 
-    <!-- AWARDS -->
+    <!-- ═══════ AWARDS ═══════ -->
     <h2 class="cv-section-title">Awards</h2>
     <ul class="cv-list">
       <li data-level="1"><strong>2022</strong> — NASA DEVELOP Performance Award
@@ -483,39 +644,7 @@ layout: default
         <span class="cv-award-note" data-level="4">Nominated for university-wide valedictorian award by the UNC Asheville Dept. of Biology.</span></li>
     </ul>
 
-    <!-- PROFESSIONAL POSITIONS -->
-    <h2 class="cv-section-title" data-level="2">Professional Positions</h2>
-
-    <div class="cv-entry" data-level="2">
-      <div class="cv-entry-date">2022</div>
-      <div>
-        <div class="cv-entry-title"><strong>Program Coordinator</strong>, AmeriCorps Summer of Service</div>
-        <div class="cv-entry-org">Conserving Carolina</div>
-      </div>
-    </div>
-    <div class="cv-entry" data-level="2">
-      <div class="cv-entry-date">2022</div>
-      <div>
-        <div class="cv-entry-title"><strong>Forestry Technician</strong></div>
-        <div class="cv-entry-org">Hemlock Restoration Initiative</div>
-      </div>
-    </div>
-    <div class="cv-entry" data-level="2">
-      <div class="cv-entry-date">2020 – 2021</div>
-      <div>
-        <div class="cv-entry-title"><strong>AmeriCorps Habitat Restoration Member</strong></div>
-        <div class="cv-entry-org">Oʻahu National Wildlife Refuge Complex, Kupu Hawaiʻi Conservation Leadership Development Program</div>
-      </div>
-    </div>
-    <div class="cv-entry" data-level="3">
-      <div class="cv-entry-date">2019 – 2020</div>
-      <div>
-        <div class="cv-entry-title"><strong>Science Writer</strong></div>
-        <div class="cv-entry-org">National Environmental Modeling and Analysis Center</div>
-      </div>
-    </div>
-
-    <!-- PRESENTATIONS -->
+    <!-- ═══════ PRESENTATIONS ═══════ -->
     <h2 class="cv-section-title" data-level="2">Presentations</h2>
 
     <h3 class="cv-subsection-title" data-level="2">Oral Presentations</h3>
@@ -532,8 +661,8 @@ layout: default
       <span class="venue">Annual Meeting, AGU, San Francisco, CA.</span>
     </div>
     <div class="cv-pub" data-level="3">
-      <span class="pub-number">3.</span>
       <span class="authors">Caruso, K. E., Lampley*, J., Rock, M., Siddhi, A., Zhu, S., et al.</span>
+      <span class="pub-number">3.</span>
       <span class="title">(2022). GIS spatial analysis and habitat suitability modeling using remote sensing data to help identify at-risk populations of Venus flytrap.</span>
       <span class="venue">Annual Meeting, Botanical Society of America, Anchorage, AK.</span>
     </div>
@@ -590,7 +719,39 @@ layout: default
       <span class="venue">Health and Air Quality Applications Program Review, Asheville, NC.</span>
     </div>
 
-    <!-- RESEARCH PROJECTS -->
+    <!-- ═══════ PROFESSIONAL POSITIONS ═══════ -->
+    <h2 class="cv-section-title" data-level="2">Professional Positions</h2>
+
+    <div class="cv-entry" data-level="2">
+      <div class="cv-entry-date">2022</div>
+      <div>
+        <div class="cv-entry-title"><strong>Program Coordinator</strong>, AmeriCorps Summer of Service</div>
+        <div class="cv-entry-org">Conserving Carolina</div>
+      </div>
+    </div>
+    <div class="cv-entry" data-level="2">
+      <div class="cv-entry-date">2022</div>
+      <div>
+        <div class="cv-entry-title"><strong>Forestry Technician</strong></div>
+        <div class="cv-entry-org">Hemlock Restoration Initiative</div>
+      </div>
+    </div>
+    <div class="cv-entry" data-level="2">
+      <div class="cv-entry-date">2020 – 2021</div>
+      <div>
+        <div class="cv-entry-title"><strong>AmeriCorps Habitat Restoration Member</strong></div>
+        <div class="cv-entry-org">Oʻahu National Wildlife Refuge Complex, Kupu Hawaiʻi Conservation Leadership Development Program</div>
+      </div>
+    </div>
+    <div class="cv-entry" data-level="3">
+      <div class="cv-entry-date">2019 – 2020</div>
+      <div>
+        <div class="cv-entry-title"><strong>Science Writer</strong></div>
+        <div class="cv-entry-org">National Environmental Modeling and Analysis Center</div>
+      </div>
+    </div>
+
+    <!-- ═══════ RESEARCH PROJECTS ═══════ -->
     <h2 class="cv-section-title" data-level="4">Research Projects</h2>
     <ul class="cv-list">
       <li data-level="4"><strong>Biomaterials for Stabilizing Defense Materials in Arctic Environments</strong> · Montana State University <span class="cv-award-amount">Sept. 2024 – Present</span></li>
@@ -608,7 +769,7 @@ layout: default
       <li data-level="5"><strong>Hemlock Assessment, Southern Appalachian CESU</strong> · U.S. Park Service <span class="cv-award-amount">May 2019 – May 2020</span></li>
     </ul>
 
-    <!-- SERVICE -->
+    <!-- ═══════ SERVICE ═══════ -->
     <h2 class="cv-section-title" data-level="2">Service</h2>
     <ul class="cv-list">
       <li data-level="2"><strong>Aug. 2025 – May 2026</strong> — Board Member, Boardroom Bobcats</li>
@@ -620,13 +781,7 @@ layout: default
       <li data-level="3"><strong>2023 – 2024</strong> — Board Member, North Carolina Space Grant Advisory Board</li>
     </ul>
 
-    <!-- CERTIFICATIONS -->
-    <h2 class="cv-section-title" data-level="3">Certifications</h2>
-    <ul class="cv-list">
-      <li data-level="3"><strong>2023</strong> — Software Carpentry Instructor, The Carpentries</li>
-    </ul>
-
-    <!-- SKILLS -->
+    <!-- ═══════ SKILLS ═══════ -->
     <h2 class="cv-section-title" data-level="2">Skills</h2>
 
     <div class="cv-skills-category" data-level="2">
@@ -673,7 +828,13 @@ layout: default
       </div>
     </div>
 
-    <!-- MEDIA -->
+    <!-- ═══════ CERTIFICATIONS ═══════ -->
+    <h2 class="cv-section-title" data-level="3">Certifications</h2>
+    <ul class="cv-list">
+      <li data-level="3"><strong>2023</strong> — Software Carpentry Instructor, The Carpentries</li>
+    </ul>
+
+    <!-- ═══════ MEDIA ═══════ -->
     <h2 class="cv-section-title" data-level="3">Media</h2>
     <ul class="cv-list">
       <li data-level="3"><strong>Dec. 2023</strong> — <a href="https://www.youtube.com/watch?v=kGia83Mg7ts&list=PL8X9E6I5_i8g0-Dj6Aixg3AwPVx_gfdIA&index=9">Ignite@AGU: Queering in the Earth and ecological sciences</a></li>
