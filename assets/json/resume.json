@@ -1,1 +1,313 @@
-{}
+{
+  "basics": {
+    "name": "Katie Caruso",
+    "label": "PhD Student — Microbiology & Bioengineering",
+    "image": "",
+    "email": "kathryncaruso@montana.edu",
+    "url": "https://katie-caruso.github.io",
+    "summary": "I study applications of cold-adapted bacterial isolates for biocementation in permafrost environments at Montana State University's Center for Biofilm Engineering. My research spans microbiology, bioengineering, ecology, and remote sensing, with a foundation in open science and reproducible methods.",
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "katie-caruso",
+        "url": "https://github.com/katie-caruso"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "carusokatie",
+        "url": "https://www.linkedin.com/in/carusokatie"
+      },
+      {
+        "network": "ORCID",
+        "username": "0009-0003-2436-1791",
+        "url": "https://orcid.org/0009-0003-2436-1791"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Center for Biofilm Engineering, Montana State University",
+      "position": "Graduate Researcher — Biocementation in Permafrost Environments",
+      "url": "https://www.montana.edu/biofilm/",
+      "startDate": "2024-08-01",
+      "summary": "Studying applications of cold-adapted bacterial isolates for microbially-induced calcium carbonate precipitation (MICP) to stabilize materials in thawing permafrost environments.",
+      "highlights": [
+        "Characterizing growth and urease activity of glacier-derived ureolytic bacterial isolates from Gilkey Glacier and Glacier National Park",
+        "Developing protocols for carbon source optimization in cold-adapted MICP systems",
+        "Planning fieldwork in Alaska (Summer 2026) to collect permafrost-specific isolates",
+        "NSF Extreme Biofilms National Research Traineeship recipient"
+      ]
+    },
+    {
+      "name": "NOAA NCEI, NASA DEVELOP National Program",
+      "position": "North Carolina Center Lead & Communications Fellow",
+      "url": "https://appliedsciences.nasa.gov/what-we-do/capacity-building/develop",
+      "startDate": "2022-09-01",
+      "endDate": "2024-05-01",
+      "summary": "Designed, managed, and supervised applied research projects using NASA Earth observations for environmental management decisions.",
+      "highlights": [
+        "Designed and managed six cross-disciplinary research projects applying NASA Earth observations",
+        "Supervised six project teams of 3–5 researchers each",
+        "Built partnerships with 14 academic, government, and non-profit organizations",
+        "Supported Introductory and Advanced Python Software Carpentry Workshops"
+      ]
+    },
+    {
+      "name": "NASA Ames Research Center & UGA Center for Geospatial Research, NASA DEVELOP",
+      "position": "Ecological Forecasting Researcher",
+      "startDate": "2021-09-01",
+      "endDate": "2022-04-01",
+      "summary": "Applied remote sensing and geospatial analysis to ecological forecasting problems.",
+      "highlights": [
+        "Modeled current and future Venus flytrap (Dionaea muscipula) habitat suitability using Landsat 8, PALSAR, Sentinel-2, and Terra MODIS",
+        "Monitored spongy moth (Lymantria dispar) defoliation in New England forests",
+        "Created Google Earth Engine GUI for federal partners to monitor forest defoliation"
+      ]
+    },
+    {
+      "name": "Conserving Carolina",
+      "position": "Summer of Service Program Coordinator",
+      "startDate": "2022-05-01",
+      "endDate": "2022-08-01",
+      "summary": "Developed environmental service-learning programming and mentored participants in conservation work."
+    },
+    {
+      "name": "Hemlock Restoration Initiative",
+      "position": "Forestry Technician",
+      "startDate": "2022-04-01",
+      "endDate": "2022-05-01",
+      "summary": "Protected hemlock trees through monitoring and chemical treatment of hemlock woolly adelgid."
+    },
+    {
+      "name": "Oʻahu National Wildlife Refuge Complex",
+      "position": "Kupu Hawaiʻi AmeriCorps Member — Habitat Restoration",
+      "startDate": "2020-09-01",
+      "endDate": "2021-08-01",
+      "summary": "Restored dunes, wetlands, and dry forests through native plantings and invasive species removal.",
+      "highlights": [
+        "Coordinated over 400 outplantings in dry forest restoration plot",
+        "Managed nursery of over 40 native species and created digital record-keeping database"
+      ]
+    },
+    {
+      "name": "McCullough Institute, UNC Asheville",
+      "position": "Research Fellow",
+      "startDate": "2019-09-01",
+      "endDate": "2020-08-01",
+      "summary": "Examined Spiraea virginiana sexual reproduction through fieldwork, labwork, and statistical analysis.",
+      "highlights": [
+        "Published peer-reviewed article in Castanea (2025)"
+      ]
+    },
+    {
+      "name": "Southern Appalachian CESU, U.S. Park Service",
+      "position": "Hemlock Research Assistant",
+      "startDate": "2018-09-01",
+      "endDate": "2020-05-01",
+      "summary": "Investigated ectomycorrhizal fungi shifts associated with eastern hemlock decline from hemlock woolly adelgid infestation.",
+      "highlights": [
+        "Published first-author peer-reviewed article in American Midland Naturalist (2021)"
+      ]
+    },
+    {
+      "name": "NEMAC",
+      "position": "Science Writer",
+      "startDate": "2019-11-01",
+      "endDate": "2020-08-01",
+      "summary": "Communicated disaster research through written and visual tools for Landslides website and Drought.gov."
+    }
+  ],
+  "education": [
+    {
+      "institution": "Montana State University",
+      "url": "https://www.montana.edu/",
+      "area": "Microbiology and Cell Biology",
+      "studyType": "PhD",
+      "startDate": "2024-08-01",
+      "score": "4.00/4.00",
+      "courses": [
+        "Advisor: Christine Foreman, PhD",
+        "Center for Biofilm Engineering",
+        "NSF Extreme Biofilms National Research Traineeship"
+      ]
+    },
+    {
+      "institution": "Marine Biological Laboratory",
+      "area": "Molecular and Cell Biology of Symbiosis",
+      "studyType": "Certificate",
+      "startDate": "2025-01-01",
+      "endDate": "2025-01-01"
+    },
+    {
+      "institution": "University of North Carolina, Asheville",
+      "area": "Biology (Minor in Religious Studies)",
+      "studyType": "BSc",
+      "startDate": "2016-08-01",
+      "endDate": "2020-05-01",
+      "score": "3.97/4.00, Summa Cum Laude",
+      "courses": [
+        "Advisor: Jonathan Horton, PhD",
+        "Thesis: Assessing the effect of eastern hemlock decline from hemlock woolly adelgid infestation on ectomycorrhizal colonization and growth of red oak seedlings"
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "name": "Seven genome sequences of bacterial environmental isolates from the western coast of the Greenland Ice Sheet",
+      "publisher": "Microbiology Resource Announcements",
+      "releaseDate": "2026",
+      "summary": "Dieser, M., Smith, H. J., Caruso, K., and C. M. Foreman. In press, e01192-25."
+    },
+    {
+      "name": "Reproductive and genetic patterns in Virginia spiraea (Spiraea virginiana Britton; Rosaceae) reveal a fragmented species, frozen in place and time",
+      "publisher": "Castanea",
+      "releaseDate": "2025",
+      "summary": "Estep, M. C., Clark, L., Emery, K., Sanigepalli, S., Caruso, K. E., Morgan, A., Greene, D., and J. R. Ward. 90(1):48–66."
+    },
+    {
+      "name": "Assessing the effect of eastern hemlock (Tsuga canadensis) decline from hemlock woolly adelgid (Adelges tsugae) infestation on ectomycorrhizal colonization and growth of red oak (Quercus rubra) seedlings",
+      "publisher": "American Midland Naturalist",
+      "releaseDate": "2021",
+      "summary": "Caruso, K. E., Horton, J. L., and A. A. Hove. 186:16–34."
+    }
+  ],
+  "awards": [
+    {
+      "title": "Crawford Wildlife Habitat Scholarship",
+      "date": "2025-01-01",
+      "awarder": "",
+      "summary": "$10,000"
+    },
+    {
+      "title": "NSF Extreme Biofilms National Research Traineeship",
+      "date": "2024-08-01",
+      "awarder": "National Science Foundation",
+      "summary": "$100,000"
+    },
+    {
+      "title": "Mildred Livingston Grant Memorial Presidential Fellowship",
+      "date": "2024-08-01",
+      "awarder": "Montana State University",
+      "summary": "$10,000"
+    },
+    {
+      "title": "NASA DEVELOP Performance Award",
+      "date": "2022-01-01",
+      "awarder": "NASA"
+    },
+    {
+      "title": "NASA Ames Research Center DEVELOPer of the Term",
+      "date": "2022-01-01",
+      "awarder": "NASA Ames Research Center"
+    },
+    {
+      "title": "French Broad Garden Club Scholarship",
+      "date": "2020-01-01",
+      "summary": "$1,250"
+    },
+    {
+      "title": "Bernhardt Perry Award for Undergraduate Research",
+      "date": "2020-01-01",
+      "awarder": "UNC Asheville"
+    },
+    {
+      "title": "McCullough Fellowship",
+      "date": "2019-01-01",
+      "summary": "$5,180"
+    },
+    {
+      "title": "Laurels Fellowship",
+      "date": "2016-01-01",
+      "awarder": "UNC Asheville",
+      "summary": "$19,000"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Software Carpentry Instructor",
+      "date": "2023-01-01",
+      "issuer": "The Carpentries"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Microbiology",
+      "keywords": [
+        "Aseptic technique",
+        "Growth assays (OD600)",
+        "Urease activity measurement",
+        "Biofilm characterization",
+        "Culture isolation & maintenance"
+      ]
+    },
+    {
+      "name": "Remote Sensing & GIS",
+      "keywords": [
+        "Google Earth Engine",
+        "ArcGIS Pro & StoryMaps",
+        "Landsat, Sentinel-2, MODIS processing",
+        "Habitat suitability modeling",
+        "TerrSet Land Change Modeler"
+      ]
+    },
+    {
+      "name": "Data Science & Programming",
+      "keywords": [
+        "R & RStudio",
+        "Python",
+        "Jupyter Notebooks",
+        "HTML/CSS",
+        "Git & GitHub"
+      ]
+    },
+    {
+      "name": "Science Communication",
+      "keywords": [
+        "Technical writing",
+        "Grant writing",
+        "Oral presentations",
+        "Workshop instruction",
+        "Visual design (Canva, ArcGIS StoryMaps)"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Boardroom Bobcats",
+      "position": "Board Member",
+      "startDate": "2025-01-01",
+      "endDate": "2026-01-01"
+    },
+    {
+      "organization": "Montana State University oSTEM Chapter",
+      "position": "Treasurer",
+      "startDate": "2024-08-01",
+      "endDate": "2025-05-01"
+    },
+    {
+      "organization": "Emily Dickinson Elementary School",
+      "position": "STEM Education & Outreach",
+      "startDate": "2025-01-01"
+    },
+    {
+      "organization": "North Carolina Space Grant Advisory Board",
+      "position": "Board Member",
+      "startDate": "2023-01-01",
+      "endDate": "2024-01-01"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Biocementation & MICP",
+      "keywords": ["Cold-adapted bacteria", "Permafrost stabilization", "Ureolysis"]
+    },
+    {
+      "name": "Extreme Environments",
+      "keywords": ["Glacial microbiology", "Arctic ecosystems", "Cryosphere"]
+    },
+    {
+      "name": "Open Science",
+      "keywords": ["Reproducible methods", "Protocol documentation", "Data sharing"]
+    }
+  ]
+}
