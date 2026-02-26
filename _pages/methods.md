@@ -19,13 +19,13 @@ Protocols and notebooks related to microbially-induced calcium carbonate precipi
 
 ### Protocols
 
-| Protocol | Description | Resources |
-|----------|-------------|-----------|
+| Protocol                                                           | Description                                                                                     | Resources                                                                                                              |
+| ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | [Carbon Source Growth Assay](/methods/carbon-source-growth-assay/) | Growth assay to determine preferred carbon source for cold-adapted ureolytic bacterial isolates | [Protocol](/methods/carbon-source-growth-assay/) · [Interactive Diagram](/methods/carbon-source-growth-assay-diagram/) |
 
 ### Notebooks
 
-*Coming soon — computational notebooks for growth curve analysis and data visualization.*
+_Coming soon — computational notebooks for growth curve analysis and data visualization._
 
 ---
 

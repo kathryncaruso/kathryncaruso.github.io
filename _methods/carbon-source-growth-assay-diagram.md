@@ -37,7 +37,7 @@ permalink: /methods/carbon-source-growth-assay-diagram/
   ></iframe>
 </div>
 
-*This interactive diagram was created as a visual companion to the [written protocol](/methods/carbon-source-growth-assay/). Both describe the same method — the written version provides complete detail, while this diagram is designed for quick reference at the bench.*
+_This interactive diagram was created as a visual companion to the [written protocol](/methods/carbon-source-growth-assay/). Both describe the same method — the written version provides complete detail, while this diagram is designed for quick reference at the bench._
 
 <!-- ============================================================
   TO SET THIS UP:

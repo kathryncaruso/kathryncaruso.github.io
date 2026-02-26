@@ -9,7 +9,7 @@ category: NASA DEVELOP
 
 ## Overview
 
-Collaborated with federal, academic, and non-profit agencies to model present and future habitat suitability of *Dionaea muscipula* (Venus flytrap) in the Carolina Coastal Plain. This work supported conservation, seed banking, and reintroduction efforts for this iconic endemic species.
+Collaborated with federal, academic, and non-profit agencies to model present and future habitat suitability of _Dionaea muscipula_ (Venus flytrap) in the Carolina Coastal Plain. This work supported conservation, seed banking, and reintroduction efforts for this iconic endemic species.
 
 ## Methods
 
@@ -19,7 +19,7 @@ Collaborated with federal, academic, and non-profit agencies to model present an
 
 ## Publications & Reports
 
-- Rock, M., **Caruso, K. E.**, Lampley, J., Siddhi, A., and S. Zhu. (2021). Utilizing NASA Earth observations to map suitable Venus flytrap habitat. *NASA Technical Reports Server*.
+- Rock, M., **Caruso, K. E.**, Lampley, J., Siddhi, A., and S. Zhu. (2021). Utilizing NASA Earth observations to map suitable Venus flytrap habitat. _NASA Technical Reports Server_.
 - Presented at the Botanical Society of America Annual Meeting (2022) and American Geophysical Union Annual Meeting (2023)
 
 ## Collaborators

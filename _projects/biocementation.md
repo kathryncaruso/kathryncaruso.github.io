@@ -28,6 +28,7 @@ As Arctic permafrost thaws due to climate change, infrastructure built on frozen
 ## Related Methods
 
 See the [Research Methods](/methods/) page for protocols and notebooks from this project, including:
+
 - [Carbon Source Growth Assay Protocol](/methods/carbon-source-growth-assay/)
 
 <!-- TODO: Add project image, link to publications as they come -->

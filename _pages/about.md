@@ -7,14 +7,14 @@ subtitle: >
 
 profile:
   align: right
-  image: prof_pic.jpg  # place your photo in assets/img/
+  image: prof_pic.jpg # place your photo in assets/img/
   image_circular: false
   more_info: >
     <p>Center for Biofilm Engineering</p>
     <p>366 Barnard Hall</p>
     <p>Bozeman, MT 59717</p>
 
-news: false       # set to true if you add a _news/ collection
+news: false # set to true if you add a _news/ collection
 selected_papers: false
 social: true
 ---

@@ -3,7 +3,7 @@ module.exports = {
   css: ["_site/**/*.css"],
   safelist: {
     standard: [/data-level/, /data-detail/, /cv-/, /slider/, /scrolled/],
-    greedy: [/data-level/, /data-detail/]
+    greedy: [/data-level/, /data-detail/],
   },
-  output: "_site/assets/css/"
+  output: "_site/assets/css/",
 };

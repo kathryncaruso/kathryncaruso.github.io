@@ -8,7 +8,7 @@ middle_name: E.
 last_name: Caruso
 contact_note: >
   Feel free to reach out via email.
-description: > 
+description: >
   PhD student in Microbiology at Montana State University's Center for Biofilm Engineering, studying bioengineering in extreme environments.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
@@ -19,7 +19,7 @@ lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 🌱
 
 url: https://katie-caruso.github.io
-baseurl: 
+baseurl:
 last_updated: true
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
@@ -673,4 +673,3 @@ jsonresume:
   - languages
   - interests
   - references
-

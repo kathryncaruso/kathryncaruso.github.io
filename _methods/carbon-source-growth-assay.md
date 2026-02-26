@@ -22,20 +22,20 @@ This protocol describes a growth assay to determine preferred carbon source for 
 
 ### Isolates
 
-| Isolate | Source | Rationale |
-|---------|--------|-----------|
-| GG8 | Gilkey Glacier | |
-| GG27B | Gilkey Glacier | Fast grower on glucose media |
-| GNP012 | Glacier National Park | Has urea transporter |
-| GNP014 | Glacier National Park | Has urea transporter; turned pink quickly initially |
+| Isolate | Source                | Rationale                                           |
+| ------- | --------------------- | --------------------------------------------------- |
+| GG8     | Gilkey Glacier        |                                                     |
+| GG27B   | Gilkey Glacier        | Fast grower on glucose media                        |
+| GNP012  | Glacier National Park | Has urea transporter                                |
+| GNP014  | Glacier National Park | Has urea transporter; turned pink quickly initially |
 
 ### Experimental Conditions
 
-| Condition | Carbon Source | Concentration | Notes |
-|-----------|-------------|---------------|-------|
-| 1 | Sodium acetate (anhydrous, 99%) | 0.5 g/L | Simple organic acid; common soil metabolite |
-| 2 | Malate | 0.5 g/L | Complex carbohydrate; present in R2A |
-| 3 | Succinate | 0.5 g/L | |
+| Condition | Carbon Source                   | Concentration | Notes                                       |
+| --------- | ------------------------------- | ------------- | ------------------------------------------- |
+| 1         | Sodium acetate (anhydrous, 99%) | 0.5 g/L       | Simple organic acid; common soil metabolite |
+| 2         | Malate                          | 0.5 g/L       | Complex carbohydrate; present in R2A        |
+| 3         | Succinate                       | 0.5 g/L       |                                             |
 
 ### Experimental Design
 
@@ -75,14 +75,14 @@ Prepare **4 separate base media** (one per carbon source condition), each at suf
 
 ### 2.1 Media Formulations (per liter)
 
-| Component | Glucose | Starch | Acetate | YE only |
-|-----------|---------|--------|---------|---------|
-| Yeast extract | 0.1 g | 0.1 g | 0.1 g | 0.1 g |
-| Carbon source | 0.500 g | 0.450 g | 0.684 g | None |
-| K₂HPO₄ | 0.3 g | 0.3 g | 0.3 g | 0.3 g |
-| Phenol red | 0.01 g | 0.01 g | 0.01 g | 0.01 g |
+| Component     | Glucose   | Starch    | Acetate   | YE only   |
+| ------------- | --------- | --------- | --------- | --------- |
+| Yeast extract | 0.1 g     | 0.1 g     | 0.1 g     | 0.1 g     |
+| Carbon source | 0.500 g   | 0.450 g   | 0.684 g   | None      |
+| K₂HPO₄        | 0.3 g     | 0.3 g     | 0.3 g     | 0.3 g     |
+| Phenol red    | 0.01 g    | 0.01 g    | 0.01 g    | 0.01 g    |
 | Milli-Q water | to 900 mL | to 900 mL | to 900 mL | to 900 mL |
-| pH target | 6.8 ± 0.2 | 6.8 ± 0.2 | 6.8 ± 0.2 | 6.8 ± 0.2 |
+| pH target     | 6.8 ± 0.2 | 6.8 ± 0.2 | 6.8 ± 0.2 | 6.8 ± 0.2 |
 
 ### 2.2 Volume Planning
 
@@ -150,12 +150,12 @@ Readings taken **Monday / Wednesday / Friday** for 3 weeks.
 
 ### Phenol Red Color Reference
 
-| pH Range | Color | Interpretation |
-|----------|-------|----------------|
-| < 6.8 | Yellow | More acidic than starting pH |
-| 6.8 (start) | Yellow-orange | Starting pH range |
-| 6.8–8.2 | Yellow-orange to pink | Gradual alkalinization |
-| > 8.2 | Pink-red | Alkaline; consistent with ureolysis |
+| pH Range    | Color                 | Interpretation                      |
+| ----------- | --------------------- | ----------------------------------- |
+| < 6.8       | Yellow                | More acidic than starting pH        |
+| 6.8 (start) | Yellow-orange         | Starting pH range                   |
+| 6.8–8.2     | Yellow-orange to pink | Gradual alkalinization              |
+| > 8.2       | Pink-red              | Alkaline; consistent with ureolysis |
 
 ---
 
@@ -169,4 +169,4 @@ Readings taken **Monday / Wednesday / Friday** for 3 weeks.
 
 ---
 
-*Last updated: February 2026*
+_Last updated: February 2026_

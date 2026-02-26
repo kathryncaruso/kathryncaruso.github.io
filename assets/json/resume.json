@@ -95,9 +95,7 @@
       "startDate": "2019-09-01",
       "endDate": "2020-08-01",
       "summary": "Examined Spiraea virginiana sexual reproduction through fieldwork, labwork, and statistical analysis.",
-      "highlights": [
-        "Published peer-reviewed article in Castanea (2025)"
-      ]
+      "highlights": ["Published peer-reviewed article in Castanea (2025)"]
     },
     {
       "name": "Southern Appalachian CESU, U.S. Park Service",
@@ -105,9 +103,7 @@
       "startDate": "2018-09-01",
       "endDate": "2020-05-01",
       "summary": "Investigated ectomycorrhizal fungi shifts associated with eastern hemlock decline from hemlock woolly adelgid infestation.",
-      "highlights": [
-        "Published first-author peer-reviewed article in American Midland Naturalist (2021)"
-      ]
+      "highlights": ["Published first-author peer-reviewed article in American Midland Naturalist (2021)"]
     },
     {
       "name": "NEMAC",
@@ -125,11 +121,7 @@
       "studyType": "PhD",
       "startDate": "2024-08-01",
       "score": "4.00/4.00",
-      "courses": [
-        "Advisor: Christine Foreman, PhD",
-        "Center for Biofilm Engineering",
-        "NSF Extreme Biofilms National Research Traineeship"
-      ]
+      "courses": ["Advisor: Christine Foreman, PhD", "Center for Biofilm Engineering", "NSF Extreme Biofilms National Research Traineeship"]
     },
     {
       "institution": "Marine Biological Laboratory",
@@ -252,23 +244,11 @@
     },
     {
       "name": "Data Science & Programming",
-      "keywords": [
-        "R & RStudio",
-        "Python",
-        "Jupyter Notebooks",
-        "HTML/CSS",
-        "Git & GitHub"
-      ]
+      "keywords": ["R & RStudio", "Python", "Jupyter Notebooks", "HTML/CSS", "Git & GitHub"]
     },
     {
       "name": "Science Communication",
-      "keywords": [
-        "Technical writing",
-        "Grant writing",
-        "Oral presentations",
-        "Workshop instruction",
-        "Visual design (Canva, ArcGIS StoryMaps)"
-      ]
+      "keywords": ["Technical writing", "Grant writing", "Oral presentations", "Workshop instruction", "Visual design (Canva, ArcGIS StoryMaps)"]
     }
   ],
   "volunteer": [
