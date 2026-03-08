@@ -31,7 +31,7 @@ ninja.data = [{
             window.location.href = "/projects/";
           },
         },{id: "nav-research-methods",
-          title: "research methods",
+          title: "Research Methods",
           description: "Lab protocols, interactive diagrams, and computational notebooks from my graduate research.",
           section: "Navigation",
           handler: () => {
