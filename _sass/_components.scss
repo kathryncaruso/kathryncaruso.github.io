@@ -259,3 +259,74 @@ ul.task-list input[type="checkbox"] {
 .d2h-diff-table {
   position: relative;
 }
+
+// -------------------------------------------------------
+// Project Card — Style C: Banner + Circle Overlap
+// Add this to the end of your _sass/_base.scss file
+// -------------------------------------------------------
+
+.project-card-circle {
+  overflow: visible !important;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden !important;
+
+  .project-banner {
+    height: 60px;
+    background: var(--global-theme-color, #7c3aed);
+    opacity: 0.85;
+    position: relative;
+  }
+
+  .project-circle-img {
+    position: absolute;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    overflow: hidden;
+    background: var(--global-bg-color, #fff);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    z-index: 1;
+
+    // Target the figure/image that al-folio's figure.liquid generates
+    figure,
+    picture {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    img,
+    .circle-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .project-circle-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--global-theme-color, #7c3aed);
+    opacity: 0.7;
+
+    i {
+      font-size: 1.8rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  .project-card-body {
+    padding-top: 55px;
+    text-align: center;
+  }
+}
