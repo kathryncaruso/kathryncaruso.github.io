@@ -4,6 +4,7 @@ title: Biocementation in Permafrost Environments
 description: Studying applications of cold-adapted bacterial isolates for microbially-induced calcium carbonate precipitation (MICP) to stabilize defense materials in Arctic environments.
 img: # assets/img/projects/biocementation-thumb.jpg
 importance: 1
+banner_color: "linear-gradient(135deg, #a8d8ea 0%, #3b82c4 100%)"
 category: current
 ---
 

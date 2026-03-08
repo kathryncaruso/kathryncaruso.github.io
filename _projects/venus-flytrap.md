@@ -2,7 +2,8 @@
 layout: page
 title: Venus Flytrap Habitat Suitability Modeling
 description: Modeled current and future Venus flytrap habitat using remote sensing data to inform rare plant conservation in the Carolina Coastal Plain.
-img: # assets/img/projects/venus-flytrap-thumb.jpg
+img: assets/img/projects/venus-flytrap-thumb.jpg
+banner_color: "linear-gradient(135deg, #b8e6c8 0%, #2d8a4e 100%)"
 importance: 2
 category: NASA DEVELOP
 ---

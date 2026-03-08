@@ -2,8 +2,9 @@
 layout: page
 title: Ectomycorrhizal Fungi in Declining Hemlock Stands
 description: Investigated shifts in mycorrhizal communities associated with eastern hemlock decline from hemlock woolly adelgid infestation.
-img: # assets/img/projects/hemlock-thumb.jpg
+img: assets/img/projects/hemlock-thumb.jpg
 importance: 3
+banner_color: "linear-gradient(135deg, #d4c5a9 0%, #6b7c3e 100%)"
 category: ecology
 ---
 
