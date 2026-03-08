@@ -215,7 +215,7 @@ nav_order: 3
 <section class="theme-section">
   <div class="theme-header">
     <div class="theme-icon" style="background: #3a5a8c;"></div>
-    <h2>Extreme Environment Microbiology</h2>
+    <h2>Environmental Microbiology</h2>
   </div>
   <p class="theme-description">
     Characterizing the genomic potential and metabolic capabilities of cold-adapted bacteria from icy and cold environments.
