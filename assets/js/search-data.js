@@ -31,7 +31,7 @@ ninja.data = [{
             window.location.href = "/publications/";
           },
         },{id: "nav-research-methods",
-          title: "Research Methods",
+          title: "research methods",
           description: "Lab protocols, interactive diagrams, and computational notebooks from my graduate research.",
           section: "Navigation",
           handler: () => {
