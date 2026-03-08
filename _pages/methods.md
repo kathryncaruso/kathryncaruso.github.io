@@ -7,181 +7,580 @@ nav: true
 nav_order: 5
 ---
 
-Lab protocols, interactive diagrams, and computational notebooks from my graduate research.
+<style>
+  /* ── Page intro ── */
+  .methods-intro {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--global-text-color, #303030);
+    margin-bottom: 0.5rem;
+    max-width: 680px;
+  }
+  .methods-intro-note {
+    font-size: 0.85rem;
+    color: var(--global-text-color-light, #6c757d);
+    margin-bottom: 2.5rem;
+  }
+  .methods-intro-note a {
+    color: var(--global-theme-color, #0076df);
+    text-decoration: none;
+  }
+  .methods-intro-note a:hover {
+    text-decoration: underline;
+  }
 
-This page documents the methods I develop and use in my graduate research at Montana State University's Center for Biofilm Engineering. Each protocol includes a detailed written version (originally authored in Markdown/Obsidian) and, where available, an interactive visual diagram and associated computational notebooks.
+  /* ── Research theme sections ── */
+  .methods-theme {
+    margin-bottom: 3rem;
+  }
 
-I believe in open, well-documented science. These materials are shared to support reproducibility and to help other researchers working with similar methods.
+  .methods-theme-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.35rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  .methods-theme-header:hover .methods-theme-arrow {
+    color: var(--global-theme-color, #0076df);
+  }
 
-<p style="opacity: 0.6;">[Restricted] = Private repository — <a href="mailto:caruso.k.e@gmail.com">request access</a></p>
+  .methods-theme-icon {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
 
----
+  .methods-theme-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.3;
+  }
 
-<details open>
-<summary><h2 style="display:inline;">biocementation &amp; MICP</h2></summary>
+  .methods-theme-arrow {
+    font-size: 0.7rem;
+    margin-left: auto;
+    transition: transform 0.3s ease, color 0.2s;
+    color: var(--global-text-color-light, #6c757d);
+  }
+  .methods-theme-arrow.open {
+    transform: rotate(90deg);
+  }
 
-<p>Protocols and notebooks related to microbially-induced calcium carbonate precipitation using cold-adapted isolates.</p>
+  .methods-theme-desc {
+    color: var(--global-text-color-light, #6c757d);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+    padding-left: 1.15rem;
+  }
 
-<p>
-<strong>Carbon source growth assay</strong><br>
-Growth assay to determine preferred carbon source for cold-adapted ureolytic bacterial isolates via OD600 growth curves.<br>
-<a href="/methods/carbon-source-growth-assay/">Protocol</a> · <a href="/methods/carbon-source-growth-assay-diagram/">Interactive Diagram</a> · Raw Data <a href="https://github.com/katie-caruso/research-archive/tree/main/micp/carbon-source-growth-assay/raw-data">[Restricted]</a> · Methods Writeup <a href="https://github.com/katie-caruso/research-archive/tree/main/micp/carbon-source-growth-assay/methods-writeup.md">[Restricted]</a>
+  .methods-theme-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.35s ease;
+    opacity: 0;
+  }
+  .methods-theme-body.open {
+    opacity: 1;
+  }
+
+  /* ── Sub-sections (for sphagnum sub-groups) ── */
+  .methods-subsection {
+    margin-bottom: 1.5rem;
+  }
+  .methods-subsection-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--global-text-color-light, #6c757d);
+    margin-bottom: 0.6rem;
+    padding-left: 0.15rem;
+    border-left: 3px solid transparent;
+    padding-left: 0.6rem;
+  }
+
+  /* ── Method cards ── */
+  .method-card {
+    border: 1px solid var(--global-divider-color, #dee2e6);
+    border-radius: 6px;
+    padding: 1.15rem 1.35rem;
+    margin-bottom: 0.65rem;
+    background: var(--global-bg-color, #fff);
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .method-card:hover {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-color: #c5cad0;
+  }
+
+  .method-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .method-title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 0.2rem;
+  }
+
+  .method-desc {
+    font-size: 0.88rem;
+    color: var(--global-text-color-light, #6c757d);
+    line-height: 1.55;
+    margin-bottom: 0.6rem;
+  }
+
+  /* Status badges */
+  .method-status {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.12rem 0.5rem;
+    border-radius: 3px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .status-available {
+    background: #d4edda;
+    color: #155724;
+  }
+  .status-soon {
+    background: var(--global-code-bg-color, #e9ecef);
+    color: #868e96;
+  }
+
+  /* ── Dimmed "coming soon" cards ── */
+  .method-card.coming-soon {
+    opacity: 0.5;
+    border-style: dashed;
+  }
+  .method-card.coming-soon:hover {
+    opacity: 0.7;
+    box-shadow: none;
+  }
+
+  /* ── Resource links ── */
+  .method-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.45rem;
+  }
+  .method-link {
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.18rem 0.6rem;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    background: var(--global-code-bg-color, #e9ecef);
+    color: var(--global-theme-color, #0076df);
+  }
+  .method-link:hover {
+    background: var(--global-theme-color, #0076df);
+    color: #fff;
+    text-decoration: none;
+  }
+  .method-link.restricted {
+    color: #868e96;
+    cursor: default;
+  }
+  .method-link.restricted:hover {
+    background: var(--global-code-bg-color, #e9ecef);
+    color: #868e96;
+  }
+
+  @media (max-width: 600px) {
+    .method-card { padding: 1rem; }
+    .method-card-top { flex-direction: column; gap: 0.3rem; }
+  }
+</style>
+
+<p class="methods-intro">
+  This page documents the methods I develop and use in my graduate research at Montana State University's Center for Biofilm Engineering. Each protocol includes a detailed written version and, where available, an interactive visual diagram and associated computational notebooks.
+</p>
+<p class="methods-intro-note">
+  I believe in open, well-documented science. These materials are shared to support reproducibility and to help other researchers working with similar methods.
+  <br>[Restricted] = Private repository — <a href="mailto:caruso.k.e@gmail.com">request access</a>
 </p>
 
-<p>
-<strong>Jung assay</strong><br>
-Ureolytic activity assay based on the Jung et al. method for characterizing isolate performance.<br>
-<em>coming soon</em> · Raw Data <a href="https://github.com/katie-caruso/research-archive/tree/main/micp/jung-assay/raw-data">[Restricted]</a> · Methods Writeup <a href="https://github.com/katie-caruso/research-archive/tree/main/micp/jung-assay/methods-writeup.md">[Restricted]</a>
-</p>
+<!-- ═══════════════════════════════════════════ -->
+<!-- THEME 1: Biocementation & MICP             -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="methods-theme">
+  <div class="methods-theme-header" onclick="toggleTheme(this)">
+    <div class="methods-theme-icon" style="background: #c0713a;"></div>
+    <h2>Biocementation &amp; MICP</h2>
+    <span class="methods-theme-arrow open">▶</span>
+  </div>
+  <p class="methods-theme-desc">
+    Protocols and notebooks related to microbially-induced calcium carbonate precipitation using cold-adapted isolates.
+  </p>
 
-<p>
-<strong>Notebooks</strong><br>
-Computational notebooks for growth curve analysis and data visualization — <em>coming soon</em>
-</p>
+  <div class="methods-theme-body open" style="max-height: 2000px;">
 
-</details>
+    <!-- Carbon source growth assay — AVAILABLE -->
+    <div class="method-card">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">Carbon source growth assay</div>
+          <div class="method-desc">Growth assay to determine preferred carbon source for cold-adapted ureolytic bacterial isolates via OD600 growth curves.</div>
+        </div>
+        <span class="method-status status-available">Available</span>
+      </div>
+      <div class="method-links">
+        <a class="method-link" href="/methods/carbon-source-growth-assay/">Protocol</a>
+        <a class="method-link" href="/methods/carbon-source-growth-assay-diagram/">Interactive Diagram</a>
+        <a class="method-link restricted" href="https://github.com/katie-caruso/research-archive/tree/main/micp/carbon-source-growth-assay/raw-data" title="Private repository — request access">Raw Data [Restricted]</a>
+        <a class="method-link restricted" href="https://github.com/katie-caruso/research-archive/tree/main/micp/carbon-source-growth-assay/methods-writeup.md" title="Private repository — request access">Methods Writeup [Restricted]</a>
+      </div>
+    </div>
 
----
+    <!-- Jung assay — COMING SOON -->
+    <div class="method-card coming-soon">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">Jung assay</div>
+          <div class="method-desc">Ureolytic activity assay based on the Jung et al. method for characterizing isolate performance.</div>
+        </div>
+        <span class="method-status status-soon">Coming Soon</span>
+      </div>
+      <div class="method-links">
+        <a class="method-link restricted" href="https://github.com/katie-caruso/research-archive/tree/main/micp/jung-assay/raw-data" title="Private repository — request access">Raw Data [Restricted]</a>
+        <a class="method-link restricted" href="https://github.com/katie-caruso/research-archive/tree/main/micp/jung-assay/methods-writeup.md" title="Private repository — request access">Methods Writeup [Restricted]</a>
+      </div>
+    </div>
 
-<details open>
-<summary><h2 style="display:inline;">sphagnum microbiome</h2></summary>
+    <!-- Notebooks — COMING SOON -->
+    <div class="method-card coming-soon">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">Computational notebooks</div>
+          <div class="method-desc">Notebooks for growth curve analysis and data visualization.</div>
+        </div>
+        <span class="method-status status-soon">Coming Soon</span>
+      </div>
+    </div>
 
-<p>Protocols for field collection, laboratory cultivation, microbiome transfer, and molecular characterization of <em>Sphagnum</em> moss and its associated microbial communities.</p>
+  </div>
+</section>
 
-<p><em>Full interactive workflow diagram — coming soon</em></p>
+<!-- ═══════════════════════════════════════════ -->
+<!-- THEME 2: Sphagnum Microbiome               -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="methods-theme">
+  <div class="methods-theme-header" onclick="toggleTheme(this)">
+    <div class="methods-theme-icon" style="background: #2d6a4f;"></div>
+    <h2>Sphagnum Microbiome</h2>
+    <span class="methods-theme-arrow open">▶</span>
+  </div>
+  <p class="methods-theme-desc">
+    Protocols for field collection, laboratory cultivation, microbiome transfer, and molecular characterization of <em>Sphagnum</em> moss and its associated microbial communities.
+  </p>
 
-<h4>field collection</h4>
+  <div class="methods-theme-body open" style="max-height: 8000px;">
 
-<p>
-<strong>Sphagnum collection for DNA extraction</strong><br>
-Field collection procedures optimized for downstream DNA work — <em>coming soon</em>
-</p>
+    <!-- ── Field Collection ── -->
+    <div class="methods-subsection">
+      <div class="methods-subsection-label" style="border-left-color: #2d6a4f;">Field Collection</div>
 
-<p>
-<strong>Sphagnum collection for microbiome</strong><br>
-Field collection procedures for microbiome isolation — <em>coming soon</em>
-</p>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title"><em>Sphagnum</em> collection for DNA extraction</div>
+            <div class="method-desc">Field collection procedures optimized for downstream DNA work.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
 
-<p>
-<strong>Environmental parameters</strong><br>
-Measurement and recording of field site environmental conditions — <em>coming soon</em>
-</p>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title"><em>Sphagnum</em> collection for microbiome</div>
+            <div class="method-desc">Field collection procedures for microbiome isolation.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
 
-<h4>propagation &amp; cultivation</h4>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">Environmental parameters</div>
+            <div class="method-desc">Measurement and recording of field site environmental conditions.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
+    </div>
 
-<p>
-<strong>Gametophyte propagation</strong><br>
-Propagation of <em>Sphagnum</em> gametophytes in the lab — <em>coming soon</em>
-</p>
+    <!-- ── Propagation & Cultivation ── -->
+    <div class="methods-subsection">
+      <div class="methods-subsection-label" style="border-left-color: #2d6a4f;">Propagation &amp; Cultivation</div>
 
-<p>
-<strong>Spore propagation</strong><br>
-Growing <em>Sphagnum</em> from spores — <em>coming soon</em>
-</p>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">Gametophyte propagation</div>
+            <div class="method-desc">Propagation of <em>Sphagnum</em> gametophytes in the lab.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
 
-<p>
-<strong>Axenic media preparation</strong><br>
-Media recipes for axenic <em>Sphagnum</em> culture — <em>coming soon</em>
-</p>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">Spore propagation</div>
+            <div class="method-desc">Growing <em>Sphagnum</em> from spores.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
 
-<h4>microbiome transfer &amp; preservation</h4>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">Axenic media preparation</div>
+            <div class="method-desc">Media recipes for axenic <em>Sphagnum</em> culture.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
+    </div>
 
-<p>
-<strong>Microbiome isolation</strong><br>
-Isolating the microbial community from <em>Sphagnum</em> tissue — <em>coming soon</em>
-</p>
+    <!-- ── Microbiome Transfer & Preservation ── -->
+    <div class="methods-subsection">
+      <div class="methods-subsection-label" style="border-left-color: #2d6a4f;">Microbiome Transfer &amp; Preservation</div>
 
-<p>
-<strong>BG-11-N media</strong><br>
-Preparing BG-11 (minus nitrogen) medium for cyanobacteria — <em>coming soon</em>
-</p>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">Microbiome isolation</div>
+            <div class="method-desc">Isolating the microbial community from <em>Sphagnum</em> tissue.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
 
-<p>
-<strong>Methanotroph media (NMS)</strong><br>
-Nitrate mineral salts medium for methanotroph cultivation — <em>coming soon</em>
-</p>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">BG-11-N media</div>
+            <div class="method-desc">Preparing BG-11 (minus nitrogen) medium for cyanobacteria.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
 
-<p>
-<strong>PBS preparation</strong><br>
-Phosphate-buffered saline from powder and from scratch — <em>coming soon</em>
-</p>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">Methanotroph media (NMS)</div>
+            <div class="method-desc">Nitrate mineral salts medium for methanotroph cultivation.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
 
-<p>
-<strong>Glycerol cryopreservation</strong><br>
-Long-term storage of microbial isolates in glycerol stocks — <em>coming soon</em>
-</p>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">PBS preparation</div>
+            <div class="method-desc">Phosphate-buffered saline from powder and from scratch.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
 
-<p>
-<strong>Thermal tolerance</strong><br>
-Thermal tolerance testing of microbial isolates — <em>coming soon</em>
-</p>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">Glycerol cryopreservation</div>
+            <div class="method-desc">Long-term storage of microbial isolates in glycerol stocks.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
 
-<p>
-<strong>Microbiome transfer</strong><br>
-Transferring microbiome communities between <em>Sphagnum</em> hosts — <em>coming soon</em>
-</p>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">Thermal tolerance</div>
+            <div class="method-desc">Thermal tolerance testing of microbial isolates.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
 
-<h4>DNA &amp; molecular methods</h4>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">Microbiome transfer</div>
+            <div class="method-desc">Transferring microbiome communities between <em>Sphagnum</em> hosts.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
+    </div>
 
-<p>
-<strong>DNA extraction (16S)</strong><br>
-Extraction optimized for 16S rRNA sequencing — <em>coming soon</em>
-</p>
+    <!-- ── DNA & Molecular Methods ── -->
+    <div class="methods-subsection">
+      <div class="methods-subsection-label" style="border-left-color: #2d6a4f;">DNA &amp; Molecular Methods</div>
 
-<p>
-<strong>DNA extraction (custom)</strong><br>
-Custom extraction protocol for <em>Sphagnum</em>-associated microbes — <em>coming soon</em>
-</p>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">DNA extraction (16S)</div>
+            <div class="method-desc">Extraction optimized for 16S rRNA sequencing.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
 
-<p>
-<strong>DNA extraction (Qiagen)</strong><br>
-Qiagen kit-based extraction — <em>coming soon</em>
-</p>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">DNA extraction (custom)</div>
+            <div class="method-desc">Custom extraction protocol for <em>Sphagnum</em>-associated microbes.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
 
-<p>
-<strong>Extraction optimization</strong><br>
-Comparing homogenization methods for extraction yield — <em>coming soon</em>
-</p>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">DNA extraction (Qiagen)</div>
+            <div class="method-desc">Qiagen kit-based extraction.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
 
-<p>
-<strong>PCR amplification</strong><br>
-PCR protocols for <em>Sphagnum</em> microbial DNA — <em>coming soon</em>
-</p>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">Extraction optimization</div>
+            <div class="method-desc">Comparing homogenization methods for extraction yield.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
 
-<h4>characterization</h4>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">PCR amplification</div>
+            <div class="method-desc">PCR protocols for <em>Sphagnum</em> microbial DNA.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
+    </div>
 
-<p>
-<strong>Hyperspectral imaging</strong><br>
-Hyperspectral imaging of <em>Sphagnum</em> samples — <em>coming soon</em>
-</p>
+    <!-- ── Characterization ── -->
+    <div class="methods-subsection">
+      <div class="methods-subsection-label" style="border-left-color: #2d6a4f;">Characterization</div>
 
-<p>
-<strong>pH buffer preparation</strong><br>
-Buffer recipes for pH-controlled experiments — <em>coming soon</em>
-</p>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">Hyperspectral imaging</div>
+            <div class="method-desc">Hyperspectral imaging of <em>Sphagnum</em> samples.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
 
-</details>
+      <div class="method-card coming-soon">
+        <div class="method-card-top">
+          <div>
+            <div class="method-title">pH buffer preparation</div>
+            <div class="method-desc">Buffer recipes for pH-controlled experiments.</div>
+          </div>
+          <span class="method-status status-soon">Coming Soon</span>
+        </div>
+      </div>
+    </div>
 
----
+  </div>
+</section>
 
-<details open>
-<summary><h2 style="display:inline;">general lab protocols</h2></summary>
+<!-- ═══════════════════════════════════════════ -->
+<!-- THEME 3: General Lab Protocols             -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="methods-theme">
+  <div class="methods-theme-header" onclick="toggleTheme(this)">
+    <div class="methods-theme-icon" style="background: #3a5a8c;"></div>
+    <h2>General Lab Protocols</h2>
+    <span class="methods-theme-arrow open">▶</span>
+  </div>
+  <p class="methods-theme-desc">
+    Foundational procedures for routine laboratory work. These are also intended as a reference for new lab members and undergraduate researchers.
+  </p>
 
-<p>Foundational procedures for routine laboratory work. These are also intended as a reference for new lab members and undergraduate researchers.</p>
+  <div class="methods-theme-body open" style="max-height: 2000px;">
 
-<p>
-<strong>Autoclaving</strong><br>
-Standard autoclaving procedures — <em>coming soon</em>
-</p>
+    <div class="method-card coming-soon">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">Autoclaving</div>
+          <div class="method-desc">Standard autoclaving procedures.</div>
+        </div>
+        <span class="method-status status-soon">Coming Soon</span>
+      </div>
+    </div>
 
-<p>
-<strong>Cell sorting</strong><br>
-Flow cytometry cell sorting protocol — <em>coming soon</em>
-</p>
+    <div class="method-card coming-soon">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">Cell sorting</div>
+          <div class="method-desc">Flow cytometry cell sorting protocol.</div>
+        </div>
+        <span class="method-status status-soon">Coming Soon</span>
+      </div>
+    </div>
 
-<p>
-<strong>Bacterial freezer stocks</strong><br>
-Preparing and maintaining bacterial freezer stocks — <em>coming soon</em>
-</p>
+    <div class="method-card coming-soon">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">Bacterial freezer stocks</div>
+          <div class="method-desc">Preparing and maintaining bacterial freezer stocks.</div>
+        </div>
+        <span class="method-status status-soon">Coming Soon</span>
+      </div>
+    </div>
 
-</details>
+  </div>
+</section>
+
+<script>
+function toggleTheme(header) {
+  var arrow = header.querySelector('.methods-theme-arrow');
+  var body = header.parentElement.querySelector('.methods-theme-body');
+  var isOpen = body.classList.contains('open');
+
+  if (isOpen) {
+    body.style.maxHeight = '0px';
+    body.classList.remove('open');
+    arrow.classList.remove('open');
+  } else {
+    body.classList.add('open');
+    arrow.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+</script>
