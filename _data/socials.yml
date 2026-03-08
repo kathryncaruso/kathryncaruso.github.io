@@ -2,9 +2,9 @@
 # the socials will be displayed in the order they are defined here
 
 cv_pdf: https://github.com/katie-caruso/KathrynCaruso_CV/blob/main/main.pdf
-email: kathryncaruso@montana.edu
+email: caruso.k.e@gmail.com
 github_username: katie-caruso
 linkedin_username: carusokatie
 orcid_id: 0009-0003-2436-1791
-rss_icon: true
+rss_icon: /blog/
 # scholar_userid:  # add your Google Scholar ID when you have one
