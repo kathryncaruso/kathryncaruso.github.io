@@ -110,6 +110,13 @@ nav_order: 3
     background: #d4edda;
     color: #155724;
   }
+  a.pub-status {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  a.pub-status:hover {
+    filter: brightness(0.92);
+  }
 
   /* ── Expandable details ── */
   .pub-toggle {
@@ -220,7 +227,7 @@ nav_order: 3
         <div class="pub-title">Seven genome sequences of bacterial environmental isolates from the western coast of the Greenland Ice Sheet</div>
         <div class="pub-authors">Markus Dieser, Heidi J. Smith, <span class="me">Kathryn Caruso</span>, Christine M. Foreman</div>
         <div class="pub-journal"><a href="https://doi.org/10.1128/mra.01192-25" target="_blank">Microbiology Resource Announcements</a>, 2026</div>
-        <span class="pub-status status-published">Published</span>
+        <a href="https://doi.org/10.1128/mra.01192-25" target="_blank" class="pub-status status-published">Published</a>
       </div>
       <span class="pub-year">2026</span>
     </div>
@@ -264,7 +271,7 @@ nav_order: 3
         <div class="pub-title">Reproductive and genetic patterns in Virginia spiraea (<em>Spiraea virginiana</em> Britton; Rosaceae) reveal a fragmented species, frozen in place and time</div>
         <div class="pub-authors">Matt C. Estep, Logan Clark, Kristin Emery, Shravya Sanigepalli, <span class="me">Kathryn Caruso</span>, Adam Morgan, David Greene, Jennifer Rhode Ward</div>
         <div class="pub-journal"><a href="https://doi.org/10.2179/0008-7475.90.1.48" target="_blank">Castanea</a>, 2025</div>
-        <span class="pub-status status-published">Published</span>
+        <a href="https://doi.org/10.2179/0008-7475.90.1.48" target="_blank" class="pub-status status-published">Published</a>
       </div>
       <span class="pub-year">2025</span>
     </div>
@@ -308,7 +315,7 @@ nav_order: 3
         <div class="pub-title">Assessing the effect of eastern hemlock (<em>Tsuga canadensis</em>) decline from hemlock woolly adelgid (<em>Adelges tsugae</em>) infestation on ectomycorrhizal colonization and growth of red oak (<em>Quercus rubra</em>) seedlings</div>
         <div class="pub-authors"><span class="me">Kathryn E. Caruso</span>, Jonathan L. Horton, and Alisa A. Hove</div>
         <div class="pub-journal"><a href="https://doi.org/10.1674/0003-0031-186.1.16" target="_blank">American Midland Naturalist</a>, 2021</div>
-        <span class="pub-status status-published">Published</span>
+        <a href="https://doi.org/10.1674/0003-0031-186.1.16" target="_blank" class="pub-status status-published">Published</a>
       </div>
       <span class="pub-year">2021</span>
     </div>
