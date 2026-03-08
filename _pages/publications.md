@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: Publications
-description: My research spans forest ecology, microbial genomics, and plant genetics. Below, each paper is grouped by theme with context on what we found and what I contributed.
+description: Publications are grouped below by theme.
 nav: true
 nav_order: 3
 ---
@@ -199,7 +199,7 @@ nav_order: 3
     <h2>Extreme Environment Microbiology</h2>
   </div>
   <p class="theme-description">
-    Characterizing cold-adapted bacteria from one of Earth's most extreme habitats — the Greenland Ice Sheet — to understand their genomic potential for survival, biofilm formation, and biotechnology applications.
+    Characterizing the genomic potential and metabolic capabilities of cold-adapted bacteria from icy and cold environments.
   </p>
 
   <div class="pub-card">
