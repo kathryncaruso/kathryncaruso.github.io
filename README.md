@@ -1,4 +1,4 @@
-# Welcome to my site!
+# Hi, I'm Katie!
 
 <p align="center">
   <img src="assets/img/prof_pic.jpg" alt="Katie Caruso" width="300" style="border-radius: 8px;" />
