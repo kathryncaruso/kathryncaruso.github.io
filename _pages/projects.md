@@ -227,8 +227,6 @@ nav_order: 4
   <div class="proj-card">
     <div class="proj-card-top">
       <div class="proj-img-wrap">
-        <!-- Replace placeholder with your image: -->
-        <!-- <img src="{{ '/assets/img/projects/biocement.jpg' | relative_url }}" alt="Biocementation project"> -->
         <div class="proj-img-placeholder" style="background: linear-gradient(135deg, #a8d8ea, #3b82c4);">
           <i class="fa-solid fa-flask"></i>
         </div>
@@ -283,8 +281,6 @@ nav_order: 4
   <div class="proj-card">
     <div class="proj-card-top">
       <div class="proj-img-wrap">
-        <!-- Replace placeholder with your image: -->
-        <!-- <img src="{{ '/assets/img/projects/venus-flytrap-thumb.jpg' | relative_url }}" alt="Venus flytrap habitat"> -->
         <div class="proj-img-placeholder" style="background: linear-gradient(135deg, #b8e6c8, #2d8a4e);">
           <i class="fa-solid fa-satellite"></i>
         </div>
@@ -345,8 +341,6 @@ nav_order: 4
   <div class="proj-card">
     <div class="proj-card-top">
       <div class="proj-img-wrap">
-        <!-- Replace placeholder with your image: -->
-        <!-- <img src="{{ '/assets/img/projects/hemlock-thumb.jpg' | relative_url }}" alt="Hemlock forest"> -->
         <div class="proj-img-placeholder" style="background: linear-gradient(135deg, #d4c5a9, #6b7c3e);">
           <i class="fa-solid fa-tree"></i>
         </div>
