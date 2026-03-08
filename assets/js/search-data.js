@@ -98,6 +98,13 @@ ninja.data = [{
           window.open("https://orcid.org/0009-0003-2436-1791", "_blank");
         },
       },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=https://scholar.google.com/citations?user=sb7E_g0AAAAJ&hl=en", "_blank");
+        },
+      },{
       id: 'light-theme',
       title: 'Change theme to light',
       description: 'Change the theme of the site to Light',
