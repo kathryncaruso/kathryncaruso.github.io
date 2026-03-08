@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: Publications are grouped below by theme.
+description: Publications are grouped by theme below.
 nav: true
 nav_order: 3
 ---
