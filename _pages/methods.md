@@ -13,33 +13,31 @@ This page documents the methods I develop and use in my graduate research at Mon
 
 I believe in open, well-documented science. These materials are shared to support reproducibility and to help other researchers working with similar methods.
 
-<span style="opacity: 0.6;">[Restricted] = Private repository — <a href="mailto:caruso.k.e@gmail.com">request access</a></span>
+<p style="opacity: 0.6;">[Restricted] = Private repository — <a href="mailto:caruso.k.e@gmail.com">request access</a></p>
 
 ---
 
 <details open>
-<summary><h2 style="display:inline;">biocementation & MICP</h2></summary>
+<summary><h2 style="display:inline;">biocementation &amp; MICP</h2></summary>
 
-<br>
+<p>Protocols and notebooks related to microbially-induced calcium carbonate precipitation using cold-adapted isolates.</p>
 
-Protocols and notebooks related to microbially-induced calcium carbonate precipitation using cold-adapted isolates.
+<p>
+<strong>Carbon source growth assay</strong><br>
+Growth assay to determine preferred carbon source for cold-adapted ureolytic bacterial isolates via OD600 growth curves.<br>
+<a href="/methods/carbon-source-growth-assay/">Protocol</a> · <a href="/methods/carbon-source-growth-assay-diagram/">Interactive Diagram</a> · Raw Data <a href="https://github.com/katie-caruso/research-archive/tree/main/micp/carbon-source-growth-assay/raw-data">[Restricted]</a> · Methods Writeup <a href="https://github.com/katie-caruso/research-archive/tree/main/micp/carbon-source-growth-assay/methods-writeup.md">[Restricted]</a>
+</p>
 
-<br>
+<p>
+<strong>Jung assay</strong><br>
+Ureolytic activity assay based on the Jung et al. method for characterizing isolate performance.<br>
+<em>coming soon</em> · Raw Data <a href="https://github.com/katie-caruso/research-archive/tree/main/micp/jung-assay/raw-data">[Restricted]</a> · Methods Writeup <a href="https://github.com/katie-caruso/research-archive/tree/main/micp/jung-assay/methods-writeup.md">[Restricted]</a>
+</p>
 
-**Carbon source growth assay**
-Growth assay to determine preferred carbon source for cold-adapted ureolytic bacterial isolates via OD600 growth curves.
-[Protocol](/methods/carbon-source-growth-assay/) · [Interactive Diagram](/methods/carbon-source-growth-assay-diagram/) · Raw Data [Restricted](https://github.com/katie-caruso/research-archive/tree/main/micp/carbon-source-growth-assay/raw-data) · Methods Writeup [Restricted](https://github.com/katie-caruso/research-archive/tree/main/micp/carbon-source-growth-assay/methods-writeup.md)
-
-<br>
-
-**Jung assay**
-Ureolytic activity assay based on the Jung et al. method for characterizing isolate performance.
-*coming soon* · Raw Data [Restricted](https://github.com/katie-caruso/research-archive/tree/main/micp/jung-assay/raw-data) · Methods Writeup [Restricted](https://github.com/katie-caruso/research-archive/tree/main/micp/jung-assay/methods-writeup.md)
-
-<br>
-
-**Notebooks**
-Computational notebooks for growth curve analysis and data visualization — *coming soon*
+<p>
+<strong>Notebooks</strong><br>
+Computational notebooks for growth curve analysis and data visualization — <em>coming soon</em>
+</p>
 
 </details>
 
@@ -48,121 +46,119 @@ Computational notebooks for growth curve analysis and data visualization — *co
 <details open>
 <summary><h2 style="display:inline;">sphagnum microbiome</h2></summary>
 
-<br>
+<p>Protocols for field collection, laboratory cultivation, microbiome transfer, and molecular characterization of <em>Sphagnum</em> moss and its associated microbial communities.</p>
 
-Protocols for field collection, laboratory cultivation, microbiome transfer, and molecular characterization of *Sphagnum* moss and its associated microbial communities.
+<p><em>Full interactive workflow diagram — coming soon</em></p>
 
-*Full interactive workflow diagram — coming soon*
+<h4>field collection</h4>
 
-<br>
+<p>
+<strong>Sphagnum collection for DNA extraction</strong><br>
+Field collection procedures optimized for downstream DNA work — <em>coming soon</em>
+</p>
 
-#### field collection
+<p>
+<strong>Sphagnum collection for microbiome</strong><br>
+Field collection procedures for microbiome isolation — <em>coming soon</em>
+</p>
 
-**Sphagnum collection for DNA extraction**
-Field collection procedures optimized for downstream DNA work — *coming soon*
+<p>
+<strong>Environmental parameters</strong><br>
+Measurement and recording of field site environmental conditions — <em>coming soon</em>
+</p>
 
-<br>
+<h4>propagation &amp; cultivation</h4>
 
-**Sphagnum collection for microbiome**
-Field collection procedures for microbiome isolation — *coming soon*
+<p>
+<strong>Gametophyte propagation</strong><br>
+Propagation of <em>Sphagnum</em> gametophytes in the lab — <em>coming soon</em>
+</p>
 
-<br>
+<p>
+<strong>Spore propagation</strong><br>
+Growing <em>Sphagnum</em> from spores — <em>coming soon</em>
+</p>
 
-**Environmental parameters**
-Measurement and recording of field site environmental conditions — *coming soon*
+<p>
+<strong>Axenic media preparation</strong><br>
+Media recipes for axenic <em>Sphagnum</em> culture — <em>coming soon</em>
+</p>
 
-<br>
+<h4>microbiome transfer &amp; preservation</h4>
 
-#### propagation & cultivation
+<p>
+<strong>Microbiome isolation</strong><br>
+Isolating the microbial community from <em>Sphagnum</em> tissue — <em>coming soon</em>
+</p>
 
-**Gametophyte propagation**
-Propagation of *Sphagnum* gametophytes in the lab — *coming soon*
+<p>
+<strong>BG-11-N media</strong><br>
+Preparing BG-11 (minus nitrogen) medium for cyanobacteria — <em>coming soon</em>
+</p>
 
-<br>
+<p>
+<strong>Methanotroph media (NMS)</strong><br>
+Nitrate mineral salts medium for methanotroph cultivation — <em>coming soon</em>
+</p>
 
-**Spore propagation**
-Growing *Sphagnum* from spores — *coming soon*
+<p>
+<strong>PBS preparation</strong><br>
+Phosphate-buffered saline from powder and from scratch — <em>coming soon</em>
+</p>
 
-<br>
+<p>
+<strong>Glycerol cryopreservation</strong><br>
+Long-term storage of microbial isolates in glycerol stocks — <em>coming soon</em>
+</p>
 
-**Axenic media preparation**
-Media recipes for axenic *Sphagnum* culture — *coming soon*
+<p>
+<strong>Thermal tolerance</strong><br>
+Thermal tolerance testing of microbial isolates — <em>coming soon</em>
+</p>
 
-<br>
+<p>
+<strong>Microbiome transfer</strong><br>
+Transferring microbiome communities between <em>Sphagnum</em> hosts — <em>coming soon</em>
+</p>
 
-#### microbiome transfer & preservation
+<h4>DNA &amp; molecular methods</h4>
 
-**Microbiome isolation**
-Isolating the microbial community from *Sphagnum* tissue — *coming soon*
+<p>
+<strong>DNA extraction (16S)</strong><br>
+Extraction optimized for 16S rRNA sequencing — <em>coming soon</em>
+</p>
 
-<br>
+<p>
+<strong>DNA extraction (custom)</strong><br>
+Custom extraction protocol for <em>Sphagnum</em>-associated microbes — <em>coming soon</em>
+</p>
 
-**BG-11-N media**
-Preparing BG-11 (minus nitrogen) medium for cyanobacteria — *coming soon*
+<p>
+<strong>DNA extraction (Qiagen)</strong><br>
+Qiagen kit-based extraction — <em>coming soon</em>
+</p>
 
-<br>
+<p>
+<strong>Extraction optimization</strong><br>
+Comparing homogenization methods for extraction yield — <em>coming soon</em>
+</p>
 
-**Methanotroph media (NMS)**
-Nitrate mineral salts medium for methanotroph cultivation — *coming soon*
+<p>
+<strong>PCR amplification</strong><br>
+PCR protocols for <em>Sphagnum</em> microbial DNA — <em>coming soon</em>
+</p>
 
-<br>
+<h4>characterization</h4>
 
-**PBS preparation**
-Phosphate-buffered saline from powder and from scratch — *coming soon*
+<p>
+<strong>Hyperspectral imaging</strong><br>
+Hyperspectral imaging of <em>Sphagnum</em> samples — <em>coming soon</em>
+</p>
 
-<br>
-
-**Glycerol cryopreservation**
-Long-term storage of microbial isolates in glycerol stocks — *coming soon*
-
-<br>
-
-**Thermal tolerance**
-Thermal tolerance testing of microbial isolates — *coming soon*
-
-<br>
-
-**Microbiome transfer**
-Transferring microbiome communities between *Sphagnum* hosts — *coming soon*
-
-<br>
-
-#### DNA & molecular methods
-
-**DNA extraction (16S)**
-Extraction optimized for 16S rRNA sequencing — *coming soon*
-
-<br>
-
-**DNA extraction (custom)**
-Custom extraction protocol for *Sphagnum*-associated microbes — *coming soon*
-
-<br>
-
-**DNA extraction (Qiagen)**
-Qiagen kit-based extraction — *coming soon*
-
-<br>
-
-**Extraction optimization**
-Comparing homogenization methods for extraction yield — *coming soon*
-
-<br>
-
-**PCR amplification**
-PCR protocols for *Sphagnum* microbial DNA — *coming soon*
-
-<br>
-
-#### characterization
-
-**Hyperspectral imaging**
-Hyperspectral imaging of *Sphagnum* samples — *coming soon*
-
-<br>
-
-**pH buffer preparation**
-Buffer recipes for pH-controlled experiments — *coming soon*
+<p>
+<strong>pH buffer preparation</strong><br>
+Buffer recipes for pH-controlled experiments — <em>coming soon</em>
+</p>
 
 </details>
 
@@ -171,23 +167,21 @@ Buffer recipes for pH-controlled experiments — *coming soon*
 <details open>
 <summary><h2 style="display:inline;">general lab protocols</h2></summary>
 
-<br>
+<p>Foundational procedures for routine laboratory work. These are also intended as a reference for new lab members and undergraduate researchers.</p>
 
-Foundational procedures for routine laboratory work. These are also intended as a reference for new lab members and undergraduate researchers.
+<p>
+<strong>Autoclaving</strong><br>
+Standard autoclaving procedures — <em>coming soon</em>
+</p>
 
-<br>
+<p>
+<strong>Cell sorting</strong><br>
+Flow cytometry cell sorting protocol — <em>coming soon</em>
+</p>
 
-**Autoclaving**
-Standard autoclaving procedures — *coming soon*
-
-<br>
-
-**Cell sorting**
-Flow cytometry cell sorting protocol — *coming soon*
-
-<br>
-
-**Bacterial freezer stocks**
-Preparing and maintaining bacterial freezer stocks — *coming soon*
+<p>
+<strong>Bacterial freezer stocks</strong><br>
+Preparing and maintaining bacterial freezer stocks — <em>coming soon</em>
+</p>
 
 </details>
