@@ -25,7 +25,7 @@ ninja.data = [{
           },
         },{id: "nav-publications",
           title: "Publications",
-          description: "My research spans forest ecology, microbial genomics, and plant genetics. Below, each paper is grouped by theme with context on what we found and what I contributed.",
+          description: "Publications are grouped below by theme.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/publications/";
