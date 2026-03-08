@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /publications/
-title: Publications
+title: publications
 description: Publications are grouped below by theme.
 nav: true
 nav_order: 3
