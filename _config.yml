@@ -3,7 +3,7 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: Katie
+first_name: Kathryn
 middle_name: E.
 last_name: Caruso
 contact_note: >
@@ -14,7 +14,7 @@ footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
   Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-keywords: Katie Caruso, microbiology, biofilms, biofilm engineering, extreme environments, extremophiles, Montana State University, Center for Biofilm Engineering, academic portfolio, environmental microbiology, microbial ecology, ecology, science, PhD, student, NSF NRT, Extreme Biofilms NRT # add your own keywords or leave empty
+keywords: Katie Caruso, Kathryn Caruso, Katie, Kathryn, microbiology, biofilms, biofilm engineering, extreme environments, extremophiles, Montana State University, MSU, NASA DEVELOP, NCEI, Arctic, biocementation, MICP, permafrost, Center for Biofilm Engineering, academic portfolio, environmental microbiology, microbial ecology, ecology, science, PhD, student, NSF NRT, Extreme Biofilms NRT # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 🦠
 
