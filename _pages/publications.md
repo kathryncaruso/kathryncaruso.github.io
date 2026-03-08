@@ -184,6 +184,18 @@ nav_order: 3
     color: var(--global-text-color-light, #6c757d);
   }
 
+  .pub-journal a {
+    color: var(--global-text-color-light, #6c757d);
+    text-decoration: underline;
+    text-decoration-color: var(--global-divider-color, #dee2e6);
+    text-underline-offset: 2px;
+    transition: color 0.2s, text-decoration-color 0.2s;
+  }
+  .pub-journal a:hover {
+    color: var(--global-theme-color, #0076df);
+    text-decoration-color: var(--global-theme-color, #0076df);
+  }
+
   @media (max-width: 600px) {
     .pub-card { padding: 1.2rem; }
     .pub-card-top { flex-direction: column; gap: 0.4rem; }
@@ -206,8 +218,8 @@ nav_order: 3
     <div class="pub-card-top">
       <div>
         <div class="pub-title">Seven genome sequences of bacterial environmental isolates from the western coast of the Greenland Ice Sheet</div>
-        <div class="pub-authors"><span class="me">Markus Dieser</span>, H. J. Smith, <span class="me">Kathryn Caruso</span>, and 1 more author</div>
-        <div class="pub-journal">Microbiology Resource Announcements, 2026</div>
+        <div class="pub-authors">Markus Dieser, Heidi J. Smith, <span class="me">Kathryn Caruso</span>, Christine M. Foreman</div>
+        <div class="pub-journal"><a href="https://doi.org/10.1128/mra.01192-25" target="_blank">Microbiology Resource Announcements</a>, 2026</div>
         <span class="pub-status status-published">Published</span>
       </div>
       <span class="pub-year">2026</span>
@@ -221,12 +233,6 @@ nav_order: 3
           <div class="detail-label">In Plain Language</div>
           <div class="detail-text">
             We sequenced the complete genomes of seven bacteria collected from the surface of the Greenland Ice Sheet. These organisms survive in an environment of extreme cold, UV radiation, and limited nutrients. Publishing their genomes makes them available for researchers worldwide to study how life adapts to extreme conditions — and whether these microbes could be useful in biotechnology, including my own work on biocementation in permafrost.
-          </div>
-        </div>
-        <div class="detail-block">
-          <div class="detail-label">My Role</div>
-          <div class="detail-text">
-            I contributed to the genomic analysis, including genome assembly and annotation, and helped prepare the manuscript for submission. This work directly supports my PhD research on cold-adapted biocementation.
           </div>
         </div>
         <div class="pub-tags">
@@ -256,8 +262,8 @@ nav_order: 3
     <div class="pub-card-top">
       <div>
         <div class="pub-title">Reproductive and genetic patterns in Virginia spiraea (<em>Spiraea virginiana</em> Britton; Rosaceae) reveal a fragmented species, frozen in place and time</div>
-        <div class="pub-authors">Matt C. Estep, L. Clark, K. Emery, <span class="me">and 5 more authors</span></div>
-        <div class="pub-journal">Castanea, 2025</div>
+        <div class="pub-authors">Matt C. Estep, Logan Clark, Kristin Emery, Shravya Sanigepalli, <span class="me">Kathryn Caruso</span>, Adam Morgan, David Greene, Jennifer Rhode Ward</div>
+        <div class="pub-journal"><a href="https://doi.org/10.2179/0008-7475.90.1.48" target="_blank">Castanea</a>, 2025</div>
         <span class="pub-status status-published">Published</span>
       </div>
       <span class="pub-year">2025</span>
@@ -271,12 +277,6 @@ nav_order: 3
           <div class="detail-label">In Plain Language</div>
           <div class="detail-text">
             Virginia spiraea is a rare shrub found along rivers in the southern Appalachians. We studied its genetics and reproduction across scattered populations and found that these populations are deeply isolated — genetically "frozen" with very little gene flow between them. This means each population is essentially on its own evolutionarily, which has major implications for conservation: losing any single population means losing unique genetic diversity that won't be replaced.
-          </div>
-        </div>
-        <div class="detail-block">
-          <div class="detail-label">My Role</div>
-          <div class="detail-text">
-            I contributed to fieldwork and data collection as an undergraduate researcher at UNC Asheville, working under the mentorship of the lead investigators on this long-term study of Appalachian rare plants.
           </div>
         </div>
         <div class="pub-tags">
@@ -307,7 +307,7 @@ nav_order: 3
       <div>
         <div class="pub-title">Assessing the effect of eastern hemlock (<em>Tsuga canadensis</em>) decline from hemlock woolly adelgid (<em>Adelges tsugae</em>) infestation on ectomycorrhizal colonization and growth of red oak (<em>Quercus rubra</em>) seedlings</div>
         <div class="pub-authors"><span class="me">Kathryn E. Caruso</span>, Jonathan L. Horton, and Alisa A. Hove</div>
-        <div class="pub-journal">American Midland Naturalist, 2021</div>
+        <div class="pub-journal"><a href="https://doi.org/10.1674/0003-0031-186.1.16" target="_blank">American Midland Naturalist</a>, 2021</div>
         <span class="pub-status status-published">Published</span>
       </div>
       <span class="pub-year">2021</span>
@@ -321,12 +321,6 @@ nav_order: 3
           <div class="detail-label">In Plain Language</div>
           <div class="detail-text">
             Eastern hemlocks across the Appalachians are dying from an invasive insect called the hemlock woolly adelgid. As hemlocks disappear, forests change — more light reaches the floor, soils warm up, and the fungal communities in the soil shift. I studied whether these changes affect how well red oak seedlings form partnerships with beneficial root fungi (mycorrhizae) and how that influences their growth. Understanding these cascading effects helps us predict what Appalachian forests will look like as they lose one of their most important tree species.
-          </div>
-        </div>
-        <div class="detail-block">
-          <div class="detail-label">My Role</div>
-          <div class="detail-text">
-            This was my first-author paper from my undergraduate thesis at UNC Asheville. I designed the study, collected and processed root samples from field sites across western North Carolina, quantified mycorrhizal colonization through microscopy, ran the statistical analyses, and wrote the manuscript.
           </div>
         </div>
         <div class="pub-tags">
