@@ -4,6 +4,8 @@ title: Carbon Source Growth Assay — Interactive Diagram
 nav: false
 ---
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2/dist/tailwind.min.css">
-<div id="diagram-root"></div>
-<script type="module" src="/assets/diagrams/carbon-source-growth-assay/main.jsx"></script>
+<iframe 
+  src="/assets/diagrams/carbon-source-growth-assay/index.html" 
+  style="width: 100%; height: 90vh; border: none;"
+  loading="lazy">
+</iframe>
