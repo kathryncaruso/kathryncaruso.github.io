@@ -208,10 +208,10 @@ nav_order: 5
 </style>
 
 <p class="methods-intro">
-  This page documents the methods I develop and use in my graduate research at Montana State University's Center for Biofilm Engineering. Each protocol includes a detailed written version and, where available, an interactive visual diagram and associated computational notebooks.
+  This page documents the methods I've used and developed in my graduate research. Each protocol includes a detailed written version and, where applicable, a visual diagram and associated computational notebooks.
 </p>
 <p class="methods-intro-note">
-  I believe in open, well-documented science. These materials are shared to support reproducibility and to help other researchers working with similar methods.
+  These materials are shared to support reproducibility and to help other researchers working with similar methods.
   <br>[Restricted] = Private repository — <a href="mailto:caruso.k.e@gmail.com">request access</a>
 </p>
 
