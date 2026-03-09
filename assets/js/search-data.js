@@ -37,7 +37,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/methods/";
           },
-        },{id: "projects-biocementation-in-permafrost-environments",
+        },{id: "methods-carbon-source-growth-assay-interactive-diagram",
+          title: 'Carbon Source Growth Assay — Interactive Diagram',
+          description: "",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/carbon-source-growth-assay-diagram/";
+            },},{id: "projects-biocementation-in-permafrost-environments",
           title: 'Biocementation in Permafrost Environments',
           description: "Studying applications of cold-adapted bacterial isolates for microbially-induced calcium carbonate precipitation (MICP) to stabilize defense materials in Arctic environments.",
           section: "Projects",handler: () => {
