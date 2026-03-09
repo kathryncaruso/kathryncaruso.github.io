@@ -1,3 +1,8 @@
+---
+layout: page
+title: Carbon Source Growth Assay
+---
+
 # Overview
 
 > [!note] Purpose
