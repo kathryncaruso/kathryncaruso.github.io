@@ -201,6 +201,62 @@ nav_order: 5
     color: #868e96;
   }
 
+  /* ── Background / Rationale toggle ── */
+  .method-rationale-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: none;
+    border: none;
+    color: var(--global-theme-color, #0076df);
+    font-size: 0.85rem;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0.25rem 0;
+    margin-top: 0.5rem;
+    transition: color 0.2s;
+  }
+  .method-rationale-toggle:hover { opacity: 0.8; }
+  .method-rationale-toggle .arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+    font-size: 0.65rem;
+  }
+  .method-rationale-toggle.open .arrow {
+    transform: rotate(90deg);
+  }
+
+  .method-rationale {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+  .method-rationale.open {
+    opacity: 1;
+  }
+
+  .method-rationale-inner {
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--global-divider-color, #dee2e6);
+    margin-top: 0.7rem;
+  }
+
+  .method-rationale-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--global-text-color-light, #6c757d);
+    margin-bottom: 0.35rem;
+  }
+
+  .method-rationale-text {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--global-text-color, #303030);
+  }
+
   @media (max-width: 600px) {
     .method-card { padding: 1rem; }
     .method-card-top { flex-direction: column; gap: 0.3rem; }
@@ -244,6 +300,17 @@ nav_order: 5
         <a class="method-link" href="/methods/carbon-source-growth-assay-diagram/">Interactive Diagram</a>
         <a class="method-link restricted" href="https://github.com/katie-caruso/research-archive/tree/main/micp/carbon-source-growth-assay/raw-data" title="Private repository — request access">Raw Data [Restricted]</a>
         <a class="method-link restricted" href="https://github.com/katie-caruso/research-archive/tree/main/micp/carbon-source-growth-assay/methods-writeup.md" title="Private repository — request access">Methods Writeup [Restricted]</a>
+      </div>
+      <button class="method-rationale-toggle" onclick="toggleRationale(this)">
+        <span class="arrow">▶</span> Background &amp; Rationale
+      </button>
+      <div class="method-rationale">
+        <div class="method-rationale-inner">
+          <div class="method-rationale-label">Background &amp; Rationale</div>
+          <div class="method-rationale-text">
+            Microbially induced calcium carbonate precipitation (MICP) relies on ureolytic bacteria to drive calcite formation through urea hydrolysis, making adequate growth rate and cell density critical for effective biocementation. The Foreman Lab maintains a collection of ~60 bacterial isolates sampled from diverse cold environments originally recovered on R2A — a low-nutrient medium designed for slow-growing environmental bacteria. Preliminary growth curves of these isolates grown at 15°C in a glucose-based urea medium over 28 days showed poor growth — maximum OD600 values remained below 0.2, several isolates showed decline after modest initial increases, and some barely grew above baseline. On this basis, this experiment tests three alternative carbon sources — sodium malate, sodium succinate, and sodium acetate — that enter central carbon metabolism more directly as TCA cycle intermediates or precursors. Carbon source concentrations were matched on a molar carbon basis to the original glucose formulation. The goal is to identify a carbon source that better supports growth of these isolates under the low-temperature conditions relevant to biocementation.
+          </div>
+        </div>
       </div>
     </div>
 
@@ -581,6 +648,21 @@ function toggleTheme(header) {
     body.classList.add('open');
     arrow.classList.add('open');
     body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+
+function toggleRationale(btn) {
+  var rationale = btn.nextElementSibling;
+  var isOpen = rationale.classList.contains('open');
+
+  if (isOpen) {
+    rationale.style.maxHeight = '0px';
+    rationale.classList.remove('open');
+    btn.classList.remove('open');
+  } else {
+    rationale.classList.add('open');
+    btn.classList.add('open');
+    rationale.style.maxHeight = rationale.scrollHeight + 'px';
   }
 }
 </script>
