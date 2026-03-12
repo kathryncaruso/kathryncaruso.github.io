@@ -75,3 +75,21 @@ GitHub Actions workflows in `.github/workflows/`:
 - PurgeCSS safelist (`purgecss.config.js`) must include patterns for any dynamically-applied classes (e.g., `data-theme`, `data-level`, `data-detail`, `cv-`, `scrolled`)
 - Related posts can error if blog posts lack meaningful content (classifier-reborn issue)
 - Site URL: `url: https://kathryncaruso.github.io`, `baseurl:` is empty (personal site)
+
+## Protocol Byline Standard
+ 
+Every lab protocol (Markdown) and interactive diagram (React/HTML) MUST include a standardized byline header. The template is in `/_templates/protocol-byline-template.md`.
+ 
+### Rules
+ 
+- The byline goes at the TOP of the document, before any protocol content.
+- For Markdown files: place it immediately after YAML front matter (if present).
+- For React/HTML diagrams: render it as a styled header component at the top of the diagram, with a collapsible citation section (toggle or expandable).
+- Both formats use the same information — keep them consistent.
+- Populate all fields (title, date, version, URL) from the file's existing content and git history.
+- If no version number exists, assign v1.0.
+- Do NOT modify any protocol content — only add or update the byline header.
+- License is always CC-BY-SA 4.0.
+- ORCID is always 0009-0003-2436-1791 (Kathryn E. Caruso).
+- When creating a NEW protocol or diagram, always include the byline from the start.
+- When editing an EXISTING protocol, update the "Updated" date and version number in the byline.
