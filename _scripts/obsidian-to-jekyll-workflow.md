@@ -12,11 +12,14 @@ Katie writes lab protocols in Obsidian and publishes them to her academic websit
 | Site repo | `/Users/katie/kathryncaruso.github.io/` |
 | Methods output directory | `/Users/katie/kathryncaruso.github.io/_methods/` |
 | Conversion script | `/Users/katie/kathryncaruso.github.io/_scripts/obsidian_to_jekyll.py` |
+| Publish script | `/Users/katie/kathryncaruso.github.io/_scripts/publish_protocol.py` |
 | Live site | `https://kathryncaruso.github.io/methods/` |
 
-## What the Script Does
+## What the Scripts Do
 
-`obsidian_to_jekyll.py` converts Obsidian markdown to Jekyll-compatible markdown:
+### `obsidian_to_jekyll.py` — Conversion
+
+Converts Obsidian markdown to Jekyll-compatible markdown:
 
 - **Callouts** (`> [!note]`, `> [!warning]`, etc.) → Bootstrap `<div class="alert-*">` elements
 - **Foldable callouts** (`> [!note]-` or `> [!note]+`) → `<details>` elements with alert styling
@@ -26,14 +29,46 @@ Katie writes lab protocols in Obsidian and publishes them to her academic websit
 - **Obsidian comments** (`%% ... %%`) → removed
 - **First H1 heading** → stripped (title is placed in Jekyll front matter instead)
 - **Front matter** → auto-generated with layout, title, category, and status
+- **Byline** → auto-generated with author, ORCID, affiliation, date, license, and citation (use `--no-byline` to skip)
+
+### `publish_protocol.py` — One-Command Publishing
+
+Wraps the full workflow into a single command:
+
+1. Converts the Obsidian file to Jekyll markdown (with byline)
+2. Updates the methods index page (`_pages/methods.md`) — activates the card, adds Protocol link
+3. Commits and pushes to GitHub
 
 ## How to Publish a Protocol
 
-### Step 1: Convert
+### Quick Publish (recommended)
 
 ```bash
 cd /Users/katie/kathryncaruso.github.io
 
+python3 _scripts/publish_protocol.py \
+    "/Users/katie/Obsidian Vault/Mossy/protocols/FILENAME.md" \
+    --category "CATEGORY" \
+    --slug "output-filename"
+```
+
+**Example (Jung assay):**
+```bash
+python3 _scripts/publish_protocol.py \
+    "/Users/katie/Obsidian Vault/Mossy/protocols/jung_assay/260300_jungassay_v2.md" \
+    --category "biocementation" \
+    --slug "jung-assay"
+```
+
+Add `--dry-run` to preview without writing files or pushing. Add `--no-push` to commit locally without pushing.
+
+### Manual Publish (step-by-step)
+
+If you need more control, use the conversion script directly:
+
+#### Step 1: Convert
+
+```bash
 python3 _scripts/obsidian_to_jekyll.py \
     "/Users/katie/Obsidian Vault/Mossy/protocols/FILENAME.md" \
     --output _methods/ \
@@ -41,50 +76,34 @@ python3 _scripts/obsidian_to_jekyll.py \
     --slug "output-filename"
 ```
 
-The `--slug` flag controls the output filename (and therefore the URL). If omitted, the slug is derived from the input filename. For example, `--slug "jung-assay"` produces `_methods/jung-assay.md` → `/methods/jung-assay/`.
+#### Step 2: Update the methods index page
 
-**Example (Jung assay):**
-```bash
-python3 _scripts/obsidian_to_jekyll.py \
-    "/Users/katie/Obsidian Vault/Mossy/protocols/jung_assay/260300_jungassay_v2.md" \
-    --output _methods/ \
-    --category "biocementation" \
-    --slug "jung-assay"
-```
+Edit `_pages/methods.md`:
+- Add a `<a class="method-link" href="/methods/SLUG/">Protocol</a>` to the card's `.method-links` div
+- If the card was "Coming Soon", remove the `coming-soon` class and change the badge to `status-available`
 
-Common categories (match existing site structure):
-- `biocementation` — MICP and biocementation protocols
-- `sphagnum-microbiome` — Sphagnum moss and microbiome work
-- `general-lab` — Foundational lab procedures
-
-### Step 2: Preview (optional)
-
-Use `--dry-run` to preview the converted output without writing a file:
+#### Step 3: Push to GitHub
 
 ```bash
-python3 _scripts/obsidian_to_jekyll.py \
-    "/Users/katie/Obsidian Vault/Mossy/protocols/FILENAME.md" \
-    --dry-run
-```
-
-### Step 3: Update the methods index page
-
-After converting, add a link to the new protocol in `_pages/methods.md`:
-- Add a `<a class="method-link" href="/methods/SLUG/">Protocol</a>` to the corresponding method card's `.method-links` div
-- If the card was previously marked "Coming Soon", remove the `coming-soon` class from the card div and change `status-soon` to `status-available` on the badge
-
-### Step 4: Push to GitHub
-
-```bash
-cd /Users/katie/kathryncaruso.github.io
 git add _methods/ _pages/methods.md
 git commit -m "Add PROTOCOL_NAME protocol"
 git push
 ```
 
-GitHub Pages will automatically rebuild the site after the push.
-
 ## Script Options Reference
+
+### `publish_protocol.py`
+
+| Flag | Purpose | Default |
+|---|---|---|
+| `--category`, `-c` | Category for front matter | from Obsidian front matter, or "" |
+| `--slug` | Output filename slug | derived from input filename |
+| `--description`, `-d` | Short description | "" |
+| `--dry-run` | Preview without writing or pushing | false |
+| `--no-push` | Commit but skip `git push` | false |
+| `--no-byline` | Skip auto-generated byline header | false |
+
+### `obsidian_to_jekyll.py`
 
 | Flag | Purpose | Default |
 |---|---|---|
@@ -97,21 +116,21 @@ GitHub Pages will automatically rebuild the site after the push.
 | `--base-url` | Base URL for wikilink conversion | "/methods/" |
 | `--keep-h1` | Don't strip the first H1 heading | false |
 | `--slug` | Custom output filename | derived from input filename |
+| `--no-byline` | Skip auto-generated byline header | false |
 
-## Optional: Obsidian-Side Metadata
+## Obsidian-Side Metadata
 
-Katie can add YAML front matter to her Obsidian notes and the script will read it. These fields are understood:
+Add YAML front matter to Obsidian notes so the scripts can read category, title, etc. automatically — no CLI flags needed:
 
 ```yaml
 ---
 title: DNA Extraction (16S)
 category: sphagnum-microbiome
-status: available
 description: Extraction optimized for 16S rRNA sequencing
 ---
 ```
 
-Any of these can also be overridden via command-line flags. Fields set via CLI take priority over fields in the Obsidian file.
+CLI flags override Obsidian front matter when both are present.
 
 ## Batch Publishing
 
@@ -125,10 +144,12 @@ for f in "/Users/katie/Obsidian Vault/Mossy/protocols/"*.md; do
 done
 ```
 
-Note: this won't set per-file categories. For batch publishing with categories, either add `category:` to the Obsidian front matter of each file, or convert individually.
+Note: this won't set per-file categories or update the methods page. For batch publishing with categories, add `category:` to the Obsidian front matter of each file.
 
 ## Troubleshooting
 
 - **Callouts not rendering styled on the site**: Ensure the `markdown="1"` attribute is present on the alert divs (the script adds this). If styles still look off, a small custom SCSS block may be needed in the site's `_sass/` directory.
 - **Wikilinks pointing to wrong URLs**: The script converts `[[Page Name]]` to `/methods/page-name/`. If the target page doesn't exist on the site yet, the link will 404 until that protocol is also published.
 - **Front matter not detected in Obsidian file**: The YAML block must start on the very first line with `---` and close with `---`. No blank lines before it.
+- **Card not found on methods page**: The publish script matches card titles using substring matching (case-insensitive). If the Obsidian title is very different from the card title on the methods page, it may not match — you'll get a warning and can update the methods page manually.
+- **Italics showing as asterisks in citations**: Use `<em>` tags instead of `*` inside `<details>` elements — Jekyll doesn't process markdown inside HTML blocks.
