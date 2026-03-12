@@ -21,6 +21,7 @@ Katie writes lab protocols in Obsidian and publishes them to her academic websit
 - **Callouts** (`> [!note]`, `> [!warning]`, etc.) → Bootstrap `<div class="alert-*">` elements
 - **Foldable callouts** (`> [!note]-` or `> [!note]+`) → `<details>` elements with alert styling
 - **Wikilinks** (`[[Page Name]]`) → standard markdown links (`[Page Name](/methods/page-name/)`)
+- **Same-page anchors** (`[[#Section Name]]`) → anchor links (`[Section Name](#section-name)`)
 - **Highlights** (`==text==`) → `<mark>` tags
 - **Obsidian comments** (`%% ... %%`) → removed
 - **First H1 heading** → stripped (title is placed in Jekyll front matter instead)
@@ -33,10 +34,22 @@ Katie writes lab protocols in Obsidian and publishes them to her academic websit
 ```bash
 cd /Users/katie/kathryncaruso.github.io
 
-python _scripts/obsidian_to_jekyll.py \
+python3 _scripts/obsidian_to_jekyll.py \
     "/Users/katie/Obsidian Vault/Mossy/protocols/FILENAME.md" \
     --output _methods/ \
-    --category "CATEGORY"
+    --category "CATEGORY" \
+    --slug "output-filename"
+```
+
+The `--slug` flag controls the output filename (and therefore the URL). If omitted, the slug is derived from the input filename. For example, `--slug "jung-assay"` produces `_methods/jung-assay.md` → `/methods/jung-assay/`.
+
+**Example (Jung assay):**
+```bash
+python3 _scripts/obsidian_to_jekyll.py \
+    "/Users/katie/Obsidian Vault/Mossy/protocols/jung_assay/260300_jungassay_v2.md" \
+    --output _methods/ \
+    --category "biocementation" \
+    --slug "jung-assay"
 ```
 
 Common categories (match existing site structure):
@@ -49,16 +62,22 @@ Common categories (match existing site structure):
 Use `--dry-run` to preview the converted output without writing a file:
 
 ```bash
-python _scripts/obsidian_to_jekyll.py \
+python3 _scripts/obsidian_to_jekyll.py \
     "/Users/katie/Obsidian Vault/Mossy/protocols/FILENAME.md" \
     --dry-run
 ```
 
-### Step 3: Push to GitHub
+### Step 3: Update the methods index page
+
+After converting, add a link to the new protocol in `_pages/methods.md`:
+- Add a `<a class="method-link" href="/methods/SLUG/">Protocol</a>` to the corresponding method card's `.method-links` div
+- If the card was previously marked "Coming Soon", remove the `coming-soon` class from the card div and change `status-soon` to `status-available` on the badge
+
+### Step 4: Push to GitHub
 
 ```bash
 cd /Users/katie/kathryncaruso.github.io
-git add _methods/
+git add _methods/ _pages/methods.md
 git commit -m "Add PROTOCOL_NAME protocol"
 git push
 ```
@@ -102,7 +121,7 @@ To convert all protocols in the vault at once:
 cd /Users/katie/kathryncaruso.github.io
 
 for f in "/Users/katie/Obsidian Vault/Mossy/protocols/"*.md; do
-    python _scripts/obsidian_to_jekyll.py "$f" --output _methods/
+    python3 _scripts/obsidian_to_jekyll.py "$f" --output _methods/
 done
 ```
 
