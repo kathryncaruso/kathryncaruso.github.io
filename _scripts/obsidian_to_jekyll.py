@@ -221,6 +221,7 @@ def convert_wikilinks(content: str, base_url: str = "/methods/") -> str:
     [[Page Name]]           → [Page Name](/methods/page-name/)
     [[Page Name|Display]]   → [Display](/methods/page-name/)
     [[Page Name#Section]]   → [Page Name](/methods/page-name/#section)
+    [[#Section]]            → [Section](#section)  (same-page anchor)
     """
     def replace_wikilink(match):
         inner = match.group(1)
@@ -238,6 +239,13 @@ def convert_wikilinks(content: str, base_url: str = "/methods/") -> str:
             section = '#' + slugify(section)
 
         slug = slugify(target.strip())
+
+        # Self-referencing link: [[#Section]] → anchor-only
+        if not slug and section:
+            # Clean up display text (strip leading #)
+            clean_display = display.strip().lstrip('#').strip()
+            return f'[{clean_display}]({section})'
+
         url = f"{base_url}{slug}/{section}"
 
         return f'[{display.strip()}]({url})'
