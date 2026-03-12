@@ -114,17 +114,20 @@ def extract_obsidian_frontmatter(content: str) -> tuple[dict, str]:
     """
     Extract existing YAML front matter from an Obsidian file (if any).
     Returns (metadata_dict, content_without_frontmatter).
+    Handles front matter with leading whitespace on the --- delimiters.
     """
     metadata = {}
-    if content.startswith('---'):
-        end = content.find('---', 3)
+    # Strip leading whitespace to handle indented front matter
+    stripped = content.lstrip()
+    if stripped.startswith('---'):
+        end = stripped.find('---', 3)
         if end != -1:
-            yaml_block = content[3:end].strip()
+            yaml_block = stripped[3:end].strip()
             for line in yaml_block.split('\n'):
                 if ':' in line:
                     key, _, value = line.partition(':')
                     metadata[key.strip()] = value.strip().strip('"').strip("'")
-            content = content[end + 3:].strip()
+            content = stripped[end + 3:].strip()
     return metadata, content
 
 
@@ -155,9 +158,23 @@ def generate_front_matter(title: str, obsidian_meta: dict, args) -> str:
     return '\n'.join(lines)
 
 
+CALLOUT_STYLES = {
+    "alert-info":      {"border": "#2d6a4f", "bg": "#f0fdf4", "title_color": "#2d6a4f"},
+    "alert-success":   {"border": "#2d6a4f", "bg": "#f0fdf4", "title_color": "#2d6a4f"},
+    "alert-primary":   {"border": "#c0713a", "bg": "#fffbf0", "title_color": "#c0713a"},
+    "alert-warning":   {"border": "#b91c1c", "bg": "#fef2f2", "title_color": "#b91c1c"},
+    "alert-danger":    {"border": "#b91c1c", "bg": "#fef2f2", "title_color": "#b91c1c"},
+    "alert-secondary": {"border": "#6c757d", "bg": "#f8f9fa", "title_color": "#6c757d"},
+    "alert-light":     {"border": "#adb5bd", "bg": "#f8f9fa", "title_color": "#6c757d"},
+}
+
+
 def convert_callouts(content: str) -> str:
     """
-    Convert Obsidian callouts to Bootstrap alert divs or <details> elements.
+    Convert Obsidian callouts to inline-styled divs.
+
+    Uses inline styles rather than Bootstrap classes or markdown="1" to avoid
+    Kramdown rendering issues with tables and complex content inside divs.
 
     Obsidian syntax:
         > [!note] Optional title
@@ -185,6 +202,7 @@ def convert_callouts(content: str) -> str:
 
             alert_class = CALLOUT_MAP.get(ctype, "alert-info")
             display_title = custom_title or CALLOUT_TITLES.get(ctype, ctype.title())
+            styles = CALLOUT_STYLES.get(alert_class, CALLOUT_STYLES["alert-info"])
 
             # Collect all continuation lines (lines starting with >)
             body_lines = []
@@ -197,20 +215,39 @@ def convert_callouts(content: str) -> str:
 
             body_content = '\n'.join(body_lines).strip()
 
+            # Build inline styles for the callout container
+            container_style = (
+                f"border-left: 4px solid {styles['border']}; "
+                f"background: {styles['bg']}; "
+                f"border-radius: 4px; "
+                f"padding: 0.9rem 1.1rem; "
+                f"margin: 1rem 0; "
+                f"font-size: 0.92rem; "
+                f"line-height: 1.65;"
+            )
+            title_style = (
+                f"font-weight: 700; "
+                f"font-size: 0.82rem; "
+                f"text-transform: uppercase; "
+                f"letter-spacing: 0.05em; "
+                f"margin-bottom: 0.35rem; "
+                f"color: {styles['title_color']};"
+            )
+
             if fold:
-                # Foldable callout → <details> with Bootstrap styling
+                # Foldable callout → <details>
                 open_attr = ' open' if fold == '+' else ''
-                result.append(f'<details{open_attr} class="{alert_class} alert" markdown="1">')
-                result.append(f'<summary><strong>{display_title}</strong></summary>')
+                result.append(f'<details{open_attr} style="{container_style}">')
+                result.append(f'<summary style="{title_style}">{display_title}</summary>')
                 result.append('')
                 result.append(body_content)
                 result.append('')
                 result.append('</details>')
                 result.append('')
             else:
-                # Standard callout → Bootstrap alert div
-                result.append(f'<div class="{alert_class} alert" role="alert" markdown="1">')
-                result.append(f'**{display_title}**')
+                # Standard callout → styled div with content as markdown below
+                result.append(f'<div style="{container_style}">')
+                result.append(f'<div style="{title_style}">{display_title}</div>')
                 result.append('')
                 result.append(body_content)
                 result.append('')
