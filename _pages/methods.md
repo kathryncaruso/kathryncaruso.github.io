@@ -314,18 +314,29 @@ nav_order: 5
       </div>
     </div>
 
-    <!-- Jung assay — COMING SOON -->
-    <div class="method-card coming-soon">
+    <!-- Jung assay -->
+    <div class="method-card">
       <div class="method-card-top">
         <div>
           <div class="method-title">Jung assay</div>
           <div class="method-desc">Ureolytic activity assay based on the Jung et al. method for characterizing isolate performance.</div>
         </div>
-        <span class="method-status status-soon">Coming Soon</span>
+        <span class="method-status status-available">Available</span>
       </div>
       <div class="method-links">
         <a class="method-link restricted" href="https://github.com/katie-caruso/research-archive/tree/main/micp/jung-assay/raw-data" title="Private repository — request access">Raw Data [Restricted]</a>
         <a class="method-link restricted" href="https://github.com/katie-caruso/research-archive/tree/main/micp/jung-assay/methods-writeup.md" title="Private repository — request access">Methods Writeup [Restricted]</a>
+      </div>
+      <button class="method-rationale-toggle" onclick="toggleRationale(this)">
+        <span class="arrow">▶</span> Background &amp; Rationale
+      </button>
+      <div class="method-rationale">
+        <div class="method-rationale-inner">
+          <div class="method-rationale-label">Background &amp; Rationale</div>
+          <div class="method-rationale-text">
+            Microbially induced calcium carbonate precipitation (MICP) relies on ureolytic bacteria to hydrolyze urea, raising local pH and driving carbonate precipitation. For MICP to work in cold environments, it requires microorganisms that are both cold-adapted and ureolytically active. In preliminary serial transfer experiments, nine cold-adapted isolates — selected based on an in silico screen for urease genes — were cultured at 15°C with transfers to fresh urea medium over a six-week period. pH shifts became visible within two weeks, and several cultures (GG8, GNP012, GNP013) began alkalizing only after a third transfer, suggesting that successive exposure to urea may condition these isolates toward increased ureolytic activity. However, OD measurements indicated that some initially active cultures (GNP014, MP-M2) may not have sustained growth over the full transfer period. The current 28-day assay expands the panel to 21 isolates and formalizes this serial transfer design, measuring urea concentration at three timepoints per seven-day transfer window using a colorimetric method (Jung et al., 1975) to directly test whether successive urea exposure primes increased urea hydrolysis over time. Isolates were originally cultured on R2A and previously grown in Jung assays on a minimal medium (2% urea) with glucose as the primary carbon source; for this assay, succinate replaces glucose based on results of a comparative growth assay.
+          </div>
+        </div>
       </div>
     </div>
 
