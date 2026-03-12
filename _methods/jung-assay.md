@@ -13,7 +13,7 @@ Updated March 2026 · [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/
 
 <details><summary>How to cite this protocol</summary>
 
-Caruso, K.E. (2026). *Jung Assay SOP — v2 (Serial Transfer Design)*. Center for Biofilm Engineering, Montana State University. https://kathryncaruso.github.io/methods/jung-assay/
+Caruso, K.E. (2026). <em>Jung Assay SOP — v2 (Serial Transfer Design)</em>. Center for Biofilm Engineering, Montana State University. https://kathryncaruso.github.io/methods/jung-assay/
 
 </details>
 

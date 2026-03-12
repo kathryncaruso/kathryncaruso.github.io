@@ -11,7 +11,7 @@ Updated March 2026 · [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/
 
 <details><summary>How to cite this protocol</summary>
 
-Caruso, K.E. (2026). *Carbon Source Growth Assay — Interactive Diagram*. Center for Biofilm Engineering, Montana State University. https://kathryncaruso.github.io/methods/carbon-source-growth-assay-diagram/
+Caruso, K.E. (2026). <em>Carbon Source Growth Assay — Interactive Diagram</em>. Center for Biofilm Engineering, Montana State University. https://kathryncaruso.github.io/methods/carbon-source-growth-assay-diagram/
 
 </details>
 
