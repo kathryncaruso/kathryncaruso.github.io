@@ -9,11 +9,11 @@ nav: false
 **Jung Assay SOP — v2 (Serial Transfer Design)**
 Kathryn E. Caruso · [0009-0003-2436-1791](https://orcid.org/0009-0003-2436-1791)
 Center for Biofilm Engineering, Montana State University
-Updated March 2026 · Version 2.0 · [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+Updated March 2026 · [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
 <details><summary>How to cite this protocol</summary>
 
-Caruso, K.E. (2026). *Jung Assay SOP — v2 (Serial Transfer Design)* (v2.0). Center for Biofilm Engineering, Montana State University. https://kathryncaruso.github.io/methods/jung-assay/
+Caruso, K.E. (2026). *Jung Assay SOP — v2 (Serial Transfer Design)*. Center for Biofilm Engineering, Montana State University. https://kathryncaruso.github.io/methods/jung-assay/
 
 </details>
 
