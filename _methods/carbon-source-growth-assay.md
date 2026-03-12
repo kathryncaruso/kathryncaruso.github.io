@@ -19,8 +19,8 @@ Caruso, K.E. (2026). <em>Carbon Source Growth Assay</em>. Center for Biofilm Eng
 
 ---
 
-<div class="alert-info alert" role="alert" markdown="1">
-**Purpose**
+<div style="border-left: 4px solid #2d6a4f; background: #f0fdf4; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #2d6a4f;">Purpose</div>
 
 Growth assay to determine preferred carbon source for cold-adapted ureolytic bacterial isolates. Isolates will be grown in liquid urea-based media with different carbon sources (malate, succinate, acetate) and monitored via OD600 measurements over ~5 days.
 
@@ -90,8 +90,8 @@ Original base media
 ---
 # 1 Pre-experiment preparation
 
-<div class="alert-primary alert" role="alert" markdown="1">
-**Timeline**
+<div style="border-left: 4px solid #c0713a; background: #fffbf0; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #c0713a;">Timeline</div>
 
 Combustion and autoclaving must be completed **before** media preparation day. Combustion takes several hours including cool-down.
 
@@ -105,8 +105,8 @@ Combustion (dry heat sterilization) removes all organic residues and ensures tub
 4. Allow to cool completely inside the oven before removing — do not open door while hot (thermal shock can crack tubes) 
 5. Keep tubes wrapped/covered until use
 
-<div class="alert-info alert" role="alert" markdown="1">
-**Note**
+<div style="border-left: 4px solid #2d6a4f; background: #f0fdf4; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #2d6a4f;">Note</div>
 
 Do **not** combust any plastic (caps, etc.)
 
@@ -125,8 +125,8 @@ Autoclave all non-glass items that will contact sterile media or cultures.
 4. Store sealed/wrapped until use
 5. Label autoclave tape with date and initials
 
-<div class="alert-info alert" role="alert" markdown="1">
-**Note**
+<div style="border-left: 4px solid #2d6a4f; background: #f0fdf4; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #2d6a4f;">Note</div>
 
 Disposable items that come pre-sterilized (e.g., syringe filters, pipette tips, microcentrifuge tubes, Falcon tubes) do not need to be autoclaved. The glass culture tubes are combusted (Section 1.1), not autoclaved.
 
@@ -136,8 +136,8 @@ Disposable items that come pre-sterilized (e.g., syringe filters, pipette tips, 
 # 2 Preparing media
 Prepare **3 base media** (one per carbon source condition) following the same procedure as the original urea-based growth medium protocol, substituting the carbon source as indicated.
 ## 2.1 Media formulations
-<div class="alert-primary alert" role="alert" markdown="1">
-**Carbon source concentrations**
+<div style="border-left: 4px solid #c0713a; background: #fffbf0; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #c0713a;">Carbon source concentrations</div>
 
 Concentrations matched on a **molar carbon basis** to 0.5 g/L glucose (16.67 mmol C/L). Use the **sodium salt forms** of malate and succinate — biologically equivalent to the free acids but more stable and easier to handle.
 
@@ -182,8 +182,8 @@ Table 1. *Base medium formulation per condition (per liter). Amounts calculated 
 | Milli-Q water | to 1000 mL                                                | to 1000 mL                                                          | to 1000 mL                                             |
 | pH target     | 6.8 ± 0.2                                                 | 6.8 ± 0.2                                                           | 6.8 ± 0.2                                              |
 
-<div class="alert-warning alert" role="alert" markdown="1">
-**DL-malate limitation**
+<div style="border-left: 4px solid #b91c1c; background: #fef2f2; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #b91c1c;">DL-malate limitation</div>
 
 The malate reagent available is sodium DL-malate (racemic mixture). Only the L-form is expected to be metabolically active as a TCA cycle intermediate. The mass has been calculated based on total malate (both isomers) — effectively only ~half the carbon may be bioavailable.
 
@@ -221,8 +221,8 @@ For each condition, aseptically combine base medium and urea stock to achieve 2%
 ---
 # 3 Inoculum preparation
 
-<div class="alert-info alert" role="alert" markdown="1">
-**Approach**
+<div style="border-left: 4px solid #2d6a4f; background: #f0fdf4; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #2d6a4f;">Approach</div>
 
 Cultures are grown up from single colonies in R2A, OD600 is measured, and inoculum volume is adjusted for each isolate to achieve a consistent starting OD across all tubes and isolates.
 
@@ -352,8 +352,8 @@ Measurements are taken more frequently during early growth and spaced out as the
 4. **Record the time of measurement (HH:MM) for each reading** 
 5. Return tubes to shaker promptly
 
-<div class="alert-primary alert" role="alert" markdown="1">
-**Consistency**
+<div style="border-left: 4px solid #c0713a; background: #fffbf0; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #c0713a;">Consistency</div>
 
 Use the same spectrophotometer and same tube orientation (align any seam or mark) for every reading throughout the experiment. The blanking tube for each condition should also be read consistently in the same orientation.
 

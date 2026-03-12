@@ -1,19 +1,20 @@
 ---
 layout: page
-title: Jung Assay SOP — v2 (Serial Transfer Design)
+title: Jung Assay SOP
+description: 28-day ureolytic activity assay with serial transfers
 category: biocementation
 status: available
 nav: false
 ---
 
-**Jung Assay SOP — v2 (Serial Transfer Design)**
+**Jung Assay SOP**
 Kathryn E. Caruso · [0009-0003-2436-1791](https://orcid.org/0009-0003-2436-1791)
 Center for Biofilm Engineering, Montana State University
 Updated March 2026 · [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
 <details><summary>How to cite this protocol</summary>
 
-Caruso, K.E. (2026). <em>Jung Assay SOP — v2 (Serial Transfer Design)</em>. Center for Biofilm Engineering, Montana State University. https://kathryncaruso.github.io/methods/jung-assay/
+Caruso, K.E. (2026). <em>Jung Assay SOP</em>. Center for Biofilm Engineering, Montana State University. https://kathryncaruso.github.io/methods/jung-assay/
 
 </details>
 
@@ -24,9 +25,9 @@ Caruso, K.E. (2026). <em>Jung Assay SOP — v2 (Serial Transfer Design)</em>. Ce
 [1 Overview](#1-overview)
 [2 Safety](#2-safety)
 [3 Equipment and materials](#3-equipment-and-materials)
-[Part I — Media preparation](#part-i--media-prep)
-[Part II — Experiment setup, serial transfers, and sampling](#part-ii--experiment-setup-serial-transfers-and-sampling)
-[Part III — Reading the Jung assay](#part-iii--reading-the-jung-assay)
+[Part I — Media preparation](#part-i-media-preparation)
+[Part II — Experiment setup, serial transfers, and sampling](#part-ii-experiment-setup-serial-transfers-and-sampling)
+[Part III — Reading the Jung assay](#part-iii-reading-the-jung-assay)
 [References](#references)
 
 ---
@@ -149,8 +150,8 @@ Protocol for a 28-day ureolytic activity assay using the colorimetric method for
 ---
 ## 3.5 Glassware and equipment preparation
 
-<div class="alert-primary alert" role="alert" markdown="1">
-**Timeline**
+<div style="border-left: 4px solid #c0713a; background: #fffbf0; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #c0713a;">Timeline</div>
 
 Combustion and autoclaving must be completed **before** media preparation day. Combustion takes ~1d including cool-down.
 
@@ -166,8 +167,8 @@ Combustion (dry heat sterilization) removes all organic residues and ensures tub
 6. Allow to cool completely inside the oven before removing — do not open door while hot (thermal shock can crack tubes)
 7. Keep tubes wrapped/covered until use
 
-<div class="alert-info alert" role="alert" markdown="1">
-**Note**
+<div style="border-left: 4px solid #2d6a4f; background: #f0fdf4; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #2d6a4f;">Note</div>
 
 Do **not** combust any plastic (caps, etc.)
 
@@ -186,8 +187,8 @@ Autoclave all non-glass items that will contact sterile media or cultures.
 4. Store sealed/wrapped until use
 5. Label autoclave tape with date and initials
 
-<div class="alert-info alert" role="alert" markdown="1">
-**Note**
+<div style="border-left: 4px solid #2d6a4f; background: #f0fdf4; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #2d6a4f;">Note</div>
 
 Disposable items that come pre-sterilized (e.g., syringe filters, pipette tips, microcentrifuge tubes, Falcon tubes) do not need to be autoclaved. The glass culture tubes are combusted (Section 3.5.1), not autoclaved.
 
@@ -208,8 +209,8 @@ This medium replaces the original glucose-based formulation. Succinate was selec
 | Milli-Q water                        | to 1000 mL |                                          |
 | pH target                            | 6.8 ± 0.2  | Adjust with 1 M HCl or NaOH              |
 
-<div class="alert-info alert" role="alert" markdown="1">
-**Carbon equivalence calculation**
+<div style="border-left: 4px solid #2d6a4f; background: #f0fdf4; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #2d6a4f;">Carbon equivalence calculation</div>
 
 - Glucose reference: 0.5 g/L ÷ 180.16 g/mol = 2.776 mmol/L × 6 C = 16.67 mmol C/L
 - Succinate: 16.67 mmol C/L ÷ 4 C/molecule = 4.167 mmol/L × 270.14 g/mol = **1.126 g/L**
@@ -293,8 +294,8 @@ Urea is added separately via a filter-sterilized stock to a final concentration 
 - Agitation: **150 RPM** (shaking incubator)
 - Duration: **4 days** (same timeline as test isolates)
 
-<div class="alert-info alert" role="alert" markdown="1">
-**Note**
+<div style="border-left: 4px solid #2d6a4f; background: #f0fdf4; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #2d6a4f;">Note</div>
 
 *S. pasteurii* grows optimally at 30°C, so growth at 15°C will be slower. This approach ensures the positive control experiences the same temperature conditions as the test isolates throughout the experiment.
 
@@ -344,8 +345,8 @@ For each starter culture:
 ## 8 Serial transfers (Days 7, 14, 21)
 ### 8.1 Transfer day workflow
 
-<div class="alert-primary alert" role="alert" markdown="1">
-**Transfer day workflow**
+<div style="border-left: 4px solid #c0713a; background: #fffbf0; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #c0713a;">Transfer day workflow</div>
 
 On each transfer day, perform these steps **in order**:
 1. Collect **final** samples from the outgoing transfer window (urea, OD, pH)
@@ -381,8 +382,8 @@ For each culture tube:
 | 3 | Days 14–21 | 14 | 17 or 18 | 21 |
 | 4 | Days 21–28 | 21 | 24 or 25 | 28 |
 
-<div class="alert-info alert" role="alert" markdown="1">
-**Note**
+<div style="border-left: 4px solid #2d6a4f; background: #f0fdf4; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #2d6a4f;">Note</div>
 
 On transfer days (Days 7, 14, 21), two sampling events occur: the **Final** of the outgoing window and the **T0** of the incoming window.
 
@@ -395,8 +396,8 @@ At each of the 12 timepoints, collect from every tube (66 total):
 3. **pH** — for tracking alkalinization
 ### 9.3 Sample collection for urea measurement
 
-<div class="alert-info alert" role="alert" markdown="1">
-**Purpose**
+<div style="border-left: 4px solid #2d6a4f; background: #f0fdf4; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #2d6a4f;">Purpose</div>
 
 Stop urease activity immediately upon sampling and dilute samples to fall within the 0–2 g/L calibration range. Urease enzymes produced by bacteria will continue to hydrolyze urea unless enzyme activity is stopped. Acidification or filtration immediately halts this process to preserve urea concentration at the time of sampling.
 
@@ -431,8 +432,8 @@ Stop urease activity immediately upon sampling and dilute samples to fall within
 4. **Record the time of measurement (HH:MM) for each reading**
 5. Return tubes to rotating shaker promptly
 
-<div class="alert-primary alert" role="alert" markdown="1">
-**Consistency**
+<div style="border-left: 4px solid #c0713a; background: #fffbf0; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;">
+<div style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #c0713a;">Consistency</div>
 
 Use the same spectrophotometer and same tube orientation (align any seam or mark) for every reading throughout the experiment. The blanking tube should also be read consistently in the same orientation.
 
