@@ -47,6 +47,11 @@ ninja.data = [{
           description: "",
           section: "Methods",handler: () => {
               window.location.href = "/methods/carbon-source-growth-assay/";
+            },},{id: "methods-jung-assay-sop-v2-serial-transfer-design",
+          title: 'Jung Assay SOP — v2 (Serial Transfer Design)',
+          description: "",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/jung-assay/";
             },},{id: "projects-biocementation-in-permafrost-environments",
           title: 'Biocementation in Permafrost Environments',
           description: "Studying applications of cold-adapted bacterial isolates for microbially-induced calcium carbonate precipitation (MICP) to stabilize defense materials in Arctic environments.",
