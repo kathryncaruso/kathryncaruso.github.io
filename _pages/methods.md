@@ -342,6 +342,20 @@ nav_order: 5
       </div>
     </div>
 
+    <!-- BHI Agar -->
+    <div class="method-card">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">BHI Agar</div>
+          <div class="method-desc">Brain Heart Infusion agar plate preparation using Difco™ BHI Agar, with batch scaling guide.</div>
+        </div>
+        <span class="method-status status-available">Available</span>
+      </div>
+      <div class="method-links">
+        <a class="method-link" href="/methods/bhi-agar/">Protocol</a>
+      </div>
+    </div>
+
     <!-- Notebooks — COMING SOON -->
     <div class="method-card coming-soon">
       <div class="method-card-top">
