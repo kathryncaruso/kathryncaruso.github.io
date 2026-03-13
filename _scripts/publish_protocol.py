@@ -164,6 +164,23 @@ def update_methods_page(title: str, slug: str, dry_run: bool = False) -> bool:
     return True
 
 
+def run_prettier(output_file: Path) -> bool:
+    """Run prettier on the generated protocol file and the methods page."""
+    files = [str(output_file)]
+    if METHODS_PAGE.exists():
+        files.append(str(METHODS_PAGE))
+
+    result = subprocess.run(
+        ["npx", "prettier", "--write"] + files,
+        cwd=REPO_ROOT, capture_output=True, text=True
+    )
+    if result.returncode != 0:
+        print(f"  ⚠ prettier failed: {result.stderr.strip()}", file=sys.stderr)
+        return False
+    print("  ✓ Formatted with prettier")
+    return True
+
+
 def git_commit_and_push(slug: str, title: str, no_push: bool = False) -> bool:
     """Stage, commit, and optionally push changes."""
     protocol_file = f"_methods/{slug}.md"
@@ -286,11 +303,18 @@ def main():
     print("\nStep 2: Updating methods index page")
     update_methods_page(title, slug, dry_run=args.dry_run)
 
-    # Step 3: Git commit and push
+    # Step 3: Run prettier on generated/modified files
     if args.dry_run:
-        print("\nStep 3: Would commit and push (skipped in dry-run)")
+        print("\nStep 3: Would run prettier (skipped in dry-run)")
     else:
-        print("\nStep 3: Committing and pushing")
+        print("\nStep 3: Running prettier")
+        run_prettier(output_file)
+
+    # Step 4: Git commit and push
+    if args.dry_run:
+        print("\nStep 4: Would commit and push (skipped in dry-run)")
+    else:
+        print("\nStep 4: Committing and pushing")
         git_commit_and_push(slug, title, no_push=args.no_push)
 
     # Summary

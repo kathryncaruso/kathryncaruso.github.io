@@ -37,7 +37,8 @@ Wraps the full workflow into a single command:
 
 1. Converts the Obsidian file to Jekyll markdown (with byline)
 2. Updates the methods index page (`_pages/methods.md`) — activates the card, adds Protocol link
-3. Commits and pushes to GitHub
+3. Runs prettier on generated files (so CI formatting checks pass)
+4. Commits and pushes to GitHub
 
 ## How to Publish a Protocol
 
