@@ -37,7 +37,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/methods/";
           },
-        },{id: "methods-carbon-source-growth-assay-interactive-diagram",
+        },{id: "methods-bhi-agar",
+          title: 'BHI Agar',
+          description: "",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/bhi-agar/";
+            },},{id: "methods-carbon-source-growth-assay-interactive-diagram",
           title: 'Carbon Source Growth Assay — Interactive Diagram',
           description: "",
           section: "Methods",handler: () => {
