@@ -9,12 +9,14 @@ Academic portfolio website for Kathryn (Katie) Caruso, built with Jekyll 4.x on 
 ## Build & Development
 
 ### Docker (recommended)
+
 ```bash
 docker compose pull && docker compose up    # http://localhost:8080
 docker compose up --build                   # rebuild with dependency changes
 ```
 
 ### Local
+
 ```bash
 bundle install
 pip install jupyter && pip3 install --upgrade nbconvert
@@ -24,18 +26,22 @@ bundle exec jekyll serve --port 4000
 ImageMagick is required locally (`brew install imagemagick` on Mac).
 
 ### Formatting (enforced by CI)
+
 ```bash
 npm install --save-dev prettier @shopify/prettier-plugin-liquid
 npx prettier . --write
 ```
+
 Prettier must pass before pushing — the `prettier.yml` workflow will fail PRs otherwise.
 
 ### Production build
+
 Set `JEKYLL_ENV=production` for CSS/JS minification. PurgeCSS runs during deployment (`purgecss.config.js`).
 
 ## Architecture
 
 ### Content collections
+
 - `_pages/` — Static pages (about, cv, publications, projects, methods, blog, etc.)
 - `_posts/` — Blog posts (`YYYY-MM-DD-title.md`)
 - `_projects/` — Project entries (ordered by `importance` in front matter)
@@ -43,27 +49,34 @@ Set `JEKYLL_ENV=production` for CSS/JS minification. PurgeCSS runs during deploy
 - `_bibliography/papers.bib` — BibTeX publications managed by jekyll-scholar
 
 ### Data files (`_data/`)
+
 - `cv.yml` — CV content (used by `_layouts/cv-slider.liquid`)
 - `socials.yml` — Social/contact links
 - `coauthors.yml`, `citations.yml`, `venues.yml`, `repositories.yml`
 
 ### Layouts (`_layouts/`)
+
 Templates are `.liquid` files. Key custom layouts:
+
 - `cv-slider.liquid` — Interactive CV with detail-level slider (1-5) using `data-level` attributes; self-contained HTML/CSS/JS
 - `bib.liquid` — Publication display from BibTeX
 
 ### Styling
+
 SCSS in `_sass/` compiled by Jekyll. Uses al-folio CSS variables (`--global-theme-color`, `--global-bg-color`, etc.) for theme compatibility including dark mode (`data-theme` attribute).
 
 ### Key config
+
 `_config.yml` controls site metadata, feature flags (`enabled: true/false`), plugin loading, and CDN library versions with integrity hashes.
 
 ### Custom plugins (`_plugins/`)
+
 Ruby plugins for Google Scholar citations, external posts, custom BibTeX fields, and others.
 
 ## CI/CD
 
 GitHub Actions workflows in `.github/workflows/`:
+
 - **deploy.yml** — Builds with Ruby 3.3.5 + Python 3.13, runs purgecss, deploys to `gh-pages` branch
 - **prettier.yml** — Mandatory formatting check
 - **broken-links.yml** — Link validation
@@ -77,11 +90,11 @@ GitHub Actions workflows in `.github/workflows/`:
 - Site URL: `url: https://kathryncaruso.github.io`, `baseurl:` is empty (personal site)
 
 ## Protocol Byline Standard
- 
+
 Every lab protocol (Markdown) and interactive diagram (React/HTML) MUST include a standardized byline header. The template is in `/_templates/protocol-byline-template.md`.
- 
+
 ### Rules
- 
+
 - The byline goes at the TOP of the document, before any protocol content.
 - For Markdown files: place it immediately after YAML front matter (if present).
 - For React/HTML diagrams: render it as a styled header component at the top of the diagram, with a collapsible citation section (toggle or expandable).
