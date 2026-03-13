@@ -239,19 +239,18 @@ def convert_callouts(content: str) -> str:
                 open_attr = ' open' if fold == '+' else ''
                 result.append(f'<details{open_attr} style="{container_style}">')
                 result.append(f'<summary style="{title_style}">{display_title}</summary>')
-                result.append('')
-                result.append(body_content)
-                result.append('')
                 result.append('</details>')
                 result.append('')
-            else:
-                # Standard callout → styled div with content as markdown below
-                result.append(f'<div style="{container_style}">')
-                result.append(f'<div style="{title_style}">{display_title}</div>')
-                result.append('')
                 result.append(body_content)
                 result.append('')
+            else:
+                # Standard callout → styled title bar, then content as
+                # plain markdown so tables/lists/headings render correctly
+                result.append(f'<div style="{container_style}">')
+                result.append(f'<span style="{title_style}">{display_title}</span>')
                 result.append('</div>')
+                result.append('')
+                result.append(body_content)
                 result.append('')
         else:
             result.append(lines[i])
