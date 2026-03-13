@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BHI Agar Preparation — Interactive Diagram</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-card: #fafafa;
+      --border: #e8e8e8;
+      --text-primary: #1a1a1a;
+      --text-secondary: #666;
+      --accent: #2d6a4f;
+      --accent-light: #f0fdf4;
+      --warning: #c0713a;
+      --warning-light: #fffbf0;
+      --danger: #b91c1c;
+      --danger-light: #fef2f2;
+      --phase-a: #2d6a4f;
+      --phase-a-light: #f0fdf4;
+      --phase-b: #1e5799;
+      --phase-b-light: #eff6ff;
+      --connector: #cbd5e1;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0a0a0a;
+        --bg-card: #141414;
+        --border: #252525;
+        --text-primary: #f0f0f0;
+        --text-secondary: #999;
+        --accent: #4ade80;
+        --accent-light: rgba(74, 222, 128, 0.1);
+        --warning: #fb923c;
+        --warning-light: rgba(251, 146, 60, 0.1);
+        --danger: #f87171;
+        --danger-light: rgba(248, 113, 113, 0.1);
+        --phase-a: #4ade80;
+        --phase-a-light: rgba(74, 222, 128, 0.08);
+        --phase-b: #60a5fa;
+        --phase-b-light: rgba(96, 165, 250, 0.08);
+        --connector: #333;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    .diagram-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .diagram-header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .diagram-header .subtitle {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      font-style: italic;
+      margin-bottom: 0.6rem;
+    }
+    .diagram-header .byline {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .diagram-header .byline a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .diagram-header .byline a:hover { text-decoration: underline; }
+
+    .cite-toggle {
+      display: inline-block;
+      font-size: 0.75rem;
+      color: var(--accent);
+      cursor: pointer;
+      margin-top: 0.4rem;
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+    .cite-toggle:hover { text-decoration: underline; }
+    .cite-box {
+      display: none;
+      margin-top: 0.5rem;
+      padding: 0.6rem 0.9rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      text-align: left;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cite-box.open { display: block; }
+
+    /* ── Export button ── */
+    .export-bar {
+      text-align: right;
+      margin-bottom: 1.5rem;
+    }
+    .export-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .export-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── Batch selector ── */
+    .batch-selector {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.85rem;
+    }
+    .batch-selector label {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .batch-selector select {
+      padding: 0.3rem 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: inherit;
+      background: var(--bg);
+      color: var(--text-primary);
+    }
+    .batch-info {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-left: auto;
+    }
+
+    /* ── Phase header ── */
+    .phase-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .phase-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .phase-label h2 {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .phase-label .phase-time {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-left: auto;
+      font-weight: 500;
+    }
+
+    /* ── Step cards ── */
+    .step-list { list-style: none; position: relative; padding-left: 1.5rem; }
+    .step-list::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--connector);
+    }
+
+    .step-item {
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+    .step-item:last-child { margin-bottom: 0; }
+
+    .step-dot {
+      position: absolute;
+      left: -1.5rem;
+      top: 0.85rem;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid var(--connector);
+      background: var(--bg);
+      z-index: 1;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .step-item.active .step-dot {
+      border-color: var(--accent);
+      background: var(--accent);
+    }
+
+    .step-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      user-select: none;
+    }
+    .step-card:hover {
+      border-color: #c5cad0;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+    }
+    .step-item.active .step-card {
+      border-color: var(--accent);
+      box-shadow: 0 1px 8px rgba(45, 106, 79, 0.08);
+    }
+
+    .step-top {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .step-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--bg);
+      background: var(--text-secondary);
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-item.active .step-num {
+      background: var(--accent);
+    }
+    .step-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      flex: 1;
+    }
+    .step-timing {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+    .step-arrow {
+      font-size: 0.6rem;
+      color: var(--text-secondary);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .step-item.active .step-arrow { transform: rotate(90deg); }
+
+    .step-detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, opacity 0.2s ease;
+      opacity: 0;
+    }
+    .step-item.active .step-detail {
+      opacity: 1;
+    }
+    .step-detail-inner {
+      padding-top: 0.6rem;
+      font-size: 0.84rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+    .step-detail-inner ul {
+      padding-left: 1.1rem;
+      margin-top: 0.3rem;
+    }
+    .step-detail-inner li { margin-bottom: 0.2rem; }
+
+    /* ── Callout boxes inside steps ── */
+    .callout {
+      margin-top: 0.5rem;
+      padding: 0.5rem 0.7rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      line-height: 1.55;
+    }
+    .callout-caution {
+      background: var(--danger-light);
+      border-left: 3px solid var(--danger);
+      color: var(--danger);
+    }
+    .callout-note {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+    }
+    .callout-tip {
+      background: var(--warning-light);
+      border-left: 3px solid var(--warning);
+    }
+
+    /* ── Batch table ── */
+    .batch-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin-top: 0.5rem;
+    }
+    .batch-table th, .batch-table td {
+      padding: 0.4rem 0.6rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .batch-table th {
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+    }
+    .batch-table tr.selected {
+      background: var(--accent-light);
+      font-weight: 600;
+    }
+
+    /* ── Storage footer ── */
+    .storage-footer {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.84rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .storage-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .storage-text { color: var(--text-secondary); line-height: 1.55; }
+    .storage-text strong { color: var(--text-primary); }
+
+    /* ── Responsive ── */
+    @media (max-width: 500px) {
+      body { padding: 1rem; }
+      .diagram-header h1 { font-size: 1.25rem; }
+      .batch-selector { flex-wrap: wrap; }
+      .batch-info { margin-left: 0; width: 100%; margin-top: 0.3rem; }
+    }
+
+    /* ── Keyboard focus ── */
+    .step-card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div id="diagram-container">
+
+    <!-- Header -->
+    <div class="diagram-header">
+      <h1>BHI Agar Preparation</h1>
+      <div class="subtitle">Using Difco&trade; Brain Heart Infusion Agar</div>
+      <div class="byline">
+        Kathryn E. Caruso &middot;
+        <a href="https://orcid.org/0009-0003-2436-1791">0009-0003-2436-1791</a><br>
+        Center for Biofilm Engineering, Montana State University<br>
+        Updated March 2026 &middot;
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>
+      </div>
+      <button class="cite-toggle" onclick="toggleCite()">&#9654; How to cite</button>
+      <div class="cite-box" id="cite-box">
+        Caruso, K.E. (2026). <em>BHI Agar Preparation — Interactive Diagram</em>.
+        Center for Biofilm Engineering, Montana State University.
+        https://kathryncaruso.github.io/methods/bhi-agar-diagram/
+      </div>
+    </div>
+
+    <!-- Export -->
+    <div class="export-bar">
+      <button class="export-btn" onclick="exportPNG()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export PNG
+      </button>
+    </div>
+
+    <!-- Batch selector -->
+    <div class="batch-selector">
+      <label for="batch-select">Batch size:</label>
+      <select id="batch-select" onchange="updateBatch()">
+        <option value="0">Full sleeve (~20 plates)</option>
+        <option value="1">Large (~10 plates)</option>
+        <option value="2">Medium (3–4 plates)</option>
+        <option value="3">Small (1–2 plates)</option>
+      </select>
+      <span class="batch-info" id="batch-info">26 g powder &middot; 500 mL water</span>
+    </div>
+
+    <!-- Phase A -->
+    <div class="phase-label">
+      <div class="phase-dot" style="background: var(--phase-a);"></div>
+      <h2>Part A: Prepare BHI Agar Base</h2>
+      <span class="phase-time">~2 hours</span>
+    </div>
+
+    <ul class="step-list" id="phase-a">
+
+      <li class="step-item" data-step="a1">
+        <div class="step-dot"></div>
+        <div class="step-card" tabindex="0" onclick="toggleStep(this)" onkeydown="handleKey(event, this)">
+          <div class="step-top">
+            <div class="step-num">1</div>
+            <div class="step-title">Suspend powder</div>
+            <div class="step-arrow">&#9654;</div>
+          </div>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              Suspend <strong id="powder-amt">26 g</strong> of Difco&trade; BHI Agar powder in <strong id="water-amt">500 mL</strong> of purified water.
+              <div class="callout callout-tip" style="margin-top: 0.5rem;">
+                Fill bottle to no more than <strong>50% capacity</strong> to allow room for boiling.
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="step-item" data-step="a2">
+        <div class="step-dot"></div>
+        <div class="step-card" tabindex="0" onclick="toggleStep(this)" onkeydown="handleKey(event, this)">
+          <div class="step-top">
+            <div class="step-num">2</div>
+            <div class="step-title">Mix thoroughly</div>
+            <div class="step-arrow">&#9654;</div>
+          </div>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              Mix powder and water thoroughly to ensure even suspension before heating.
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="step-item" data-step="a3">
+        <div class="step-dot"></div>
+        <div class="step-card" tabindex="0" onclick="toggleStep(this)" onkeydown="handleKey(event, this)">
+          <div class="step-top">
+            <div class="step-num">3</div>
+            <div class="step-title">Heat &amp; boil</div>
+            <span class="step-timing">1 min</span>
+            <div class="step-arrow">&#9654;</div>
+          </div>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              Heat with <strong>frequent agitation</strong> and boil for <strong>1 minute</strong> to completely dissolve the powder.
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="step-item" data-step="a4">
+        <div class="step-dot"></div>
+        <div class="step-card" tabindex="0" onclick="toggleStep(this)" onkeydown="handleKey(event, this)">
+          <div class="step-top">
+            <div class="step-num">4</div>
+            <div class="step-title">Autoclave</div>
+            <span class="step-timing">15 min</span>
+            <div class="step-arrow">&#9654;</div>
+          </div>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              Autoclave at <strong>121&deg;C for 15 minutes</strong>.
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="step-item" data-step="a5">
+        <div class="step-dot"></div>
+        <div class="step-card" tabindex="0" onclick="toggleStep(this)" onkeydown="handleKey(event, this)">
+          <div class="step-top">
+            <div class="step-num">5</div>
+            <div class="step-title">Transfer to water bath</div>
+            <div class="step-arrow">&#9654;</div>
+          </div>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              <strong>Immediately</strong> transfer to a <strong>60&deg;C water bath</strong> after autoclaving.
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="step-item" data-step="a6">
+        <div class="step-dot"></div>
+        <div class="step-card" tabindex="0" onclick="toggleStep(this)" onkeydown="handleKey(event, this)">
+          <div class="step-top">
+            <div class="step-num">6</div>
+            <div class="step-title">Equilibrate</div>
+            <span class="step-timing">&ge; 15 min</span>
+            <div class="step-arrow">&#9654;</div>
+          </div>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              Equilibrate for at least <strong>15 minutes</strong>, or until the bottle is just cool enough to handle.
+              <div class="callout callout-caution">
+                <strong>Caution:</strong> Do not allow agar to cool below ~50&deg;C or it will begin to solidify.
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+
+    <!-- Phase B -->
+    <div class="phase-label" style="margin-top: 1.5rem;">
+      <div class="phase-dot" style="background: var(--phase-b);"></div>
+      <h2>Part B: Pour Plates</h2>
+      <span class="phase-time">~30 min</span>
+    </div>
+
+    <ul class="step-list" id="phase-b">
+
+      <li class="step-item" data-step="b1">
+        <div class="step-dot"></div>
+        <div class="step-card" tabindex="0" onclick="toggleStep(this)" onkeydown="handleKey(event, this)">
+          <div class="step-top">
+            <div class="step-num">7</div>
+            <div class="step-title">Agitate gently</div>
+            <div class="step-arrow">&#9654;</div>
+          </div>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              Gently agitate the molten agar to distribute any precipitate uniformly.
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="step-item" data-step="b2">
+        <div class="step-dot"></div>
+        <div class="step-card" tabindex="0" onclick="toggleStep(this)" onkeydown="handleKey(event, this)">
+          <div class="step-top">
+            <div class="step-num">8</div>
+            <div class="step-title">Pour into plates</div>
+            <div class="step-arrow">&#9654;</div>
+          </div>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              Pour into sterile petri dishes: fill each plate so the agar level sits <strong>just below the bottom of the lid</strong> when closed (~20&ndash;25 mL per standard 100 mm plate).
+              <div class="callout callout-note" style="margin-top: 0.5rem;">
+                Selected batch yields approximately <strong id="plate-count">~20 plates</strong>.
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="step-item" data-step="b3">
+        <div class="step-dot"></div>
+        <div class="step-card" tabindex="0" onclick="toggleStep(this)" onkeydown="handleKey(event, this)">
+          <div class="step-top">
+            <div class="step-num">9</div>
+            <div class="step-title">Evaporate condensation</div>
+            <div class="step-arrow">&#9654;</div>
+          </div>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              Leave lids <strong>slightly ajar</strong> to allow condensation to evaporate.
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="step-item" data-step="b4">
+        <div class="step-dot"></div>
+        <div class="step-card" tabindex="0" onclick="toggleStep(this)" onkeydown="handleKey(event, this)">
+          <div class="step-top">
+            <div class="step-num">10</div>
+            <div class="step-title">Solidify &amp; sleeve</div>
+            <div class="step-arrow">&#9654;</div>
+          </div>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              Once moisture has evaporated and plates have solidified, return them to the sleeve.
+            </div>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+
+    <!-- Batch reference table -->
+    <div style="margin-top: 1.5rem;">
+      <div class="phase-label">
+        <div class="phase-dot" style="background: var(--text-secondary);"></div>
+        <h2>Batch Reference</h2>
+      </div>
+      <table class="batch-table" id="batch-table">
+        <thead>
+          <tr>
+            <th>Batch Size</th>
+            <th>~Plates</th>
+            <th>BHI Agar Powder</th>
+            <th>Purified Water</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="selected"><td>Full sleeve</td><td>~20</td><td>26 g</td><td>500 mL</td></tr>
+          <tr><td>Large</td><td>~10</td><td>13 g</td><td>250 mL</td></tr>
+          <tr><td>Medium</td><td>3–4</td><td>5.2 g</td><td>100 mL</td></tr>
+          <tr><td>Small</td><td>1–2</td><td>2.6 g</td><td>50 mL</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Storage -->
+    <div class="storage-footer">
+      <div class="storage-icon">&#x1F9CA;</div>
+      <div class="storage-text">
+        <strong>Storage:</strong> Store plates inverted (agar side up) at <strong>4&deg;C</strong>. Label with medium type and date of preparation.
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    /* ── Step toggle ── */
+    function toggleStep(card) {
+      var item = card.closest('.step-item');
+      var wasActive = item.classList.contains('active');
+
+      // Close all
+      document.querySelectorAll('.step-item.active').forEach(function(el) {
+        el.classList.remove('active');
+        el.querySelector('.step-detail').style.maxHeight = '0px';
+      });
+
+      // Open clicked (if it wasn't already open)
+      if (!wasActive) {
+        item.classList.add('active');
+        var detail = item.querySelector('.step-detail');
+        detail.style.maxHeight = detail.scrollHeight + 'px';
+      }
+    }
+
+    /* ── Keyboard navigation ── */
+    function handleKey(e, card) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleStep(card);
+      }
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        var next = card.closest('.step-item').nextElementSibling;
+        if (!next) {
+          // Jump to next phase
+          var phaseB = document.getElementById('phase-b');
+          var phaseA = document.getElementById('phase-a');
+          if (card.closest('ul') === phaseA) {
+            next = phaseB.querySelector('.step-item');
+          }
+        }
+        if (next) next.querySelector('.step-card').focus();
+      }
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        var prev = card.closest('.step-item').previousElementSibling;
+        if (!prev) {
+          var phaseA = document.getElementById('phase-a');
+          var phaseB = document.getElementById('phase-b');
+          if (card.closest('ul') === phaseB) {
+            var items = phaseA.querySelectorAll('.step-item');
+            prev = items[items.length - 1];
+          }
+        }
+        if (prev) prev.querySelector('.step-card').focus();
+      }
+    }
+
+    /* ── Batch selector ── */
+    var batches = [
+      { powder: '26 g', water: '500 mL', plates: '~20 plates', infoText: '26 g powder \u00b7 500 mL water' },
+      { powder: '13 g', water: '250 mL', plates: '~10 plates', infoText: '13 g powder \u00b7 250 mL water' },
+      { powder: '5.2 g', water: '100 mL', plates: '3\u20134 plates', infoText: '5.2 g powder \u00b7 100 mL water' },
+      { powder: '2.6 g', water: '50 mL', plates: '1\u20132 plates', infoText: '2.6 g powder \u00b7 50 mL water' }
+    ];
+
+    function updateBatch() {
+      var idx = document.getElementById('batch-select').value;
+      var b = batches[idx];
+      document.getElementById('powder-amt').textContent = b.powder;
+      document.getElementById('water-amt').textContent = b.water;
+      document.getElementById('plate-count').textContent = b.plates;
+      document.getElementById('batch-info').textContent = b.infoText;
+
+      // Highlight table row
+      var rows = document.getElementById('batch-table').querySelectorAll('tbody tr');
+      rows.forEach(function(r, i) {
+        r.classList.toggle('selected', i == idx);
+      });
+
+      // Re-expand step detail if open (to recalculate height)
+      document.querySelectorAll('.step-item.active .step-detail').forEach(function(d) {
+        d.style.maxHeight = d.scrollHeight + 'px';
+      });
+    }
+
+    /* ── Citation toggle ── */
+    function toggleCite() {
+      var box = document.getElementById('cite-box');
+      var btn = box.previousElementSibling;
+      var isOpen = box.classList.contains('open');
+      box.classList.toggle('open');
+      btn.innerHTML = (isOpen ? '&#9654;' : '&#9660;') + ' How to cite';
+    }
+
+    /* ── Export PNG ── */
+    async function exportPNG() {
+      try {
+        var { default: html2canvas } = await import(
+          'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/+esm'
+        );
+
+        // Expand all steps for full capture
+        var activeItems = [];
+        document.querySelectorAll('.step-item').forEach(function(item) {
+          if (!item.classList.contains('active')) {
+            item.classList.add('active');
+            var d = item.querySelector('.step-detail');
+            d.style.maxHeight = d.scrollHeight + 'px';
+          } else {
+            activeItems.push(item);
+          }
+        });
+
+        // Small delay for transitions
+        await new Promise(function(r) { setTimeout(r, 400); });
+
+        var el = document.getElementById('diagram-container');
+        var canvas = await html2canvas(el, { scale: 2, useCORS: true, backgroundColor: getComputedStyle(document.body).getPropertyValue('--bg').trim() || '#ffffff' });
+        var link = document.createElement('a');
+        link.download = 'bhi-agar-diagram.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+
+        // Collapse non-active steps back
+        document.querySelectorAll('.step-item.active').forEach(function(item) {
+          if (activeItems.indexOf(item) === -1) {
+            item.classList.remove('active');
+            item.querySelector('.step-detail').style.maxHeight = '0px';
+          }
+        });
+      } catch (err) {
+        alert('Export failed: ' + err.message);
+      }
+    }
+  </script>
+</body>
+</html>

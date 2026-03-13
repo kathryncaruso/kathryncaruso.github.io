@@ -342,7 +342,7 @@ nav_order: 5
       </div>
     </div>
 
-    <!-- BHI Agar -->
+    <!-- BHI Agar — AVAILABLE -->
     <div class="method-card">
       <div class="method-card-top">
         <div>
@@ -353,6 +353,18 @@ nav_order: 5
       </div>
       <div class="method-links">
         <a class="method-link" href="/methods/bhi-agar/">Protocol</a>
+        <a class="method-link" href="/methods/bhi-agar-diagram/">Interactive Diagram</a>
+      </div>
+      <button class="method-rationale-toggle" onclick="toggleRationale(this)">
+        <span class="arrow">&#9654;</span> Background &amp; Rationale
+      </button>
+      <div class="method-rationale">
+        <div class="method-rationale-inner">
+          <div class="method-rationale-label">Background &amp; Rationale</div>
+          <div class="method-rationale-text">
+            Brain Heart Infusion (BHI) agar is a nutrient-rich, general-purpose medium widely used for cultivating fastidious organisms. In this research, BHI agar plates are used specifically for growing up <em>Sporosarcina pasteurii</em> from freezer stock to serve as a positive control in ureolytic activity assays. <em>S. pasteurii</em> is a well-characterized ureolytic bacterium that grows optimally at 30°C on rich media, and BHI provides the nutritional complexity needed to reliably recover it from cryopreserved stocks. Having a standardized BHI plate preparation protocol ensures consistency across experiments and supports reproducibility when onboarding new lab members.
+          </div>
+        </div>
       </div>
     </div>
 

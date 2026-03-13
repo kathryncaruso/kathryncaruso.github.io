@@ -20,6 +20,13 @@ Caruso, K.E. (2026). <em>Jung Assay SOP</em>. Center for Biofilm Engineering, Mo
 
 ---
 
+<div style="border-left: 4px solid #2d6a4f; background: #f0fdf4; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;" markdown="1">
+<span style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #2d6a4f;">Purpose</span>
+
+Protocol for a 28-day serial transfer experiment measuring ureolytic activity of cold-adapted bacterial isolates using the colorimetric method developed by Jung et al. (1975). Twenty-one isolates from glacial and polar environments are cultured at 15°C in a succinate-urea medium with transfers to fresh medium every 7 days, to test whether successive urea exposure primes increased urea hydrolysis over time. Urea concentration is measured at three timepoints per transfer window using the OPA/NED two-reagent system (505 nm absorbance).
+
+</div>
+
 _Standard Operating Procedure for 28-Day Ureolytic Activity Assay with Serial Transfers_
 
 ## Table of Contents
