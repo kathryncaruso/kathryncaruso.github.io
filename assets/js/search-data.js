@@ -47,6 +47,11 @@ ninja.data = [{
           description: "",
           section: "Methods",handler: () => {
               window.location.href = "/methods/carbon-source-growth-assay/";
+            },},{id: "methods-jung-assay-interactive-diagram",
+          title: 'Jung Assay — Interactive Diagram',
+          description: "",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/jung-assay-diagram/";
             },},{id: "methods-jung-assay-sop",
           title: 'Jung Assay SOP',
           description: "28-day ureolytic activity assay with serial transfers",
