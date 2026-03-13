@@ -37,7 +37,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/methods/";
           },
-        },{id: "methods-bhi-agar",
+        },{id: "methods-bhi-agar-interactive-diagram",
+          title: 'BHI Agar — Interactive Diagram',
+          description: "",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/bhi-agar-diagram/";
+            },},{id: "methods-bhi-agar",
           title: 'BHI Agar',
           description: "",
           section: "Methods",handler: () => {
