@@ -1,5 +1,5 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import CarbonSourceGrowthAssay from "./carbon-source-growth-assay.jsx";
+import JungAssayFlowchartV2 from "./jung-assay.jsx";
 
-createRoot(document.getElementById("diagram-root")).render(<CarbonSourceGrowthAssay />);
+createRoot(document.getElementById("diagram-root")).render(<JungAssayFlowchartV2 />);

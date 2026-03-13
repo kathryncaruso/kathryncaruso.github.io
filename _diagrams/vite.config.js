@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   base: "./",
   build: {
-    outDir: "../assets/diagrams/carbon-source-growth-assay",
+    outDir: "../assets/diagrams/jung-assay",
     emptyOutDir: true,
   },
 });

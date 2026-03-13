@@ -325,6 +325,7 @@ nav_order: 5
       </div>
       <div class="method-links">
         <a class="method-link" href="/methods/jung-assay/">Protocol</a>
+        <a class="method-link" href="/methods/jung-assay-diagram/">Interactive Diagram</a>
         <a class="method-link restricted" href="https://github.com/katie-caruso/research-archive/tree/main/micp/jung-assay/raw-data" title="Private repository — request access">Raw Data [Restricted]</a>
         <a class="method-link restricted" href="https://github.com/katie-caruso/research-archive/tree/main/micp/jung-assay/methods-writeup.md" title="Private repository — request access">Methods Writeup [Restricted]</a>
       </div>
