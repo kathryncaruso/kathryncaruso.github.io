@@ -62,6 +62,7 @@ Original base media
 ---
 
 # Materials
+
 **Media/reagents:**
 
 - [ ] Yeast extract
@@ -86,7 +87,7 @@ Original base media
 - [ ] Color-coded stickers for tube labeling
 - [ ] Inoculating loop (sterile)
 - [ ] Rotating shaker at 15°C (in fridge)
-- [ ] Spectrophotometer (OD600) 
+- [ ] Spectrophotometer (OD600)
 - [ ] Sterile pipettes and tips
 - [ ] 70% ethanol
 - [ ] pH strips
@@ -104,12 +105,13 @@ Combustion and autoclaving must be completed **before** media preparation day. C
 </div>
 
 ## 1.1 Combust glassware
+
 Combustion (dry heat sterilization) removes all organic residues and ensures tubes are free of contaminants that could interfere with growth or OD readings.
 
 1. Wrap glass culture tubes (×39 minimum + spares) loosely in aluminum foil
 2. Place in combustion oven
 3. Combust at **450°C for 5 hours**
-4. Allow to cool completely inside the oven before removing — do not open door while hot (thermal shock can crack tubes) 
+4. Allow to cool completely inside the oven before removing — do not open door while hot (thermal shock can crack tubes)
 5. Keep tubes wrapped/covered until use
 
 <div style="border-left: 4px solid #2d6a4f; background: #f0fdf4; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;" markdown="1">
@@ -120,6 +122,7 @@ Do **not** combust any plastic (caps, etc.)
 </div>
 
 ## 1.2 Autoclave tube closures and other equipment
+
 Autoclave all non-glass items that will contact sterile media or cultures.
 
 **Items to autoclave:**
@@ -144,6 +147,7 @@ Disposable items that come pre-sterilized (e.g., syringe filters, pipette tips, 
 ---
 
 # 2 Preparing media
+
 Prepare **3 base media** (one per carbon source condition) following the same procedure as the original urea-based growth medium protocol, substituting the carbon source as indicated.
 
 ## 2.1 Media formulations
@@ -153,14 +157,15 @@ Prepare **3 base media** (one per carbon source condition) following the same pr
 
 Concentrations matched on a **molar carbon basis** to 0.5 g/L glucose (16.67 mmol C/L). Use the **sodium salt forms** of malate and succinate — biologically equivalent to the free acids but more stable and easier to handle.
 
-| Carbon Source | Reagent Form | Formula | MW (g/mol) | Carbons | Mass for 16.67 mmol C/L |
-| ------------- | ------------ | ------- | ---------- | ------- | ----------------------- |
-| Glucose | Free sugar | C₆H₁₂O₆ | 180.16 | 6 | **0.500 g/L** |
-| Malate | Sodium DL-malate, disodium | C₄H₄Na₂O₅ | 178.05 | 4 | **0.742 g/L** |
-| Succinate | Sodium succinate dibasic hexahydrate (Sigma S2378) | C₄H₄Na₂O₄·6H₂O | 270.14 | 4 | **1.126 g/L** |
-| Acetate | Sodium acetate, anhydrous (CAS 127-09-3) | C₂H₃NaO₂ | 82.03 | 2 | **0.684 g/L** |
+| Carbon Source | Reagent Form                                       | Formula        | MW (g/mol) | Carbons | Mass for 16.67 mmol C/L |
+| ------------- | -------------------------------------------------- | -------------- | ---------- | ------- | ----------------------- |
+| Glucose       | Free sugar                                         | C₆H₁₂O₆        | 180.16     | 6       | **0.500 g/L**           |
+| Malate        | Sodium DL-malate, disodium                         | C₄H₄Na₂O₅      | 178.05     | 4       | **0.742 g/L**           |
+| Succinate     | Sodium succinate dibasic hexahydrate (Sigma S2378) | C₄H₄Na₂O₄·6H₂O | 270.14     | 4       | **1.126 g/L**           |
+| Acetate       | Sodium acetate, anhydrous (CAS 127-09-3)           | C₂H₃NaO₂       | 82.03      | 2       | **0.684 g/L**           |
 
 ### Calculations
+
 **Reference:** Glucose at 0.5 g/L
 
 - 0.500 g/L ÷ 180.16 g/mol = 2.776 mmol/L
@@ -170,16 +175,16 @@ Concentrations matched on a **molar carbon basis** to 0.5 g/L glucose (16.67 mmo
 
 - 16.67 mmol C/L ÷ 4 C/molecule = 4.167 mmol/L
 - 4.167 mmol/L × 178.05 g/mol = **0.742 g/L**
-- *Note: Reagent is a DL racemic mixture — only the L-form is expected to be metabolically 
-  active. Mass has not been doubled to compensate, as the additional osmotic load could 
-  confound results. Note as a limitation when interpreting.*
+- _Note: Reagent is a DL racemic mixture — only the L-form is expected to be metabolically
+  active. Mass has not been doubled to compensate, as the additional osmotic load could
+  confound results. Note as a limitation when interpreting._
 
 **Succinate** (sodium succinate dibasic hexahydrate, MW 270.14 g/mol, 4 C/molecule):
 
 - 16.67 mmol C/L ÷ 4 C/molecule = 4.167 mmol/L
 - 4.167 mmol/L × 270.14 g/mol = **1.126 g/L**
-- *Note: The hexahydrate form means a large fraction of the mass is water — this is why the 
-  required mass is so high relative to the other carbon sources.*
+- _Note: The hexahydrate form means a large fraction of the mass is water — this is why the
+  required mass is so high relative to the other carbon sources._
 
 **Acetate** (sodium acetate anhydrous, MW 82.03 g/mol, 2 C/molecule):
 
@@ -188,7 +193,7 @@ Concentrations matched on a **molar carbon basis** to 0.5 g/L glucose (16.67 mmo
 
 </div>
 
-Table 1. *Base medium formulation per condition (per liter). Amounts calculated to match 16.67 mmol C/L (equivalent to 0.5 g/L glucose).*
+Table 1. _Base medium formulation per condition (per liter). Amounts calculated to match 16.67 mmol C/L (equivalent to 0.5 g/L glucose)._
 
 | Component     | Condition 1 (Malate)                                      | Condition 2 (Succinate)                                             | Condition 3 (Acetate)                                  |
 | ------------- | --------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------ |
@@ -215,6 +220,7 @@ The malate reagent available is sodium DL-malate (racemic mixture). Only the L-f
 | DI water      | to 200 mL       | to 200 mL          | to 200 mL        |
 
 ## 2.3 Prepare each base medium
+
 For each of the 3 conditions, follow the base medium preparation steps from the original urea-based growth medium protocol (Sections 1.1–1.5):
 
 1. Weigh components
@@ -225,6 +231,7 @@ For each of the 3 conditions, follow the base medium preparation steps from the 
 6. Cool to room temperature
 
 ## 2.5 Prepare urea solution
+
 Follow the urea solution preparation from the original protocol (Section 2):
 
 1. Weigh 20 g urea per 100 mL DI water (20% w/v stock)
@@ -233,6 +240,7 @@ Follow the urea solution preparation from the original protocol (Section 2):
 4. Store at 4°C; use within 1 week
 
 ## 2.6 Combine base medium and urea solution
+
 For each condition, aseptically combine base medium and urea stock to achieve 2% (w/v) final urea concentration:
 
 - Work in biosafety cabinet
@@ -253,6 +261,7 @@ Cultures are grown up from single colonies in R2A, OD600 is measured, and inocul
 </div>
 
 ## 3.1 Prepare starter cultures
+
 For each of the 4 isolates:
 
 1. Select an individual colony from the R2A agar plate
@@ -260,22 +269,24 @@ For each of the 4 isolates:
 3. Incubate on a shaking incubator at **15°C** until visibly turbid
 
 ## 3.2 Standardize inoculum
+
 **Target starting OD: 0.025**
 
 ### Measuring starter culture OD
+
 Many starter cultures will be too dense to read directly — use a cuvette dilution series:
 
 1. Add a small volume of starter culture to 1000 µL Milli-Q water in a cuvette
 2. Measure OD600; if reading is >0.3, try a smaller volume or re-dilute
 3. Back-calculate the true OD of the undiluted culture:
-
    - **True OD = measured OD × (total cuvette volume ÷ sample volume added)**
-   - *Example: 10 µL culture in 1000 µL total → True OD = measured OD × 100*
+   - _Example: 10 µL culture in 1000 µL total → True OD = measured OD × 100_
 
 4. Repeat with additional volumes if needed to confirm; average confirmatory reads
 5. Record all dilution steps and measured values in lab notebook
 
 ### Calculating inoculum volume
+
 Use C<sub>1</sub>V<sub>1</sub> with the confirmed true OD:
 
 - C<sub>1</sub> = true OD of starter culture
@@ -285,7 +296,7 @@ Use C<sub>1</sub>V<sub>1</sub> with the confirmed true OD:
 - **V<sub>1</sub> = (0.025 × 3000) ÷ C<sub>1</sub>**
 - Round to nearest 5 µL for pipetting accuracy
 
-###  Inoculum volumes (inoculation date: 2026-03-04)
+### Inoculum volumes (inoculation date: 2026-03-04)
 
 | Isolate | True OD (confirmed) | Inoculum volume | Medium volume | R2A carryover |
 | ------- | ------------------- | --------------- | ------------- | ------------- |
@@ -306,6 +317,7 @@ Use C<sub>1</sub>V<sub>1</sub> with the confirmed true OD:
 # 4 Tube labeling
 
 ## 4.1 Color-coded sticker scheme
+
 Assign one sticker color per isolate for quick visual identification:
 
 | Color  | Isolate |
@@ -390,13 +402,12 @@ Measurements are taken more frequently during early growth and spaced out as the
 
 1. Remove all tubes from the shaker
 2. **Blank the spectrophotometer** with the corresponding uninoculated blank for each condition — blank once per condition, before reading all tubes in that condition:
-
-    - Blank with BLK-Mal → read all 13 malate tubes
-    - Blank with BLK-Suc → read all 13 succinate tubes
-    - Blank with BLK-Ace → read all 13 acetate tubes
+   - Blank with BLK-Mal → read all 13 malate tubes
+   - Blank with BLK-Suc → read all 13 succinate tubes
+   - Blank with BLK-Ace → read all 13 acetate tubes
 
 3. Read OD600 directly in the glass culture tubes
-4. **Record the time of measurement (HH:MM) for each reading** 
+4. **Record the time of measurement (HH:MM) for each reading**
 5. Return tubes to shaker promptly
 
 <div style="border-left: 4px solid #c0713a; background: #fffbf0; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;" markdown="1">
@@ -409,6 +420,7 @@ Use the same spectrophotometer and same tube orientation (align any seam or mark
 ---
 
 # 7 Endpoint measurements
+
 At the conclusion of the experiment (~Day 5):
 
 ## 7.1 Final OD600

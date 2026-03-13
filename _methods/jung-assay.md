@@ -20,9 +20,10 @@ Caruso, K.E. (2026). <em>Jung Assay SOP</em>. Center for Biofilm Engineering, Mo
 
 ---
 
-*Standard Operating Procedure for 28-Day Ureolytic Activity Assay with Serial Transfers*
+_Standard Operating Procedure for 28-Day Ureolytic Activity Assay with Serial Transfers_
 
 ## Table of Contents
+
 [1 Overview](#1-overview)
 [2 Safety](#2-safety)
 [3 Equipment and materials](#3-equipment-and-materials)
@@ -34,12 +35,13 @@ Caruso, K.E. (2026). <em>Jung Assay SOP</em>. Center for Biofilm Engineering, Mo
 ---
 
 ## 1 Overview
-Protocol for a 28-day ureolytic activity assay using the colorimetric method for quantifying urea concentration developed by Jung et al. (1975). Uses a two-reagent system consisting of *o-phthalaldehyde (OPA)* and *N-(1-naphthylethylenediamine) dihydrochloride (NED)* that reacts with urea to produce a stable pink chromophore measurable at 505nm.
+
+Protocol for a 28-day ureolytic activity assay using the colorimetric method for quantifying urea concentration developed by Jung et al. (1975). Uses a two-reagent system consisting of _o-phthalaldehyde (OPA)_ and _N-(1-naphthylethylenediamine) dihydrochloride (NED)_ that reacts with urea to produce a stable pink chromophore measurable at 505nm.
 
 | Component                            | Count                                   |
 | ------------------------------------ | --------------------------------------- |
 | Test isolates                        | 20 × 3 biological replicates = 60 tubes |
-| Positive control (*S. pasteurii*)    | 3 replicates = 3 tubes                  |
+| Positive control (_S. pasteurii_)    | 3 replicates = 3 tubes                  |
 | Negative control (uninoculated)      | 3 replicates = 3 tubes                  |
 | **Total culture tubes per transfer** | **66**                                  |
 | Transfer windows                     | 4 (Days 0, 7, 14, 21)                   |
@@ -74,6 +76,7 @@ Protocol for a 28-day ureolytic activity assay using the colorimetric method for
 ---
 
 ## 2 Safety
+
 **⚠️ WARNING:** Protocol involves handling concentrated acids and toxic reagents.
 
 ### PPE:
@@ -87,8 +90,8 @@ Protocol for a 28-day ureolytic activity assay using the colorimetric method for
 
 - **Concentrated sulfuric acid (H<sub>2</sub>SO<sub>4</sub>):** Corrosive, causes severe burns
 - **Concentrated nitric acid (HNO<sub>3</sub>):** Oxidizer, corrosive, causes severe burns
-- ***o-Phthalaldehyde:*** Toxic, skin and respiratory sensitizer
-- ***NED:*** May be carcinogenic; avoid inhalation and skin contact
+- **_o-Phthalaldehyde:_** Toxic, skin and respiratory sensitizer
+- **_NED:_** May be carcinogenic; avoid inhalation and skin contact
 
 ### Waste:
 
@@ -134,7 +137,7 @@ Protocol for a 28-day ureolytic activity assay using the colorimetric method for
 - [ ] K<sub>2</sub>HPO<sub>4</sub> (potassium phosphate dibasic)
 - [ ] Urea
 - [ ] R2A broth (for starter cultures)
-- [ ] Brain Heart Infusion (BHI) broth (for *S. pasteurii*)
+- [ ] Brain Heart Infusion (BHI) broth (for _S. pasteurii_)
 - [ ] o-Phthalaldehyde (OPA)
 - [ ] N-1-naphthylethylenediamine dihydrochloride (NED)
 - [ ] Brij-L23 surfactant
@@ -150,18 +153,19 @@ Protocol for a 28-day ureolytic activity assay using the colorimetric method for
 | Item                  | Quantity         | Notes                                          |
 | --------------------- | ---------------- | ---------------------------------------------- |
 | Growth medium         | ~1 L             | ~230 mL per transfer × 4 transfers             |
-| Glass culture tubes   | ~66 per transfer | Combusted; replaced at each transfer            |
-| Tube caps/closures    | ~66 per transfer | Autoclaved; replaced at each transfer           |
-| Microcentrifuge tubes | ~792             | For preserved urea samples (66/timepoint × 12)  |
+| Glass culture tubes   | ~66 per transfer | Combusted; replaced at each transfer           |
+| Tube caps/closures    | ~66 per transfer | Autoclaved; replaced at each transfer          |
+| Microcentrifuge tubes | ~792             | For preserved urea samples (66/timepoint × 12) |
 | 96-well plates (Jung) | ~36              | 3 per timepoint × 12 timepoints                |
-| 50 mL Falcon tubes    | ~25              | For starter cultures                            |
+| 50 mL Falcon tubes    | ~25              | For starter cultures                           |
 
 ---
 
 ---
 
 # Part I — Media prep
-*Complete before Day 0*
+
+_Complete before Day 0_
 
 ---
 
@@ -175,6 +179,7 @@ Combustion and autoclaving must be completed **before** media preparation day. C
 </div>
 
 ### 3.5.1 Combust glass culture tubes
+
 Combustion (dry heat sterilization) removes all organic residues and ensures tubes are free of contaminants that could interfere with growth or OD readings.
 
 1. Wash tubes (if needed)
@@ -193,6 +198,7 @@ Do **not** combust any plastic (caps, etc.)
 </div>
 
 ### 3.5.2 Autoclave tube closures and other equipment
+
 Autoclave all non-glass items that will contact sterile media or cultures.
 
 **Items to autoclave:**
@@ -219,6 +225,7 @@ Disposable items that come pre-sterilized (e.g., syringe filters, pipette tips, 
 ## 4 Growth medium
 
 ### 4.1 Succinate-based medium
+
 This medium replaces the original glucose-based formulation. Succinate was selected based on a comparative growth assay in which isolates showed improved growth on succinate relative to glucose, malate, and acetate. Carbon source concentration is matched on a molar carbon basis to the original 0.5 g/L glucose (16.67 mmol C/L).
 
 **Base medium formulation (per liter):**
@@ -250,6 +257,7 @@ This medium replaces the original glucose-based formulation. Succinate was selec
 6. Cool to room temperature before adding urea stock (Section 4.2)
 
 ### 4.2 Urea supplementation
+
 Urea is added separately via a filter-sterilized stock to a final concentration of 2% (20 g/L).
 
 **10% (w/v) urea stock preparation:**
@@ -270,12 +278,13 @@ Urea is added separately via a filter-sterilized stock to a final concentration 
 - Mix gently by swirling
 
 ### 4.3 Volume planning
+
 **Per transfer window:**
 
 | Use                                   | Volume per tube | Number of tubes | Total       |
 | ------------------------------------- | --------------- | --------------- | ----------- |
 | Isolate cultures (20 × 3 replicates)  | 3 mL            | 60              | 180 mL      |
-| Positive control (*S. pasteurii* × 3) | 3 mL            | 3               | 9 mL        |
+| Positive control (_S. pasteurii_ × 3) | 3 mL            | 3               | 9 mL        |
 | Negative control (uninoculated × 3)   | 3 mL            | 3               | 9 mL        |
 | **Subtotal per transfer**             |                 | **66**          | **198 mL**  |
 | Overage (~15%)                        |                 |                 | ~30 mL      |
@@ -291,6 +300,7 @@ Urea is added separately via a filter-sterilized stock to a final concentration 
 - Store in a labeled bottle with appropriate hazard warnings
 
 ### 4.5 R2A broth (for starter cultures)
+
 **Purpose:** Pre-growth medium for all 20 isolates before inoculation into experimental medium.
 
 **Volume needed:**
@@ -311,23 +321,24 @@ Urea is added separately via a filter-sterilized stock to a final concentration 
 
 ## 5 Starter culture preparation (pre-experiment)
 
-### 5.1 Positive control (*Sporosarcina pasteurii*)
+### 5.1 Positive control (_Sporosarcina pasteurii_)
 
 #### 5.1.1 Retrieve and thaw freezer stock
 
 - **Location**: Adie's lab, -80°C freezer, 2nd cabinet (right-hand side), 2nd drawer from bottom
-- **Organism**: *Sporosarcina pasteurii*
+- **Organism**: _Sporosarcina pasteurii_
 - Thaw at room temperature or on ice
 
 #### 5.1.2 Starter culture
-**Purpose**: Grow up frozen *S. pasteurii* under the same incubation conditions as the test isolates.
+
+**Purpose**: Grow up frozen _S. pasteurii_ under the same incubation conditions as the test isolates.
 **Medium**: Brain Heart Infusion (BHI) broth
 
 - Source: Available from Elif
-**Inoculation**:
+  **Inoculation**:
 
 - Using a sterile loop, transfer from thawed freezer stock into a **50 mL Falcon tube** containing **10 mL sterile BHI broth**
-**Growth conditions**:
+  **Growth conditions**:
 
 - Temperature: **15°C**
 - Agitation: **150 RPM** (shaking incubator)
@@ -336,11 +347,12 @@ Urea is added separately via a filter-sterilized stock to a final concentration 
 <div style="border-left: 4px solid #2d6a4f; background: #f0fdf4; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;" markdown="1">
 <span style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #2d6a4f;">Note</span>
 
-*S. pasteurii* grows optimally at 30°C, so growth at 15°C will be slower. This approach ensures the positive control experiences the same temperature conditions as the test isolates throughout the experiment.
+_S. pasteurii_ grows optimally at 30°C, so growth at 15°C will be slower. This approach ensures the positive control experiences the same temperature conditions as the test isolates throughout the experiment.
 
 </div>
 
 ### 5.2 Isolates
+
 Start isolates on R2A **four days before Day 0** (i.e., Day −4).
 
 For each of the 20 isolates:
@@ -354,22 +366,22 @@ For each of the 20 isolates:
 ---
 
 # Part II — Experiment setup, serial transfers, and sampling
-*Days 0–28*
+
+_Days 0–28_
 
 ---
 
 ## 6 Standardize inocula
-**Target starting OD<sub>600</sub>: 0.02–0.04
+
+\*\*Target starting OD<sub>600</sub>: 0.02–0.04
 For each starter culture:
 
 1. Measure OD<sub>600</sub> of the starter culture (dilute if necessary to get an accurate reading)
 2. Back-calculate the true OD if diluted:
-
    - True OD = measured OD × (total volume ÷ sample volume)
-   - *Example: 10 µL culture in 1000 µL total → True OD = measured OD × 100*
+   - _Example: 10 µL culture in 1000 µL total → True OD = measured OD × 100_
 
 3. Calculate inoculum volume using C<sub>1</sub>V<sub>1</sub> = C<sub>2</sub>V<sub>2</sub>:
-
    - V<sub>1</sub> = (0.025 × 3,000 µL) ÷ True OD
 
 4. Round to nearest 5 µL for pipetting accuracy
@@ -380,7 +392,7 @@ For each starter culture:
 ## 7 Transfer 1 — Inoculation and assay initiation (Day 0)
 
 1. For each isolate, inoculate **3 replicate tubes** of succinate + urea medium (3 mL per tube)
-2. Inoculate 3 replicate tubes of *S. pasteurii* positive control (1:100 from starter)
+2. Inoculate 3 replicate tubes of _S. pasteurii_ positive control (1:100 from starter)
 3. Prepare 3 replicate tubes of uninoculated medium (negative control)
 4. Cap all tubes and record time of inoculation
 5. **Collect T0 samples immediately** (see Section 9)
@@ -410,6 +422,7 @@ On each transfer day, perform these steps **in order**:
 </div>
 
 ### 8.2 Transfer procedure
+
 For each culture tube:
 
 1. Vortex or gently mix the outgoing culture to ensure homogeneity
@@ -421,7 +434,7 @@ For each culture tube:
 
 ### 8.4 Positive control
 
-- Transfer *S. pasteurii* 1:100 in the same manner as test isolates
+- Transfer _S. pasteurii_ 1:100 in the same manner as test isolates
 
 ### 8.5 Notes
 
@@ -436,12 +449,12 @@ For each culture tube:
 
 ### 9.1 Sampling timeline
 
-| Transfer | Window | T0 (Day) | Mid (Day) | Final (Day) |
-|----------|--------|----------|-----------|-------------|
-| 1 | Days 0–7 | 0 | 3 or 4 | 7 |
-| 2 | Days 7–14 | 7 | 10 or 11 | 14 |
-| 3 | Days 14–21 | 14 | 17 or 18 | 21 |
-| 4 | Days 21–28 | 21 | 24 or 25 | 28 |
+| Transfer | Window     | T0 (Day) | Mid (Day) | Final (Day) |
+| -------- | ---------- | -------- | --------- | ----------- |
+| 1        | Days 0–7   | 0        | 3 or 4    | 7           |
+| 2        | Days 7–14  | 7        | 10 or 11  | 14          |
+| 3        | Days 14–21 | 14       | 17 or 18  | 21          |
+| 4        | Days 21–28 | 21       | 24 or 25  | 28          |
 
 <div style="border-left: 4px solid #2d6a4f; background: #f0fdf4; border-radius: 4px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.65;" markdown="1">
 <span style="font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; color: #2d6a4f;">Note</span>
@@ -451,6 +464,7 @@ On transfer days (Days 7, 14, 21), two sampling events occur: the **Final** of t
 </div>
 
 ### 9.2 Measurements at each timepoint
+
 At each of the 12 timepoints, collect from every tube (66 total):
 
 1. **Urea sample** — preserved for Jung assay (see Section 9.3)
@@ -469,14 +483,13 @@ Stop urease activity immediately upon sampling and dilute samples to fall within
 **Procedure:**
 
 1. **Immediate preservation**
-
    - Option A (Acid): Mix 30 µL culture + 570 µL of 5% HNO<sub>3</sub> (1:20 dilution)
 
 2. **Label and store**
-
    - Label tubes with: Isolate ID, Transfer #, Timepoint (T0/Mid/Final), Date
 
 #### Method A: Acid preservation
+
 **Advantages:** Instantaneous enzyme inactivation, stable samples, no filtration required
 **Disadvantages:** Requires acid handling, standards must also be prepared in acid
 
@@ -514,7 +527,7 @@ Use the same spectrophotometer and same tube orientation (align any seam or mark
 
 # Part III — Reading the Jung assay
 
-*Run after collecting preserved samples. Can be batched — does not need to happen on sampling day if using acid preservation.*
+_Run after collecting preserved samples. Can be batched — does not need to happen on sampling day if using acid preservation._
 
 ---
 
@@ -523,6 +536,7 @@ Use the same spectrophotometer and same tube orientation (align any seam or mark
 **Note:** Always add acid to water (never water to acid) when diluting concentrated acids. Work in a fume hood.
 
 ### 10.1 Reagent 1: Brij-L23 Solution (33% v/v)
+
 **Purpose:** Surfactant to enhance color development and stabilize the chromophore
 **Preparation:**
 
@@ -534,13 +548,13 @@ Use the same spectrophotometer and same tube orientation (align any seam or mark
 **Storage:** Room temperature, stable for several months. Final concentration: 33% v/v.
 
 ### 10.2 Reagent 2: o-Phthalaldehyde (OPA) Solution
+
 **Purpose:** Primary reagent that reacts with urea in the presence of sulfuric acid
 **Volume:** 1 L (sufficient for ~4,000 wells)
 **Preparation (in fume hood):**
 
 1. Add approximately 800 mL of deionized water to a 1 L volumetric flask
 2. Carefully add 74 mL of concentrated H<sub>2</sub>SO<sub>4</sub> **(SLOWLY, always acid to water)**
-
    - Pour the acid slowly down the side of the flask while swirling gently
    - The solution will heat up significantly; this is normal
 
@@ -554,6 +568,7 @@ Use the same spectrophotometer and same tube orientation (align any seam or mark
 **Storage:** Store in an amber bottle at room temperature. Stable for several weeks.
 
 ### 10.3 Reagent 3: NED Solution
+
 **Purpose:** Secondary reagent that completes the chromophore formation, producing the pink color
 **Volume:** 1 L (sufficient for ~4,000 wells)
 
@@ -563,7 +578,6 @@ Use the same spectrophotometer and same tube orientation (align any seam or mark
 2. Weigh 5.0 g of boric acid
 3. Add the boric acid to the water and swirl until completely dissolved
 4. Carefully add 222 mL of concentrated H<sub>2</sub>SO<sub>4</sub> **(SLOWLY, always acid to water)**
-
    - Pour slowly down the side of the flask while swirling
    - Allow adequate cooling time due to heat generation
 
@@ -583,12 +597,12 @@ Use the same spectrophotometer and same tube orientation (align any seam or mark
 **⚠️ CRITICAL:** Standards must be matrix-matched to your samples. If samples are in 5% HNO<sub>3</sub>, prepare standards in 5% HNO<sub>3</sub>. If samples are in DI water, prepare standards in DI water.
 
 ### 11.1 Urea stock (2.0 g/L)
+
 **Preparation:**
 
 1. Accurately weigh 0.200 g (±0.001 g) of urea using an analytical balance
 2. Transfer to a 100 mL volumetric flask
 3. Add approximately 80 mL of either:
-
    - Deionized water (for DI-based standards), OR
    - 5% HNO<sub>3</sub> solution (for acid-preserved samples)
 
@@ -600,12 +614,13 @@ Use the same spectrophotometer and same tube orientation (align any seam or mark
 **Storage:** Refrigerate at 4°C in a tightly sealed container. Stable for one week. Discard and prepare fresh weekly.
 
 ### 11.2 Working standards
+
 Prepare working standards fresh on the day of analysis by diluting the 2.0 g/L stock solution.
 
-Table. *Dilution instructions for preparing 10 mL of each standard concentration.*
+Table. _Dilution instructions for preparing 10 mL of each standard concentration._
 
 | Target (g/L) | Stock (mL) | DI Water/Acid (mL) | Final Volume (mL) | Purpose     |
-|--------------|------------|--------------------|-------------------|-------------|
+| ------------ | ---------- | ------------------ | ----------------- | ----------- |
 | 2.00         | 10.0       | 0.0                | 10.0              | Upper limit |
 | 1.50         | 7.5        | 2.5                | 10.0              | Mid-high    |
 | 1.00         | 5.0        | 5.0                | 10.0              | Midpoint    |
@@ -630,41 +645,41 @@ Table. *Dilution instructions for preparing 10 mL of each standard concentration
 
 **Plate 1 of 3** (per timepoint) — Isolates 1–8 + Standards
 
-|     | 1    | 2    | 3    | 4      | 5      | 6      | 7      | 8      | 9      | 10     | 11     | 12     |
-|-----|------|------|------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-| A   | Std 0.00 | Std 0.00 | Std 0.00 | GG7-R1 | GG7-R1 | GG7-R1 | GG22-R1 | GG22-R1 | GG22-R1 | GNP009-R1 | GNP009-R1 | GNP009-R1 |
-| B   | Std 0.25 | Std 0.25 | Std 0.25 | GG7-R2 | GG7-R2 | GG7-R2 | GG22-R2 | GG22-R2 | GG22-R2 | GNP009-R2 | GNP009-R2 | GNP009-R2 |
-| C   | Std 0.50 | Std 0.50 | Std 0.50 | GG7-R3 | GG7-R3 | GG7-R3 | GG22-R3 | GG22-R3 | GG22-R3 | GNP009-R3 | GNP009-R3 | GNP009-R3 |
-| D   | Std 1.00 | Std 1.00 | Std 1.00 | GG8-R1 | GG8-R1 | GG8-R1 | GG27B-R1 | GG27B-R1 | GG27B-R1 | GNP012-R1 | GNP012-R1 | GNP012-R1 |
-| E   | Std 1.50 | Std 1.50 | Std 1.50 | GG8-R2 | GG8-R2 | GG8-R2 | GG27B-R2 | GG27B-R2 | GG27B-R2 | GNP012-R2 | GNP012-R2 | GNP012-R2 |
-| F   | Std 2.00 | Std 2.00 | Std 2.00 | GG8-R3 | GG8-R3 | GG8-R3 | GG27B-R3 | GG27B-R3 | GG27B-R3 | GNP012-R3 | GNP012-R3 | GNP012-R3 |
-| G   | | | | GNP013-R1 | GNP013-R1 | GNP013-R1 | GNP014-R1 | GNP014-R1 | GNP014-R1 | | | |
-| H   | | | | GNP013-R2 | GNP013-R2 | GNP013-R2 | GNP014-R2 | GNP014-R2 | GNP014-R2 | | | |
+|     | 1        | 2        | 3        | 4         | 5         | 6         | 7         | 8         | 9         | 10        | 11        | 12        |
+| --- | -------- | -------- | -------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| A   | Std 0.00 | Std 0.00 | Std 0.00 | GG7-R1    | GG7-R1    | GG7-R1    | GG22-R1   | GG22-R1   | GG22-R1   | GNP009-R1 | GNP009-R1 | GNP009-R1 |
+| B   | Std 0.25 | Std 0.25 | Std 0.25 | GG7-R2    | GG7-R2    | GG7-R2    | GG22-R2   | GG22-R2   | GG22-R2   | GNP009-R2 | GNP009-R2 | GNP009-R2 |
+| C   | Std 0.50 | Std 0.50 | Std 0.50 | GG7-R3    | GG7-R3    | GG7-R3    | GG22-R3   | GG22-R3   | GG22-R3   | GNP009-R3 | GNP009-R3 | GNP009-R3 |
+| D   | Std 1.00 | Std 1.00 | Std 1.00 | GG8-R1    | GG8-R1    | GG8-R1    | GG27B-R1  | GG27B-R1  | GG27B-R1  | GNP012-R1 | GNP012-R1 | GNP012-R1 |
+| E   | Std 1.50 | Std 1.50 | Std 1.50 | GG8-R2    | GG8-R2    | GG8-R2    | GG27B-R2  | GG27B-R2  | GG27B-R2  | GNP012-R2 | GNP012-R2 | GNP012-R2 |
+| F   | Std 2.00 | Std 2.00 | Std 2.00 | GG8-R3    | GG8-R3    | GG8-R3    | GG27B-R3  | GG27B-R3  | GG27B-R3  | GNP012-R3 | GNP012-R3 | GNP012-R3 |
+| G   |          |          |          | GNP013-R1 | GNP013-R1 | GNP013-R1 | GNP014-R1 | GNP014-R1 | GNP014-R1 |           |           |           |
+| H   |          |          |          | GNP013-R2 | GNP013-R2 | GNP013-R2 | GNP014-R2 | GNP014-R2 | GNP014-R2 |           |           |           |
 
-*Note: This is a suggested layout. Adjust as needed for your pipetting workflow.*
+_Note: This is a suggested layout. Adjust as needed for your pipetting workflow._
 
 **Plate 2 of 3** — Isolates 9–16 + Standards
-**Plate 3 of 3** — Isolates 17–20 + Controls (*S. pasteurii*, uninoculated) + Standards
+**Plate 3 of 3** — Isolates 17–20 + Controls (_S. pasteurii_, uninoculated) + Standards
 
 ### 12.3 Assay volumes per well
 
-| Component | Volume | Order of Addition |
-|-----------|--------|-------------------|
-| Sample or Standard | 10 µL | 1st — Add to designated wells |
-| Reagent 2 (OPA) | 125 µL | 2nd — Add to all wells |
-| Reagent 3 (NED) | 125 µL | 3rd — Add to all wells |
-| **Total Volume** | **260 µL** | Then mix and incubate |
+| Component          | Volume     | Order of Addition             |
+| ------------------ | ---------- | ----------------------------- |
+| Sample or Standard | 10 µL      | 1st — Add to designated wells |
+| Reagent 2 (OPA)    | 125 µL     | 2nd — Add to all wells        |
+| Reagent 3 (NED)    | 125 µL     | 3rd — Add to all wells        |
+| **Total Volume**   | **260 µL** | Then mix and incubate         |
 
 ### 12.4 Color development guide
 
-| Urea Concentration | Expected Color Intensity |
-|--------------------|--------------------------|
-| 0.00 g/L (Blank) | Colorless to very pale pink |
-| 0.25 g/L | Light pink |
-| 0.50 g/L | Medium-light pink |
-| 1.00 g/L | Medium pink |
-| 1.50 g/L | Medium-dark pink |
-| 2.00 g/L | Dark pink |
+| Urea Concentration | Expected Color Intensity    |
+| ------------------ | --------------------------- |
+| 0.00 g/L (Blank)   | Colorless to very pale pink |
+| 0.25 g/L           | Light pink                  |
+| 0.50 g/L           | Medium-light pink           |
+| 1.00 g/L           | Medium pink                 |
+| 1.50 g/L           | Medium-dark pink            |
+| 2.00 g/L           | Dark pink                   |
 
 ### 12.5 Step-by-step procedure
 
@@ -718,6 +733,7 @@ Table. *Dilution instructions for preparing 10 mL of each standard concentration
 ## 13 Analysis
 
 ### 13.1 Quality control
+
 Before proceeding with calculations, verify:
 
 - **Coefficient of variation (CV) for triplicates:** Should be <5%
@@ -727,41 +743,49 @@ Before proceeding with calculations, verify:
 ### 13.2 Standard curve construction
 
 #### Step 1: Average triplicate absorbance values
+
 For each standard, calculate the mean absorbance of the three replicate wells:
 **A<sub>mean</sub> = (A₁ + A₂ + A₃) / 3**
 
 #### Step 2: Subtract blank
+
 Subtract the mean absorbance of the 0.0 g/L standard (blank) from all other values:
 **A<sub>corrected</sub> = A<sub>mean</sub> − A<sub>blank</sub>**
 
 #### Step 3: Plot standard curve
+
 Create a scatter plot with:
 
 - **X-axis:** Urea concentration (g/L)
 - **Y-axis:** Corrected absorbance (A<sub>corrected</sub>)
 
 #### Step 4: Perform linear regression
-Fit a linear regression line: ***y = mx + b***
 
-- *y* = corrected absorbance
-- *x* = urea concentration (g/L)
-- *m* = slope (sensitivity)
-- *b* = y-intercept (should be near zero after blank correction)
+Fit a linear regression line: **_y = mx + b_**
+
+- _y_ = corrected absorbance
+- _x_ = urea concentration (g/L)
+- _m_ = slope (sensitivity)
+- _b_ = y-intercept (should be near zero after blank correction)
 
 **Acceptance criteria:** R² ≥ 0.97 (preferably ≥ 0.99). If R² is below 0.97, troubleshoot and repeat the assay.
 
 ### 13.3 Sample concentration calculation
 
 #### Step 1: Average sample triplicates
+
 **A<sub>sample</sub> = (A₁ + A₂ + A₃) / 3**
 
 #### Step 2: Subtract blank
+
 **A<sub>corrected</sub> = A<sub>sample</sub> − A<sub>blank</sub>**
 
 #### Step 3: Calculate measured concentration
+
 **C<sub>m</sub> = (A<sub>corrected</sub> − b) / m**
 
 #### Step 4: Apply dilution factor
+
 **C<sub>sample</sub> = C<sub>m</sub> × DF**
 
 ### 13.4 Reporting
@@ -773,14 +797,15 @@ Fit a linear regression line: ***y = mx + b***
 - **Calibration equation and R²:** Include for quality assurance
 
 **Example entry:**
-*"Sample GG7-T2-Mid: Urea concentration = 17.0 ± 0.4 g/L (mean ± SD, n=3). Sample diluted 1:20 in 5% HNO₃. Calibration curve: y = 0.498x + 0.005, R² = 0.998."*
+_"Sample GG7-T2-Mid: Urea concentration = 17.0 ± 0.4 g/L (mean ± SD, n=3). Sample diluted 1:20 in 5% HNO₃. Calibration curve: y = 0.498x + 0.005, R² = 0.998."_
 
 ---
 
 ## References
+
 Protocol adapted from:
 
-Jung, D., Biggs, H., Erikson, J., & Ledyard, P. U. (1975). New Colorimetric Reaction for End-Point, Continuous-Flow, and Kinetic Measurement of Urea. *Clinical Chemistry*, *21*(8), 1136–1140. https://doi.org/10.1093/clinchem/21.8.1136
+Jung, D., Biggs, H., Erikson, J., & Ledyard, P. U. (1975). New Colorimetric Reaction for End-Point, Continuous-Flow, and Kinetic Measurement of Urea. _Clinical Chemistry_, _21_(8), 1136–1140. https://doi.org/10.1093/clinchem/21.8.1136
 
 ---
 
@@ -790,10 +815,10 @@ Jung, D., Biggs, H., Erikson, J., & Ledyard, P. U. (1975). New Colorimetric Reac
 
 - **28-day assay** with 4 serial transfer windows (Days 0–7, 7–14, 14–21, 21–28)
 - **20 isolates** × 3 biological replicates = 60 culture tubes
-- **Controls:** *S. pasteurii* (positive, ×3) + uninoculated medium (negative, ×3) = 6 tubes
+- **Controls:** _S. pasteurii_ (positive, ×3) + uninoculated medium (negative, ×3) = 6 tubes
 - **66 total culture tubes** per transfer window
 - **Culture vessel:** Combusted glass culture tubes (16 × 150 mm) on rotating shaker
-- **Starter cultures:** R2A broth (isolates) / BHI broth (*S. pasteurii*), 50 mL Falcon tubes, 15°C shaking 150 RPM, 4 days
+- **Starter cultures:** R2A broth (isolates) / BHI broth (_S. pasteurii_), 50 mL Falcon tubes, 15°C shaking 150 RPM, 4 days
 - **1:100 transfer ratio** into fresh medium every 7 days
 - **3 timepoints per transfer:** T0, Mid (~Day 3–4), Final (Day 7)
 - **12 total timepoints** across the experiment
