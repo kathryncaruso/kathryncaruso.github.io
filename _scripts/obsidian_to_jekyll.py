@@ -310,6 +310,53 @@ def convert_highlights(content: str) -> str:
     return re.sub(r'==(.*?)==', r'<mark>\1</mark>', content)
 
 
+def ensure_block_spacing(content: str) -> str:
+    """
+    Ensure blank lines before block elements that Kramdown requires them for.
+
+    Without blank lines, Kramdown treats headings, lists, tables, and
+    horizontal rules as continuation of the previous paragraph — causing
+    broken rendering (no list numbers, merged sections, etc.).
+    """
+    lines = content.split('\n')
+    result = []
+
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        if i > 0 and result:
+            prev = result[-1].strip()
+            needs_blank = False
+
+            # Blank line before headings (##, ###, etc.)
+            if re.match(r'^#{1,6}\s', stripped) and prev != '':
+                needs_blank = True
+            # Blank line before ordered lists (1. 2. etc.) if prev is not a list item
+            elif re.match(r'^\d+\.\s', stripped) and not re.match(r'^\d+\.\s', prev) and prev != '':
+                needs_blank = True
+            # Blank line before unordered lists (- * +) if prev is not a list item
+            elif re.match(r'^[-*+]\s', stripped) and not re.match(r'^[-*+]\s', prev) and prev != '' and not re.match(r'^[-*+]\s', prev):
+                needs_blank = True
+            # Blank line before horizontal rules
+            elif stripped == '---' and prev != '':
+                needs_blank = True
+            # Blank line before tables
+            elif stripped.startswith('|') and not prev.startswith('|') and prev != '':
+                needs_blank = True
+            # Blank line before HTML divs
+            elif stripped.startswith('<div') and prev != '':
+                needs_blank = True
+            # Blank line after closing HTML divs
+            elif prev.startswith('</div>') and stripped != '' and not stripped.startswith('</'):
+                needs_blank = True
+
+            if needs_blank:
+                result.append('')
+
+        result.append(line)
+
+    return '\n'.join(result)
+
+
 def strip_first_h1(content: str) -> str:
     """
     Remove the first H1 heading from content (since Jekyll front matter
@@ -368,10 +415,13 @@ def convert(content: str, filename: str, args) -> str:
     content = convert_wikilinks(content, base_url=args.base_url)
     content = convert_highlights(content)
 
-    # 7. Clean up extra blank lines
+    # 7. Ensure blank lines before block elements (headings, lists, tables, etc.)
+    content = ensure_block_spacing(content)
+
+    # 8. Clean up extra blank lines
     content = re.sub(r'\n{3,}', '\n\n', content)
 
-    # 8. Assemble: front matter + byline + content
+    # 9. Assemble: front matter + byline + content
     parts = [front_matter, '']
     if byline:
         parts.append(byline)
