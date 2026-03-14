@@ -62,9 +62,9 @@ ninja.data = [{
           description: "",
           section: "Methods",handler: () => {
               window.location.href = "/methods/jung-assay-diagram/";
-            },},{id: "methods-jung-assay-sop",
-          title: 'Jung Assay SOP',
-          description: "28-day ureolytic activity assay with serial transfers",
+            },},{id: "methods-jung-assay-sop-v2-serial-transfer-design",
+          title: 'Jung Assay SOP — v2 (Serial Transfer Design)',
+          description: "",
           section: "Methods",handler: () => {
               window.location.href = "/methods/jung-assay/";
             },},{id: "projects-biocementation-in-permafrost-environments",
