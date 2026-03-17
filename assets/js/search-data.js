@@ -11,14 +11,14 @@ ninja.data = [{
     },
   },{id: "nav-cv",
           title: "cv",
-          description: "",
+          description: "Academic CV for Kathryn Caruso — education, publications, research experience, and awards in microbiology and biofilm engineering.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
           },
         },{id: "nav-publications",
           title: "publications",
-          description: "Publications are grouped by theme below.",
+          description: "Peer-reviewed publications in environmental microbiology, plant genetics, and forest ecology by Kathryn Caruso.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/publications/";
