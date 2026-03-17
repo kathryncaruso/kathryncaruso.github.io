@@ -2,6 +2,7 @@
 layout: about
 title: about
 permalink: /
+description: Kathryn Caruso is a Microbiology PhD student at Montana State University studying cold-adapted bacteria and biocementation in permafrost environments.
 subtitle: >
   PhD Student · <a href="https://www.montana.edu/biofilm/">Center for Biofilm Engineering</a> · Montana State University
 

@@ -2,6 +2,7 @@
 layout: default
 permalink: /blog/
 title: blog
+description: Blog posts on microbiology research, biofilm engineering, remote sensing, and graduate student life at Montana State University.
 nav: false
 nav_order: 1
 pagination:

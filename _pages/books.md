@@ -2,6 +2,7 @@
 layout: book-shelf
 title: bookshelf
 permalink: /books/
+description: Reading list and book recommendations from a microbiology PhD student — science, ecology, and more.
 nav: false
 collection: books
 ---

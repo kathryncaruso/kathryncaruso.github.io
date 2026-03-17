@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: Publications are grouped by theme below.
+description: Peer-reviewed publications in environmental microbiology, plant genetics, and forest ecology by Kathryn Caruso.
 nav: true
 nav_order: 3
 ---
