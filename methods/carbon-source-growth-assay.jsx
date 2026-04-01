@@ -931,22 +931,12 @@ export default function CarbonSourceGrowthAssay({ onBack }) {
                 0009-0003-2436-1791
               </a>
             </p>
-            <p>Center for Biofilm Engineering, Montana State University</p>
-            <p>
-              Updated March 2026 ·{" "}
-              <a
-                href="https://creativecommons.org/licenses/by-sa/4.0/"
-                className="text-emerald-700 underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                CC-BY-SA 4.0
-              </a>
-            </p>
+            <p>Foreman Lab · Center for Biofilm Engineering, Montana State University</p>
+            <p>Updated March 2026</p>
             <details className="mt-2 inline-block text-left">
               <summary className="cursor-pointer text-emerald-700">How to cite this protocol</summary>
               <p className="mt-1 text-gray-600">
-                Caruso, K.E. (2026). <em>Carbon Source Growth Assay — Interactive Diagram</em>. Center for Biofilm Engineering, Montana State
+                Caruso, K.E. (2026). <em>Carbon Source Growth Assay — Interactive Diagram</em>. Foreman Lab, Center for Biofilm Engineering, Montana State
                 University. https://kathryncaruso.github.io/methods/carbon-source-growth-assay-diagram/
               </p>
             </details>

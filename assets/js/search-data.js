@@ -37,7 +37,27 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/methods/";
           },
-        },{id: "methods-bhi-agar-interactive-diagram",
+        },{id: "methods-1-m-hcl-amp-naoh-for-ph-adjustment",
+          title: '1 M HCl &amp;amp; NaOH for pH Adjustment',
+          description: "Preparation of 1 M stock solutions of hydrochloric acid and sodium hydroxide for routine pH adjustment of media and buffers.",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/1m-hcl-naoh-ph-adjustment/";
+            },},{id: "methods-5-nitric-acid-solution",
+          title: '5% Nitric Acid Solution',
+          description: "Preparation of 5% (v/v) nitric acid for acid preservation of biological samples and urea standards.",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/5pct-nitric-acid/";
+            },},{id: "methods-autoclave-operation-interactive-diagram",
+          title: 'Autoclave Operation — Interactive Diagram',
+          description: "",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/autoclave-diagram/";
+            },},{id: "methods-autoclave-sterilization-and-decontamination",
+          title: 'Autoclave Sterilization and Decontamination',
+          description: "Protocol for sterilizing equipment, media, and decontaminating biological waste using autoclave cycles.",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/autoclave/";
+            },},{id: "methods-bhi-agar-interactive-diagram",
           title: 'BHI Agar — Interactive Diagram',
           description: "",
           section: "Methods",handler: () => {
@@ -47,6 +67,16 @@ ninja.data = [{
           description: "",
           section: "Methods",handler: () => {
               window.location.href = "/methods/bhi-agar/";
+            },},{id: "methods-bhi-broth",
+          title: 'BHI Broth',
+          description: "General-purpose nutrient-rich liquid medium for growing Sporosarcina pasteurii starter cultures.",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/bhi-broth/";
+            },},{id: "methods-bhi-urea-agar",
+          title: 'BHI Urea Agar',
+          description: "Brain Heart Infusion agar supplemented with 2% urea for cultivating and screening ureolytic bacteria",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/bhi-urea-agar/";
             },},{id: "methods-carbon-source-growth-assay-interactive-diagram",
           title: 'Carbon Source Growth Assay — Interactive Diagram',
           description: "",
@@ -57,6 +87,11 @@ ninja.data = [{
           description: "",
           section: "Methods",handler: () => {
               window.location.href = "/methods/carbon-source-growth-assay/";
+            },},{id: "methods-combustion-dry-heat-sterilization-of-glassware",
+          title: 'Combustion (Dry Heat Sterilization) of Glassware',
+          description: "Procedure for combustion sterilization of glassware to remove organic residues and contaminants.",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/combustion-glassware/";
             },},{id: "methods-jung-assay-interactive-diagram",
           title: 'Jung Assay — Interactive Diagram',
           description: "",
@@ -67,6 +102,41 @@ ninja.data = [{
           description: "",
           section: "Methods",handler: () => {
               window.location.href = "/methods/jung-assay/";
+            },},{id: "methods-plating-bacterial-cultures-from-freezer-stocks-interactive-diagram",
+          title: 'Plating Bacterial Cultures from Freezer Stocks — Interactive Diagram',
+          description: "",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/plating-from-freezer-stock-diagram/";
+            },},{id: "methods-plating-bacterial-cultures-from-freezer-stocks",
+          title: 'Plating Bacterial Cultures from Freezer Stocks',
+          description: "Recover viable colonies from −80°C glycerol freezer stocks by streak plating onto appropriate agar media.",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/plating-from-freezer-stock/";
+            },},{id: "methods-r2a-broth-two-cycle-growth-protocol-interactive-diagram",
+          title: 'R2A Broth — Two-Cycle Growth Protocol — Interactive Diagram',
+          description: "",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/r2a-broth-diagram/";
+            },},{id: "methods-r2a-broth-two-cycle-growth-protocol",
+          title: 'R2A Broth — Two-Cycle Growth Protocol',
+          description: "Two-cycle liquid culture protocol using R2A broth for bacterial isolate growth and urea conditioning.",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/r2a-broth/";
+            },},{id: "methods-s-pasteurii-starter-culture",
+          title: 'S. pasteurii Starter Culture',
+          description: "Revival and starter culture preparation of Sporosarcina pasteurii from freezer stock for use as a positive control in ureolytic activity assays",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/s-pasteurii-starter/";
+            },},{id: "methods-standardize-inoculum-by-od600",
+          title: 'Standardize Inoculum by OD600',
+          description: "Procedure for standardizing bacterial inocula to a target OD600 using C1V1=C2V2 dilution calculations.",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/standardize-inoculum/";
+            },},{id: "methods-succinate-urea-growth-medium",
+          title: 'Succinate-Urea Growth Medium',
+          description: "Preparation of a succinate-based growth medium supplemented with 2% urea for culturing cold-adapted bacterial isolates in ureolytic activity assays",
+          section: "Methods",handler: () => {
+              window.location.href = "/methods/succinate-urea-medium/";
             },},{id: "projects-biocementation-in-permafrost-environments",
           title: 'Biocementation in Permafrost Environments',
           description: "Studying applications of cold-adapted bacterial isolates for microbially-induced calcium carbonate precipitation (MICP) to stabilize defense materials in Arctic environments.",
