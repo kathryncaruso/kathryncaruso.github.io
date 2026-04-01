@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoclave Sterilization & Decontamination</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg-card: #fafafa;
+            --border: #e8e8e8;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --accent: #2d6a4f;
+            --accent-light: #f0fdf4;
+            --warning: #c0713a;
+            --warning-light: #fffbf0;
+            --danger: #b91c1c;
+            --danger-light: #fef2f2;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0a0a0a;
+                --bg-card: #141414;
+                --border: #252525;
+                --text-primary: #f0f0f0;
+                --text-secondary: #999;
+                --accent: #4ade80;
+                --accent-light: rgba(74, 222, 128, 0.1);
+                --warning: #fb923c;
+                --warning-light: rgba(251, 146, 60, 0.1);
+                --danger: #f87171;
+                --danger-light: rgba(248, 113, 113, 0.1);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            transition: background-color 0.2s, color 0.2s;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            color: var(--text-secondary);
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: 2px solid var(--accent);
+            background-color: var(--accent);
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-light);
+        }
+
+        #diagram-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .decision-tree {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .tree-node {
+            background-color: var(--bg);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.2s;
+        }
+
+        .tree-node.root {
+            border-color: var(--accent);
+            background-color: var(--accent-light);
+            margin-bottom: 20px;
+        }
+
+        .tree-node.branch {
+            margin-left: 0;
+        }
+
+        .tree-node.leaf {
+            border-left: 4px solid var(--accent);
+        }
+
+        .tree-node.expanded {
+            border-color: var(--accent);
+            background-color: var(--accent-light);
+        }
+
+        .node-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .node-header:hover {
+            opacity: 0.9;
+        }
+
+        .node-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .tree-node.expanded .node-toggle {
+            transform: rotate(90deg);
+        }
+
+        .node-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .tree-node.root .node-title {
+            color: var(--accent);
+            font-size: 1.3em;
+        }
+
+        .node-content {
+            display: none;
+            margin-top: 16px;
+            animation: slideDown 0.2s ease-out;
+        }
+
+        .tree-node.expanded .node-content {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .param-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .param {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px;
+        }
+
+        .param-label {
+            font-size: 0.85em;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .param-value {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--accent);
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+
+        .steps {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .steps-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .steps ol {
+            list-style-position: inside;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .steps li {
+            font-size: 0.95em;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .safety-note {
+            background-color: var(--danger-light);
+            border-left: 4px solid var(--danger);
+            border-radius: 6px;
+            padding: 12px;
+            margin-top: 12px;
+            font-size: 0.9em;
+            color: var(--text-primary);
+        }
+
+        .safety-note strong {
+            color: var(--danger);
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted var(--text-secondary);
+            cursor: help;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 220px;
+            background-color: var(--accent);
+            color: white;
+            text-align: left;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1000;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -110px;
+            opacity: 0;
+            transition: opacity 0.2s;
+            font-size: 0.85em;
+            font-weight: normal;
+            border: none;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--accent) transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .branches-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .branch-item {
+            background-color: var(--bg);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            transition: all 0.2s;
+        }
+
+        .branch-item:hover {
+            border-color: var(--accent);
+            background-color: var(--accent-light);
+        }
+
+        .branch-item.expanded {
+            border-color: var(--accent);
+            background-color: var(--accent-light);
+        }
+
+        .branch-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            user-select: none;
+        }
+
+        .branch-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .branch-item.expanded .branch-toggle {
+            transform: rotate(90deg);
+        }
+
+        .branch-content {
+            display: none;
+            font-size: 0.95em;
+            color: var(--text-secondary);
+        }
+
+        .branch-item.expanded .branch-content {
+            display: block;
+            animation: slideDown 0.2s ease-out;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 8px;
+            font-size: 0.9em;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: var(--text-primary);
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 0.9em;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            #diagram-container {
+                padding: 16px;
+            }
+
+            .branches-container {
+                grid-template-columns: 1fr;
+            }
+
+            .param-group {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .keyboard-hint {
+            font-size: 0.75em;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Autoclave Sterilization & Decontamination</h1>
+        <p>Cycle Selection Guide — Interactive Decision Tree</p>
+    </div>
+
+    <div class="controls">
+        <button onclick="exportPNG()" class="btn-secondary">📥 Export as PNG</button>
+        <button onclick="resetAll()" class="btn-secondary">↻ Reset All</button>
+    </div>
+
+    <div id="diagram-container">
+        <div class="decision-tree">
+            <!-- Root Decision Node -->
+            <div class="tree-node root" tabindex="0" data-node-id="root">
+                <div class="node-header" onclick="toggleNode(this)">
+                    <span class="node-title">What are you autoclaving?</span>
+                </div>
+                <p class="keyboard-hint">Click or press Enter to expand branches</p>
+            </div>
+
+            <!-- Four Main Branches -->
+            <div class="branches-container">
+                <!-- Branch 1: Equipment -->
+                <div class="branch-item" tabindex="0" data-node-id="equipment" onkeydown="handleKeyboard(event, 'equipment')">
+                    <div class="branch-title" onclick="toggleBranch(this)">
+                        <span class="branch-toggle">▶</span>
+                        Equipment (Dry Items)
+                    </div>
+                    <div class="branch-content">
+                        <div class="param-group">
+                            <div class="param">
+                                <div class="param-label">Cycle Type</div>
+                                <div class="param-value">Dry / Gravity</div>
+                            </div>
+                            <div class="param">
+                                <div class="param-label">Temperature</div>
+                                <div class="param-value">121°C</div>
+                            </div>
+                            <div class="param">
+                                <div class="param-label">Pressure</div>
+                                <div class="param-value">15 psi</div>
+                            </div>
+                            <div class="param">
+                                <div class="param-label">Time</div>
+                                <div class="param-value">15–20 min</div>
+                            </div>
+                        </div>
+                        <div class="steps">
+                            <div class="steps-title">Items to Autoclave:</div>
+                            <ul style="margin-left: 20px; color: var(--text-secondary); font-size: 0.9em;">
+                                <li>Tube caps/closures</li>
+                                <li>Reusable tools contacting cultures</li>
+                                <li>Media bottles (empty)</li>
+                                <li>Non-glass, non-pre-sterilized items</li>
+                            </ul>
+                        </div>
+                        <div class="steps">
+                            <div class="steps-title">Procedure:</div>
+                            <ol>
+                                <li>Wrap items loosely in aluminum foil or autoclave bags</li>
+                                <li>Apply autoclave tape to each package</li>
+                                <li>Use <strong>Dry cycle</strong></li>
+                                <li>Allow to cool completely inside autoclave</li>
+                                <li>Label tape with date and initials</li>
+                            </ol>
+                        </div>
+                        <div class="safety-note">
+                            <strong>⚠ Safety:</strong> Never open autoclave immediately after cycle ends. Wait for pressure to reach 0 psi. Allow items to cool completely.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branch 2: Liquid Media -->
+                <div class="branch-item" tabindex="0" data-node-id="liquid-media" onkeydown="handleKeyboard(event, 'liquid-media')">
+                    <div class="branch-title" onclick="toggleBranch(this)">
+                        <span class="branch-toggle">▶</span>
+                        Liquid Media
+                    </div>
+                    <div class="branch-content">
+                        <div class="info-grid">
+                            <div class="info-row">
+                                <span class="info-label">≤ 1 L:</span>
+                                <span class="info-value">20 min</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">1–2 L:</span>
+                                <span class="info-value">40 min</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">All volumes:</span>
+                                <span class="info-value">121°C, 15 psi</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Cycle Type:</span>
+                                <span class="info-value">Liquid (slow exhaust)</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+                            <div style="font-size: 0.85em; color: var(--text-secondary); margin-bottom: 8px;">
+                                <strong>Rule of thumb:</strong> 20 min per liter
+                            </div>
+                        </div>
+                        <div class="steps">
+                            <div class="steps-title">Key Preparation:</div>
+                            <ul style="margin-left: 20px; color: var(--text-secondary); font-size: 0.9em;">
+                                <li>Fill bottles to <strong>no more than 2/3 capacity</strong></li>
+                                <li><strong>Loosen caps</strong> — never seal tightly</li>
+                                <li>Use autoclave-safe glass bottles (borosilicate)</li>
+                                <li>Place upright on autoclave tray</li>
+                            </ul>
+                        </div>
+                        <div class="steps">
+                            <div class="steps-title">Procedure:</div>
+                            <ol>
+                                <li>Apply autoclave tape</li>
+                                <li>Select <strong>Liquid cycle</strong> (slow exhaust)</li>
+                                <li>Set time based on volume</li>
+                                <li>When complete, wait for 0 psi</li>
+                                <li>Cool 10–15 min inside autoclave</li>
+                                <li>Tighten caps after cooling to ~60°C</li>
+                            </ol>
+                        </div>
+                        <div class="safety-note">
+                            <strong>⚠ Safety:</strong> Never move or agitate bottles while hot. Superheated media can boil over suddenly. Always loosen caps before autoclaving to prevent bursting.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branch 3: Solid Waste -->
+                <div class="branch-item" tabindex="0" data-node-id="solid-waste" onkeydown="handleKeyboard(event, 'solid-waste')">
+                    <div class="branch-title" onclick="toggleBranch(this)">
+                        <span class="branch-toggle">▶</span>
+                        Solid Waste
+                    </div>
+                    <div class="branch-content">
+                        <div class="param-group">
+                            <div class="param">
+                                <div class="param-label">Cycle Type</div>
+                                <div class="param-value">Gravity</div>
+                            </div>
+                            <div class="param">
+                                <div class="param-label">Temperature</div>
+                                <div class="param-value">121°C</div>
+                            </div>
+                            <div class="param">
+                                <div class="param-label">Pressure</div>
+                                <div class="param-value">15 psi</div>
+                            </div>
+                            <div class="param">
+                                <div class="param-label">Time</div>
+                                <div class="param-value">60 min</div>
+                            </div>
+                        </div>
+                        <div class="steps">
+                            <div class="steps-title">Items to Decontaminate:</div>
+                            <ul style="margin-left: 20px; color: var(--text-secondary); font-size: 0.9em;">
+                                <li>Used agar plates</li>
+                                <li>Contaminated consumables (tips, tubes)</li>
+                                <li>Paper towels/wipes from culture work</li>
+                                <li>Disposable swabs & inoculating loops</li>
+                            </ul>
+                        </div>
+                        <div class="steps">
+                            <div class="steps-title">Procedure:</div>
+                            <ol>
+                                <li>Place waste in autoclave bag</li>
+                                <li>Fill <strong>no more than 3/4 full</strong></li>
+                                <li><strong>Leave bag open</strong> (fold loosely)</li>
+                                <li>Place in secondary containment tray</li>
+                                <li>Apply autoclave tape</li>
+                                <li>Use <strong>Gravity cycle</strong></li>
+                                <li>Wait for pressure to reach 0 psi</li>
+                                <li>Cool 10–15 min before removing</li>
+                                <li>Seal bag and dispose in regular trash</li>
+                            </ol>
+                        </div>
+                        <div class="safety-note">
+                            <strong>⚠ Safety:</strong> Never seal bags tightly or overfill. Agar plates produce liquid when autoclaved — always use secondary containment to catch runoff. Do NOT autoclave chemical waste, radioactive materials, or sharps.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branch 4: Liquid Waste -->
+                <div class="branch-item" tabindex="0" data-node-id="liquid-waste" onkeydown="handleKeyboard(event, 'liquid-waste')">
+                    <div class="branch-title" onclick="toggleBranch(this)">
+                        <span class="branch-toggle">▶</span>
+                        Liquid Waste
+                    </div>
+                    <div class="branch-content">
+                        <div class="info-grid">
+                            <div class="info-row">
+                                <span class="info-label">≤ 1 L:</span>
+                                <span class="info-value">20 min</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">1–2 L:</span>
+                                <span class="info-value">40 min</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">All volumes:</span>
+                                <span class="info-value">121°C, 15 psi</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Cycle Type:</span>
+                                <span class="info-value">Liquid (slow exhaust)</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+                            <div style="font-size: 0.85em; color: var(--text-secondary); margin-bottom: 8px;">
+                                <strong>Rule of thumb:</strong> 20 min per liter
+                            </div>
+                        </div>
+                        <div class="steps">
+                            <div class="steps-title">Types of Liquid Waste:</div>
+                            <ul style="margin-left: 20px; color: var(--text-secondary); font-size: 0.9em;">
+                                <li>Spent liquid culture media</li>
+                                <li>Liquid culture waste from flasks/tubes</li>
+                                <li>Rinse water from culture vessels</li>
+                            </ul>
+                        </div>
+                        <div class="steps">
+                            <div class="steps-title">Procedure:</div>
+                            <ol>
+                                <li>Collect in autoclave-safe glass bottles/flasks</li>
+                                <li>Fill to <strong>no more than 2/3 capacity</strong></li>
+                                <li><strong>Loosen caps</strong> — do not seal tightly</li>
+                                <li>Place upright on autoclave tray</li>
+                                <li>Apply autoclave tape</li>
+                                <li>Use <strong>Liquid cycle</strong> (slow exhaust)</li>
+                                <li>Wait for 0 psi after cycle completes</li>
+                                <li>Cool 15–20 min inside autoclave — do not agitate</li>
+                                <li>Once cool, liquid can be poured down drain</li>
+                            </ol>
+                        </div>
+                        <div class="safety-note">
+                            <strong>⚠ Safety:</strong> Never seal bottles tightly or exceed 2/3 fill. Do not agitate bottles during cooling — superheated liquid can boil over. Check local regulations before draining.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>Protocol:</strong> 260317_autoclave.md | <strong>Updated:</strong> 2026-03-17</p>
+        <p style="margin-top: 10px; font-size: 0.85em;">This interactive diagram is a quick reference. Always consult the full protocol for detailed procedures.</p>
+    </div>
+
+    <script>
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const activeElement = document.activeElement;
+
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                if (activeElement.classList.contains('branch-item')) {
+                    const title = activeElement.querySelector('.branch-title');
+                    toggleBranch(title);
+                }
+            }
+
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                const activeItem = document.activeElement;
+                if (activeItem.classList.contains('branch-item') && !activeItem.classList.contains('expanded')) {
+                    const title = activeItem.querySelector('.branch-title');
+                    toggleBranch(title);
+                }
+            }
+
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const activeItem = document.activeElement;
+                if (activeItem.classList.contains('branch-item') && activeItem.classList.contains('expanded')) {
+                    const title = activeItem.querySelector('.branch-title');
+                    toggleBranch(title);
+                }
+            }
+        });
+
+        function toggleBranch(element) {
+            const branchItem = element.closest('.branch-item');
+            branchItem.classList.toggle('expanded');
+        }
+
+        function toggleNode(element) {
+            const node = element.closest('.tree-node');
+            node.classList.toggle('expanded');
+        }
+
+        function handleKeyboard(event, nodeId) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                const title = event.currentTarget.querySelector('.branch-title');
+                toggleBranch(title);
+            }
+        }
+
+        function resetAll() {
+            document.querySelectorAll('.branch-item.expanded').forEach(item => {
+                item.classList.remove('expanded');
+            });
+        }
+
+        async function exportPNG() {
+            try {
+                const { default: html2canvas } = await import(
+                    "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/+esm"
+                );
+
+                const el = document.getElementById('diagram-container');
+                const canvas = await html2canvas(el, {
+                    scale: 2,
+                    useCORS: true,
+                    backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()
+                });
+
+                const link = document.createElement('a');
+                link.download = 'autoclave-decision-tree.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            } catch (error) {
+                alert('Error exporting diagram. Please try again.');
+                console.error('Export error:', error);
+            }
+        }
+
+        // Add focus styles for keyboard navigation
+        document.querySelectorAll('.branch-item').forEach(item => {
+            item.addEventListener('focus', function() {
+                this.style.outline = '2px solid var(--accent)';
+                this.style.outlineOffset = '2px';
+            });
+            item.addEventListener('blur', function() {
+                this.style.outline = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

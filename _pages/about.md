@@ -26,7 +26,7 @@ social: true
 
 I'm a Microbiology PhD student and NSF Extreme Biofilms National Research Trainee at Montana State University studying **genomic potential and metabolic capabilities of microbes in extreme environments**. My graduate research investigates applications of cold-adapted bacterial isolates for bioengineering in permafrost to stabilize infrastructure in thawing Arctic environments.
 
-Before grad school, I spent three years with the [NASA DEVELOP National Program](https://appliedsciences.nasa.gov/what-we-do/capacity-building/develop), where I designed and managed research projects applying NASA Earth observations to environmental management decisions. I hold a bachelor's degree in Biology from UNC Asheville.
+Before grad school, I spent three years with the [NASA DEVELOP National Program](https://appliedsciences.nasa.gov/what-we-do/capacity-building/develop), where I designed and managed research projects applying NASA Earth observations to environmental management decisions. I hold a bachelor's degree in Biology from UNC Asheville and have studied at the Marine Biological Laboratory in Woods Hole, MA.
 
 You can explore my [research methods](/methods/) to see protocols and computational notebooks from my current work.
 

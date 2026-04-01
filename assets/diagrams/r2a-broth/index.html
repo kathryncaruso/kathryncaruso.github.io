@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R2A Broth — Two-Cycle Growth Protocol</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #ffffff;
+            --bg-card: #fafafa;
+            --border: #e8e8e8;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --accent: #2d6a4f;
+            --accent-light: #f0fdf4;
+            --warning: #c0713a;
+            --warning-light: #fffbf0;
+            --danger: #b91c1c;
+            --danger-light: #fef2f2;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0a0a0a;
+                --bg-card: #141414;
+                --border: #252525;
+                --text-primary: #f0f0f0;
+                --text-secondary: #999;
+                --accent: #4ade80;
+                --accent-light: rgba(74, 222, 128, 0.1);
+                --warning: #fb923c;
+                --warning-light: rgba(251, 146, 60, 0.1);
+                --danger: #f87171;
+                --danger-light: rgba(248, 113, 113, 0.1);
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            transition: background-color 0.3s, color 0.3s;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Timeline Container */
+        #diagram-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-wrapper {
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        /* Central Timeline Line */
+        .timeline-line {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 3px;
+            height: 100%;
+            background: var(--border);
+            transform: translateX(-50%);
+        }
+
+        /* Timeline Phases */
+        .timeline-phases {
+            display: grid;
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .phase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .phase:nth-child(odd) .phase-content {
+            grid-column: 1;
+            text-align: right;
+            padding-right: 2rem;
+        }
+
+        .phase:nth-child(odd)::before {
+            grid-column: 2;
+        }
+
+        .phase:nth-child(even) .phase-content {
+            grid-column: 2;
+            text-align: left;
+            padding-left: 2rem;
+            order: 2;
+        }
+
+        .phase:nth-child(even)::before {
+            grid-column: 1;
+            order: 1;
+        }
+
+        /* Timeline Dot and Connector */
+        .phase::before {
+            content: '';
+            position: relative;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border: 3px solid var(--bg);
+            border-radius: 50%;
+            justify-self: center;
+            z-index: 10;
+        }
+
+        .phase:hover::before {
+            transform: scale(1.3);
+            box-shadow: 0 0 0 6px var(--accent-light);
+        }
+
+        /* Phase Content Card */
+        .phase-content {
+            background: var(--bg);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .phase-content:hover {
+            border-color: var(--accent);
+            background: var(--accent-light);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .phase-content.expanded {
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+
+        /* Phase Header */
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .phase-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .phase:nth-child(even) .phase-header {
+            flex-direction: row;
+        }
+
+        .phase:nth-child(odd) .phase-header {
+            flex-direction: row-reverse;
+        }
+
+        .phase-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-duration {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .duration-bar {
+            width: 100%;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .duration-fill {
+            height: 100%;
+            background: var(--accent);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Toggle Icon */
+        .toggle-icon {
+            display: inline-block;
+            margin-left: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .phase-content.expanded .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Phase Details */
+        .phase-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            margin-top: 1rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+
+        .phase-content.expanded .phase-details {
+            max-height: 1000px;
+        }
+
+        .step {
+            margin-bottom: 1.5rem;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .step-content {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-left: 1.5rem;
+        }
+
+        .parameters {
+            display: grid;
+            gap: 0.75rem;
+            margin: 1rem 0;
+            background: var(--bg-card);
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .parameter {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .parameter-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .parameter-value {
+            color: var(--text-secondary);
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Transition Phase */
+        .transition-phase {
+            position: relative;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: var(--warning-light);
+            border: 2px solid var(--warning);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .transition-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .transition-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--warning);
+            margin-bottom: 1rem;
+        }
+
+        .transition-content {
+            display: grid;
+            gap: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .transition-step {
+            background: var(--bg-card);
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        /* Key Parameters */
+        .key-params {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .param-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .param-card:hover {
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+
+        .param-card strong {
+            display: block;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .param-card small {
+            color: var(--text-secondary);
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: var(--accent);
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline-line {
+                display: none;
+            }
+
+            .phase {
+                grid-template-columns: 1fr;
+            }
+
+            .phase::before {
+                position: static;
+                margin-bottom: 1rem;
+            }
+
+            .phase-content,
+            .phase:nth-child(odd) .phase-content,
+            .phase:nth-child(even) .phase-content {
+                grid-column: 1;
+                text-align: left;
+                padding: 1.5rem;
+            }
+
+            .phase:nth-child(odd) .phase-content,
+            .phase:nth-child(even) .phase-content {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .phase-header,
+            .phase:nth-child(odd) .phase-header,
+            .phase:nth-child(even) .phase-header {
+                flex-direction: row;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            #diagram-container {
+                padding: 1.5rem;
+            }
+
+            .key-params {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+        }
+
+        /* Accessibility */
+        .phase-content:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        button:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            background: var(--text-primary);
+            color: var(--bg);
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 100;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-0.5rem);
+        }
+
+        .phase-duration:hover .tooltip {
+            opacity: 1;
+        }
+
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.3s ease;
+            z-index: 1000;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .success-message.hide {
+            animation: slideOut 0.3s ease forwards;
+        }
+
+        @keyframes slideOut {
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>R2A Broth — Two-Cycle Growth Protocol</h1>
+            <p>Timeline Overview</p>
+        </div>
+
+        <div id="diagram-container">
+            <div class="timeline-wrapper">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-phases">
+                    <!-- Cycle 1 -->
+                    <div class="phase" tabindex="0">
+                        <div class="phase-content" role="button" tabindex="0">
+                            <div class="phase-header">
+                                <div class="phase-number">1</div>
+                                <div>
+                                    <div class="phase-title">Growth in R2A <span class="toggle-icon">▼</span></div>
+                                    <div class="phase-duration">
+                                        ⏱ 24–72 hours
+                                        <span class="tooltip">Until visible turbidity</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="duration-bar">
+                                <div class="duration-fill" style="width: 75%;"></div>
+                            </div>
+
+                            <div class="phase-details">
+                                <div class="step">
+                                    <div class="step-title">📋 Inoculum Preparation</div>
+                                    <div class="step-content">
+                                        <ul style="margin-left: 1rem; line-height: 1.8;">
+                                            <li>Select an individual colony from R2A agar plates using a sterile inoculating loop</li>
+                                            <li>Gently suspend the colony in 10 mL liquid R2A medium in a 50 mL Falcon tube</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="step">
+                                    <div class="step-title">🌡️ Incubation Conditions</div>
+                                    <div class="parameters">
+                                        <div class="parameter">
+                                            <span class="parameter-label">Temperature</span>
+                                            <span class="parameter-value">15°C</span>
+                                        </div>
+                                        <div class="parameter">
+                                            <span class="parameter-label">Shaking</span>
+                                            <span class="parameter-value">150–200 rpm</span>
+                                        </div>
+                                        <div class="parameter">
+                                            <span class="parameter-label">Duration</span>
+                                            <span class="parameter-value">24–72 hours</span>
+                                        </div>
+                                        <div class="parameter">
+                                            <span class="parameter-label">Endpoint</span>
+                                            <span class="parameter-value">Visible turbidity</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="step">
+                                    <div class="step-title">✓ Growth Assessment</div>
+                                    <div class="step-content">
+                                        Monitor growth by visual inspection or OD<sub>600</sub> measurements. Proceed to Cycle 2 when adequate growth is achieved (uniformly turbid medium).
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transition Phase -->
+                    <div class="transition-phase">
+                        <div class="transition-icon">→</div>
+                        <div class="transition-title">Media Preparation & Transition</div>
+                        <div class="transition-content">
+                            <div class="transition-step">
+                                <strong style="color: var(--warning); text-align: left; display: block;">Prepare 10% Urea Stock Solution</strong>
+                                <div style="text-align: left; margin-top: 0.5rem;">
+                                    <ol style="margin-left: 1rem; line-height: 1.8;">
+                                        <li>Dissolve <strong>10 g urea</strong> in <strong>100 mL</strong> Milli-Q water by stirring at room temperature</li>
+                                        <li><em>Do not heat</em> — urea degrades at high temperature</li>
+                                        <li>Filter-sterilize through a 0.22 µm syringe filter in the Biosafety Cabinet</li>
+                                        <li>Store at 4°C until use</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div class="transition-step">
+                                <strong style="color: var(--warning); text-align: left; display: block;">Prepare R2A + Urea Medium (100 mL total)</strong>
+                                <div style="text-align: left; margin-top: 0.5rem;">
+                                    <table style="width: 100%; margin: 1rem 0; border-collapse: collapse; font-size: 0.9rem;">
+                                        <tr style="border-bottom: 1px solid var(--border);">
+                                            <td style="padding: 0.5rem;">Sterile R2A medium</td>
+                                            <td style="font-weight: 600; text-align: right; padding: 0.5rem;">80 mL</td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid var(--border);">
+                                            <td style="padding: 0.5rem;">10% urea stock</td>
+                                            <td style="font-weight: 600; text-align: right; padding: 0.5rem;">20 mL</td>
+                                        </tr>
+                                        <tr style="background: var(--accent-light);">
+                                            <td style="padding: 0.5rem; font-weight: 600;">Final volume @ 2% urea</td>
+                                            <td style="font-weight: 600; text-align: right; padding: 0.5rem;">100 mL</td>
+                                        </tr>
+                                    </table>
+                                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">Mix gently by swirling. Prepare aseptically in the Biosafety Cabinet.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cycle 2 -->
+                    <div class="phase" tabindex="0">
+                        <div class="phase-content" role="button" tabindex="0">
+                            <div class="phase-header">
+                                <div class="phase-number">2</div>
+                                <div>
+                                    <div class="phase-title">Urea Conditioning <span class="toggle-icon">▼</span></div>
+                                    <div class="phase-duration">
+                                        ⏱ 24–72 hours
+                                        <span class="tooltip">With OD monitoring every 12–24 hours</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="duration-bar">
+                                <div class="duration-fill" style="width: 75%;"></div>
+                            </div>
+
+                            <div class="phase-details">
+                                <div class="step">
+                                    <div class="step-title">🧪 Subculture Preparation</div>
+                                    <div class="step-content">
+                                        <ul style="margin-left: 1rem; line-height: 1.8;">
+                                            <li>Inoculate at 1:10 dilution from Cycle 1 culture</li>
+                                            <li>Add <strong>1 mL</strong> of Cycle 1 culture to <strong>9 mL</strong> fresh R2A + urea medium</li>
+                                            <li>Mix gently</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="step">
+                                    <div class="step-title">🌡️ Incubation Conditions</div>
+                                    <div class="parameters">
+                                        <div class="parameter">
+                                            <span class="parameter-label">Temperature</span>
+                                            <span class="parameter-value">15°C</span>
+                                        </div>
+                                        <div class="parameter">
+                                            <span class="parameter-label">Shaking</span>
+                                            <span class="parameter-value">150–200 rpm</span>
+                                        </div>
+                                        <div class="parameter">
+                                            <span class="parameter-label">Duration</span>
+                                            <span class="parameter-value">24–72 hours</span>
+                                        </div>
+                                        <div class="parameter">
+                                            <span class="parameter-label">Monitoring</span>
+                                            <span class="parameter-value">Every 12–24 hours</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="step">
+                                    <div class="step-title">📊 Monitoring & Endpoint</div>
+                                    <div class="step-content">
+                                        <ul style="margin-left: 1rem; line-height: 1.8;">
+                                            <li>Check optical density every 12–24 hours</li>
+                                            <li>Note any color changes (R2A may shift with pH changes from urea hydrolysis)</li>
+                                            <li>Harvest cells when turbid for downstream applications</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Parameters Summary -->
+            <div class="key-params">
+                <div class="param-card">
+                    <strong>Initial Volume</strong>
+                    <small>10 mL (Cycle 1) in 50 mL tube</small>
+                </div>
+                <div class="param-card">
+                    <strong>Temperature</strong>
+                    <small>15°C (both cycles)</small>
+                </div>
+                <div class="param-card">
+                    <strong>Shaking Speed</strong>
+                    <small>150–200 rpm</small>
+                </div>
+                <div class="param-card">
+                    <strong>Urea Concentration</strong>
+                    <small>2% final (Cycle 2)</small>
+                </div>
+                <div class="param-card">
+                    <strong>Dilution Factor</strong>
+                    <small>1:10 (Cycle 1 → Cycle 2)</small>
+                </div>
+                <div class="param-card">
+                    <strong>Growth Indicator</strong>
+                    <small>Visible turbidity</small>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <button onclick="expandAll()">Expand All Details</button>
+                <button onclick="collapseAll()" class="btn-secondary">Collapse All</button>
+                <button onclick="exportPNG()" class="btn-secondary">Export to PNG</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle phase details
+        const phases = document.querySelectorAll('.phase-content');
+        phases.forEach((phase, index) => {
+            phase.addEventListener('click', () => {
+                phase.classList.toggle('expanded');
+            });
+
+            // Keyboard navigation
+            phase.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    phase.classList.toggle('expanded');
+                }
+            });
+        });
+
+        function expandAll() {
+            phases.forEach(phase => phase.classList.add('expanded'));
+        }
+
+        function collapseAll() {
+            phases.forEach(phase => phase.classList.remove('expanded'));
+        }
+
+        async function exportPNG() {
+            try {
+                const { default: html2canvas } = await import(
+                    "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/+esm"
+                );
+                const el = document.getElementById('diagram-container');
+                const canvas = await html2canvas(el, { scale: 2, useCORS: true });
+                const link = document.createElement('a');
+                link.download = 'r2a-broth-diagram.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+
+                showSuccessMessage('Diagram exported as PNG');
+            } catch (error) {
+                console.error('Export failed:', error);
+                alert('Failed to export diagram. Please try again.');
+            }
+        }
+
+        function showSuccessMessage(message) {
+            const msg = document.createElement('div');
+            msg.className = 'success-message';
+            msg.textContent = message;
+            document.body.appendChild(msg);
+
+            setTimeout(() => {
+                msg.classList.add('hide');
+                setTimeout(() => msg.remove(), 300);
+            }, 3000);
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey || e.metaKey) {
+                if (e.key === 'e') {
+                    e.preventDefault();
+                    expandAll();
+                } else if (e.key === 'c') {
+                    e.preventDefault();
+                    collapseAll();
+                }
+            }
+        });
+
+        // Initialize first phase as expanded
+        if (phases.length > 0) {
+            phases[0].classList.add('expanded');
+        }
+    </script>
+</body>
+</html>

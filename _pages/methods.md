@@ -272,7 +272,188 @@ nav_order: 5
 </p>
 
 <!-- ═══════════════════════════════════════════ -->
-<!-- THEME 1: Biocementation & MICP             -->
+<!-- THEME 1: General Lab Protocols             -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="methods-theme">
+  <div class="methods-theme-header" onclick="toggleTheme(this)">
+    <div class="methods-theme-icon" style="background: #3a5a8c;"></div>
+    <h2>General Lab Protocols</h2>
+    <span class="methods-theme-arrow open">▶</span>
+  </div>
+  <p class="methods-theme-desc">
+    Foundational procedures for routine laboratory work. These are also intended as a reference for new lab members and undergraduate researchers.
+  </p>
+
+  <div class="methods-theme-body open" style="max-height: 6000px;">
+
+    <!-- Autoclave Sterilization — AVAILABLE -->
+    <div class="method-card">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">Autoclave Sterilization &amp; Decontamination</div>
+          <div class="method-desc">Equipment sterilization, liquid media sterilization, and biological waste decontamination with cycle selection guide.</div>
+        </div>
+        <span class="method-status status-available">Available</span>
+      </div>
+      <div class="method-links">
+        <a class="method-link" href="/methods/autoclave/">Protocol</a>
+        <a class="method-link" href="/methods/autoclave-diagram/">Interactive Diagram</a>
+      </div>
+      <button class="method-rationale-toggle" onclick="toggleRationale(this)">
+        <span class="arrow">▶</span> Background &amp; Rationale
+      </button>
+      <div class="method-rationale">
+        <div class="method-rationale-inner">
+          <div class="method-rationale-label">Background &amp; Rationale</div>
+          <div class="method-rationale-text">
+            Autoclaving uses pressurized steam to sterilize equipment and media and to decontaminate biological waste. Different load types (dry equipment, liquid media, biological waste) require different cycle parameters to ensure effective sterilization without damaging materials. This protocol consolidates three previously separate procedures into a single reference covering all routine autoclave uses, with guidance on cycle selection, safety precautions, and troubleshooting common issues.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plating from Freezer Stock — AVAILABLE -->
+    <div class="method-card">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">Plating Bacterial Cultures from Freezer Stocks</div>
+          <div class="method-desc">Revival of bacterial isolates from −80°C glycerol stocks by streak plating, with medium selection guide.</div>
+        </div>
+        <span class="method-status status-available">Available</span>
+      </div>
+      <div class="method-links">
+        <a class="method-link" href="/methods/plating-from-freezer-stock/">Protocol</a>
+        <a class="method-link" href="/methods/plating-from-freezer-stock-diagram/">Interactive Diagram</a>
+      </div>
+      <button class="method-rationale-toggle" onclick="toggleRationale(this)">
+        <span class="arrow">▶</span> Background &amp; Rationale
+      </button>
+      <div class="method-rationale">
+        <div class="method-rationale-inner">
+          <div class="method-rationale-label">Background &amp; Rationale</div>
+          <div class="method-rationale-text">
+            Streak plating from −80°C glycerol stocks produces isolated colonies that can be used to start fresh liquid cultures, confirm strain identity, or assess colony morphology. This protocol covers both the frozen scrape method (which preserves the stock for repeated use) and the thawed pipette method, with guidance on medium selection for different organism types including cold-adapted environmental isolates.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Standardize Inoculum — AVAILABLE -->
+    <div class="method-card">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">Standardize Inoculum by OD<sub>600</sub></div>
+          <div class="method-desc">General procedure for standardizing bacterial inocula to a target starting OD using dilution calculations.</div>
+        </div>
+        <span class="method-status status-available">Available</span>
+      </div>
+      <div class="method-links">
+        <a class="method-link" href="/methods/standardize-inoculum/">Protocol</a>
+      </div>
+      <button class="method-rationale-toggle" onclick="toggleRationale(this)">
+        <span class="arrow">▶</span> Background &amp; Rationale
+      </button>
+      <div class="method-rationale">
+        <div class="method-rationale-inner">
+          <div class="method-rationale-label">Background &amp; Rationale</div>
+          <div class="method-rationale-text">
+            Optical density at 600 nm (OD<sub>600</sub>) provides a quick, non-destructive estimate of cell concentration in liquid culture. This protocol describes a general-purpose method for standardizing bacterial inocula using dilution-based OD measurements and C₁V₁ = C₂V₂ calculations, applicable to any liquid culture experiment where a target starting OD is specified.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Combustion Glassware — AVAILABLE -->
+    <div class="method-card">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">Combustion (Dry Heat Sterilization) of Glassware</div>
+          <div class="method-desc">Dry heat sterilization at 450°C to eliminate organic residues from glass culture tubes and vessels.</div>
+        </div>
+        <span class="method-status status-available">Available</span>
+      </div>
+      <div class="method-links">
+        <a class="method-link" href="/methods/combustion-glassware/">Protocol</a>
+      </div>
+      <button class="method-rationale-toggle" onclick="toggleRationale(this)">
+        <span class="arrow">▶</span> Background &amp; Rationale
+      </button>
+      <div class="method-rationale">
+        <div class="method-rationale-inner">
+          <div class="method-rationale-label">Background &amp; Rationale</div>
+          <div class="method-rationale-text">
+            Combustion sterilization eliminates all organic residues from glassware by heating to 450°C for five hours. Unlike autoclaving, which sterilizes but does not remove organics, combustion ensures glassware is both sterile and organically clean. This is used for culture tubes in optical density measurements, where trace organic contaminants could interfere with growth readings or introduce unwanted carbon sources.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5% Nitric Acid — AVAILABLE -->
+    <div class="method-card">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">5% Nitric Acid Solution</div>
+          <div class="method-desc">Preparation of 5% (v/v) nitric acid for acid preservation of biological samples and urea standard matrices.</div>
+        </div>
+        <span class="method-status status-available">Available</span>
+      </div>
+      <div class="method-links">
+        <a class="method-link" href="/methods/5pct-nitric-acid/">Protocol</a>
+      </div>
+      <button class="method-rationale-toggle" onclick="toggleRationale(this)">
+        <span class="arrow">▶</span> Background &amp; Rationale
+      </button>
+      <div class="method-rationale">
+        <div class="method-rationale-inner">
+          <div class="method-rationale-label">Background &amp; Rationale</div>
+          <div class="method-rationale-text">
+            A 5% nitric acid solution denatures enzymes like urease on contact, locking in the urea concentration at the moment of sampling. This same solution serves as the matrix for preparing urea standards in colorimetric assays, ensuring that standards and samples share identical chemical backgrounds for accurate quantification.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1M HCl & NaOH — AVAILABLE -->
+    <div class="method-card">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">1 M HCl &amp; NaOH for pH Adjustment</div>
+          <div class="method-desc">Preparation of 50 mL working stocks of 1 M hydrochloric acid and 1 M sodium hydroxide for media pH adjustment.</div>
+        </div>
+        <span class="method-status status-available">Available</span>
+      </div>
+      <div class="method-links">
+        <a class="method-link" href="/methods/1m-hcl-naoh-ph-adjustment/">Protocol</a>
+      </div>
+      <button class="method-rationale-toggle" onclick="toggleRationale(this)">
+        <span class="arrow">▶</span> Background &amp; Rationale
+      </button>
+      <div class="method-rationale">
+        <div class="method-rationale-inner">
+          <div class="method-rationale-label">Background &amp; Rationale</div>
+          <div class="method-rationale-text">
+            Stock solutions of 1 M hydrochloric acid and 1 M sodium hydroxide are used for fine pH adjustments during media preparation. This protocol covers the preparation of small-volume (50 mL) working stocks suitable for bench-scale media preparation.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cell sorting — COMING SOON -->
+    <div class="method-card coming-soon">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">Cell sorting</div>
+          <div class="method-desc">Flow cytometry cell sorting protocol.</div>
+        </div>
+        <span class="method-status status-soon">Coming Soon</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- THEME 2: Biocementation & MICP             -->
 <!-- ═══════════════════════════════════════════ -->
 <section class="methods-theme">
   <div class="methods-theme-header" onclick="toggleTheme(this)">
@@ -284,7 +465,7 @@ nav_order: 5
     Protocols and notebooks related to microbially-induced calcium carbonate precipitation using cold-adapted isolates.
   </p>
 
-  <div class="methods-theme-body open" style="max-height: 2000px;">
+  <div class="methods-theme-body open" style="max-height: 6000px;">
 
     <!-- Carbon source growth assay — AVAILABLE -->
     <div class="method-card">
@@ -308,7 +489,7 @@ nav_order: 5
         <div class="method-rationale-inner">
           <div class="method-rationale-label">Background &amp; Rationale</div>
           <div class="method-rationale-text">
-            Microbially induced calcium carbonate precipitation (MICP) relies on ureolytic bacteria to drive calcite formation through urea hydrolysis, making adequate growth rate and cell density critical for effective biocementation. The Foreman Lab maintains a collection of ~60 bacterial isolates sampled from diverse cold environments originally recovered on R2A — a low-nutrient medium designed for slow-growing environmental bacteria. Preliminary growth curves of these isolates grown at 15°C in a glucose-based urea medium over 28 days showed poor growth — maximum OD600 values remained below 0.2, several isolates showed decline after modest initial increases, and some barely grew above baseline. On this basis, this experiment tests three alternative carbon sources — sodium malate, sodium succinate, and sodium acetate — that enter central carbon metabolism more directly as TCA cycle intermediates or precursors. Carbon source concentrations were matched on a molar carbon basis to the original glucose formulation. The goal is to identify a carbon source that better supports growth of these isolates under the low-temperature conditions relevant to biocementation.
+            Ureolytic bacteria require both a carbon source for growth and urea as a substrate for urease activity. Different carbon sources can significantly affect growth rates and metabolic activity, particularly in cold-adapted organisms whose metabolic preferences may differ from mesophilic model strains. This assay provides a standardized framework for comparing bacterial growth across carbon sources using optical density measurements over time, paired with endpoint pH readings as an indicator of urease activity. It can be adapted for any combination of carbon sources, bacterial isolates, and incubation temperatures.
           </div>
         </div>
       </div>
@@ -336,7 +517,7 @@ nav_order: 5
         <div class="method-rationale-inner">
           <div class="method-rationale-label">Background &amp; Rationale</div>
           <div class="method-rationale-text">
-            Microbially induced calcium carbonate precipitation (MICP) relies on ureolytic bacteria to hydrolyze urea, raising local pH and driving carbonate precipitation. For MICP to work in cold environments, it requires microorganisms that are both cold-adapted and ureolytically active. In preliminary serial transfer experiments, nine cold-adapted isolates — selected based on an in silico screen for urease genes — were cultured at 15°C with transfers to fresh urea medium over a six-week period. pH shifts became visible within two weeks, and several cultures (GG8, GNP012, GNP013) began alkalizing only after a third transfer, suggesting that successive exposure to urea may condition these isolates toward increased ureolytic activity. However, OD measurements indicated that some initially active cultures (GNP014, MP-M2) may not have sustained growth over the full transfer period. The current 28-day assay expands the panel to 21 isolates and formalizes this serial transfer design, measuring urea concentration at three timepoints per seven-day transfer window using a colorimetric method (Jung et al., 1975) to directly test whether successive urea exposure primes increased urea hydrolysis over time. Isolates were originally cultured on R2A and previously grown in Jung assays on a minimal medium (2% urea) with glucose as the primary carbon source; for this assay, succinate replaces glucose based on results of a comparative growth assay.
+            Quantifying ureolytic activity — the rate at which bacteria hydrolyze urea — is central to studying microbially-induced calcium carbonate precipitation (MICP). The Jung assay uses a colorimetric two-reagent system (o-phthalaldehyde and NED) to measure urea concentration at 505 nm, providing a direct, quantitative measure of urea hydrolysis over time. The serial transfer design in this protocol allows tracking of ureolytic activity across multiple growth cycles, which is useful for understanding how bacteria adapt to urea-containing media over extended culture periods. This approach can be scaled to screen panels of isolates under standardized conditions.
           </div>
         </div>
       </div>
@@ -368,6 +549,132 @@ nav_order: 5
       </div>
     </div>
 
+    <!-- BHI Broth — AVAILABLE -->
+    <div class="method-card">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">BHI Broth</div>
+          <div class="method-desc">Brain Heart Infusion broth preparation for <em>Sporosarcina pasteurii</em> starter cultures, with batch scaling guide.</div>
+        </div>
+        <span class="method-status status-available">Available</span>
+      </div>
+      <div class="method-links">
+        <a class="method-link" href="/methods/bhi-broth/">Protocol</a>
+      </div>
+      <button class="method-rationale-toggle" onclick="toggleRationale(this)">
+        <span class="arrow">▶</span> Background &amp; Rationale
+      </button>
+      <div class="method-rationale">
+        <div class="method-rationale-inner">
+          <div class="method-rationale-label">Background &amp; Rationale</div>
+          <div class="method-rationale-text">
+            Brain Heart Infusion (BHI) broth is a commercially available, nutrient-rich liquid medium widely used for cultivating fastidious organisms. In this context, it serves as the growth medium for <em>Sporosarcina pasteurii</em>, a well-characterized ureolytic bacterium used as a positive control in urea hydrolysis experiments. BHI supports rapid growth of <em>S. pasteurii</em> at both its optimal temperature (30°C) and at lower experimental temperatures.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BHI Urea Agar — AVAILABLE -->
+    <div class="method-card">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">BHI Urea Agar</div>
+          <div class="method-desc">Brain Heart Infusion agar supplemented with 2% urea for cultivating and screening ureolytic bacteria.</div>
+        </div>
+        <span class="method-status status-available">Available</span>
+      </div>
+      <div class="method-links">
+        <a class="method-link" href="/methods/bhi-urea-agar/">Protocol</a>
+      </div>
+      <button class="method-rationale-toggle" onclick="toggleRationale(this)">
+        <span class="arrow">▶</span> Background &amp; Rationale
+      </button>
+      <div class="method-rationale">
+        <div class="method-rationale-inner">
+          <div class="method-rationale-label">Background &amp; Rationale</div>
+          <div class="method-rationale-text">
+            BHI Urea Agar combines a nutrient-rich base (Brain Heart Infusion) with 2% urea to support growth of ureolytic bacteria on solid medium. The urea is added via a filter-sterilized stock after autoclaving to prevent thermal degradation. This medium is used for plating and screening ureolytic organisms, where urea hydrolysis can be detected through downstream assays or pH-based indicators.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S. pasteurii Starter Culture — AVAILABLE -->
+    <div class="method-card">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title"><em>S. pasteurii</em> Starter Culture</div>
+          <div class="method-desc">Revival and starter culture preparation of <em>Sporosarcina pasteurii</em> from freezer stock for use as a positive control.</div>
+        </div>
+        <span class="method-status status-available">Available</span>
+      </div>
+      <div class="method-links">
+        <a class="method-link" href="/methods/s-pasteurii-starter/">Protocol</a>
+      </div>
+      <button class="method-rationale-toggle" onclick="toggleRationale(this)">
+        <span class="arrow">▶</span> Background &amp; Rationale
+      </button>
+      <div class="method-rationale">
+        <div class="method-rationale-inner">
+          <div class="method-rationale-label">Background &amp; Rationale</div>
+          <div class="method-rationale-text">
+            <em>Sporosarcina pasteurii</em> is a well-characterized ureolytic bacterium commonly used as a positive control in urea hydrolysis experiments. This protocol covers revival from frozen glycerol stocks and preparation of starter cultures at both 15°C and 30°C incubation temperatures. Standardized positive control preparation supports consistent reference performance across assay runs.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Succinate-Urea Growth Medium — AVAILABLE -->
+    <div class="method-card">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">Succinate-Urea Growth Medium</div>
+          <div class="method-desc">Defined growth medium with succinate as carbon source and 2% urea, carbon-matched to a glucose reference formulation.</div>
+        </div>
+        <span class="method-status status-available">Available</span>
+      </div>
+      <div class="method-links">
+        <a class="method-link" href="/methods/succinate-urea-medium/">Protocol</a>
+      </div>
+      <button class="method-rationale-toggle" onclick="toggleRationale(this)">
+        <span class="arrow">▶</span> Background &amp; Rationale
+      </button>
+      <div class="method-rationale">
+        <div class="method-rationale-inner">
+          <div class="method-rationale-label">Background &amp; Rationale</div>
+          <div class="method-rationale-text">
+            This defined medium uses sodium succinate as the sole carbon source, paired with 2% urea as a nitrogen source and urease substrate. The succinate concentration is matched on a molar carbon basis to a 0.5 g/L glucose reference formulation (16.67 mmol C/L). The medium can be used for growth experiments, ureolytic activity assays, or any application requiring a defined carbon source with urea supplementation.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- R2A Broth — AVAILABLE -->
+    <div class="method-card">
+      <div class="method-card-top">
+        <div>
+          <div class="method-title">R2A Broth — Two-Cycle Growth Protocol</div>
+          <div class="method-desc">Two-cycle liquid culture protocol: growth in R2A followed by urea conditioning for downstream assays.</div>
+        </div>
+        <span class="method-status status-available">Available</span>
+      </div>
+      <div class="method-links">
+        <a class="method-link" href="/methods/r2a-broth/">Protocol</a>
+        <a class="method-link" href="/methods/r2a-broth-diagram/">Interactive Diagram</a>
+      </div>
+      <button class="method-rationale-toggle" onclick="toggleRationale(this)">
+        <span class="arrow">▶</span> Background &amp; Rationale
+      </button>
+      <div class="method-rationale">
+        <div class="method-rationale-inner">
+          <div class="method-rationale-label">Background &amp; Rationale</div>
+          <div class="method-rationale-text">
+            R2A is a low-nutrient medium originally developed for enumerating heterotrophic bacteria in treated drinking water. Its minimal formulation makes it suitable for culturing slow-growing environmental isolates that may be inhibited by richer media. This two-cycle protocol first establishes growth in standard R2A liquid, then subcultures into R2A supplemented with urea to condition bacteria to urea-containing media before use in downstream assays.
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Notebooks — COMING SOON -->
     <div class="method-card coming-soon">
       <div class="method-card-top">
@@ -383,7 +690,7 @@ nav_order: 5
 </section>
 
 <!-- ═══════════════════════════════════════════ -->
-<!-- THEME 2: Sphagnum Microbiome               -->
+<!-- THEME 3: Sphagnum Microbiome               -->
 <!-- ═══════════════════════════════════════════ -->
 <section class="methods-theme">
   <div class="methods-theme-header" onclick="toggleTheme(this)">
@@ -619,54 +926,6 @@ nav_order: 5
           </div>
           <span class="method-status status-soon">Coming Soon</span>
         </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- THEME 3: General Lab Protocols             -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="methods-theme">
-  <div class="methods-theme-header" onclick="toggleTheme(this)">
-    <div class="methods-theme-icon" style="background: #3a5a8c;"></div>
-    <h2>General Lab Protocols</h2>
-    <span class="methods-theme-arrow open">▶</span>
-  </div>
-  <p class="methods-theme-desc">
-    Foundational procedures for routine laboratory work. These are also intended as a reference for new lab members and undergraduate researchers.
-  </p>
-
-  <div class="methods-theme-body open" style="max-height: 2000px;">
-
-    <div class="method-card coming-soon">
-      <div class="method-card-top">
-        <div>
-          <div class="method-title">Autoclaving</div>
-          <div class="method-desc">Standard autoclaving procedures.</div>
-        </div>
-        <span class="method-status status-soon">Coming Soon</span>
-      </div>
-    </div>
-
-    <div class="method-card coming-soon">
-      <div class="method-card-top">
-        <div>
-          <div class="method-title">Cell sorting</div>
-          <div class="method-desc">Flow cytometry cell sorting protocol.</div>
-        </div>
-        <span class="method-status status-soon">Coming Soon</span>
-      </div>
-    </div>
-
-    <div class="method-card coming-soon">
-      <div class="method-card-top">
-        <div>
-          <div class="method-title">Bacterial freezer stocks</div>
-          <div class="method-desc">Preparing and maintaining bacterial freezer stocks.</div>
-        </div>
-        <span class="method-status status-soon">Coming Soon</span>
       </div>
     </div>
 

@@ -6,14 +6,14 @@ status: available
 nav: false
 ---
 
-**BHI Agar**
+**BHI Agar, v1.0**
 Kathryn E. Caruso · [0009-0003-2436-1791](https://orcid.org/0009-0003-2436-1791)
-Center for Biofilm Engineering, Montana State University
-Updated March 2026 · [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+Foreman Lab · Center for Biofilm Engineering, Montana State University
+Updated March 2026
 
 <details><summary>How to cite this protocol</summary>
 
-Caruso, K.E. (2026). <em>BHI Agar</em>. Center for Biofilm Engineering, Montana State University. https://kathryncaruso.github.io/methods/bhi-agar/
+Caruso, K.E. (2026). <em>BHI Agar, v1.0</em>. Foreman Lab, Center for Biofilm Engineering, Montana State University. https://kathryncaruso.github.io/methods/bhi-agar/
 
 </details>
 

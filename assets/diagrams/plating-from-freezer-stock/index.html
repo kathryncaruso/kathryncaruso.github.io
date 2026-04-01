@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plating Bacterial Cultures from Freezer Stocks</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #ffffff;
+      --bg-card: #fafafa;
+      --border: #e8e8e8;
+      --text-primary: #1a1a1a;
+      --text-secondary: #666;
+      --accent: #2d6a4f;
+      --accent-light: #f0fdf4;
+      --warning: #c0713a;
+      --warning-light: #fffbf0;
+      --danger: #b91c1c;
+      --danger-light: #fef2f2;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0a0a0a;
+        --bg-card: #141414;
+        --border: #252525;
+        --text-primary: #f0f0f0;
+        --text-secondary: #999;
+        --accent: #4ade80;
+        --accent-light: rgba(74, 222, 128, 0.1);
+        --warning: #fb923c;
+        --warning-light: rgba(251, 146, 60, 0.1);
+        --danger: #f87171;
+        --danger-light: rgba(248, 113, 113, 0.1);
+      }
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      border: 2px solid var(--border);
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: 0.2s;
+      font-weight: 500;
+    }
+
+    button:hover {
+      border-color: var(--accent);
+      background-color: var(--accent-light);
+    }
+
+    button.active {
+      background-color: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    /* Workflow */
+    .workflow {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      padding-bottom: 1rem;
+    }
+
+    .workflow-step {
+      flex: 0 0 auto;
+      min-width: 160px;
+      padding: 1.5rem;
+      background-color: var(--bg-card);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .workflow-step:hover {
+      border-color: var(--accent);
+      background-color: var(--accent-light);
+    }
+
+    .workflow-step.active {
+      border-color: var(--accent);
+      background-color: var(--accent-light);
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+
+    .workflow-step-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .workflow-step-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Arrow between steps */
+    .workflow::after {
+      content: '';
+    }
+
+    /* Main diagram area */
+    #diagram-container {
+      background-color: var(--bg-card);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .diagram-section {
+      display: none;
+    }
+
+    .diagram-section.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Plate diagram */
+    .plate-container {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    svg.plate {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+    }
+
+    .plate-zone {
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .plate-zone:hover {
+      filter: brightness(1.1);
+    }
+
+    .plate-zone.active {
+      filter: brightness(1.2);
+      stroke-width: 3;
+    }
+
+    /* Zone info */
+    .zone-info {
+      background-color: var(--bg);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      min-height: 120px;
+    }
+
+    .zone-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .zone-description {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .zone-instructions {
+      background-color: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      padding: 1rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+
+    /* Method tabs */
+    .method-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .method-tab {
+      flex: 1;
+      padding: 1rem;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: 0.2s;
+    }
+
+    .method-tab:hover {
+      color: var(--text-primary);
+      border-bottom-color: var(--border);
+    }
+
+    .method-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .method-content {
+      display: none;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    .method-content.active {
+      display: block;
+    }
+
+    .method-details {
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .method-details h4 {
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .method-details ol, .method-details ul {
+      margin-left: 1.5rem;
+      color: var(--text-secondary);
+    }
+
+    .method-details li {
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    /* Temperature guide */
+    .temperature-guide {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .temperature-guide {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .temp-card {
+      background-color: var(--bg);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .temp-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .temp-value {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin: 0.5rem 0;
+    }
+
+    .temp-time {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    /* Safety warning */
+    .safety-warning {
+      background-color: var(--warning-light);
+      border-left: 4px solid var(--warning);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .safety-warning h4 {
+      color: var(--warning);
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .safety-warning p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Danger note */
+    .danger-note {
+      background-color: var(--danger-light);
+      border-left: 4px solid var(--danger);
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    /* Details section */
+    .details-section {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 2px solid var(--border);
+    }
+
+    .details-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+    }
+
+    /* Legend */
+    .legend {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .legend-symbol {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* After growth section */
+    .after-growth-list {
+      margin-left: 1.5rem;
+      color: var(--text-secondary);
+    }
+
+    .after-growth-list li {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .after-growth-list strong {
+      color: var(--text-primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .workflow {
+        flex-wrap: wrap;
+      }
+
+      .workflow-step {
+        min-width: 140px;
+        padding: 1rem;
+      }
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 2px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background-color: white;
+        color: black;
+      }
+
+      .controls, button {
+        display: none;
+      }
+
+      #diagram-container {
+        page-break-inside: avoid;
+      }
+    }
+
+    /* Accessibility */
+    button:focus, .workflow-step:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Plating Bacterial Cultures from Freezer Stocks</h1>
+      <p class="subtitle">Streak-for-Isolation Technique</p>
+      <div class="controls">
+        <button id="exportBtn" title="Export diagram as PNG">📥 Export as PNG</button>
+      </div>
+    </header>
+
+    <!-- Workflow steps -->
+    <div class="workflow" role="tablist">
+      <div class="workflow-step active" data-step="retrieve" role="tab" tabindex="0" aria-selected="true">
+        <div class="workflow-step-number">1</div>
+        <div class="workflow-step-title">Retrieve Stock</div>
+      </div>
+      <div class="workflow-step" data-step="method" role="tab" tabindex="-1" aria-selected="false">
+        <div class="workflow-step-number">2</div>
+        <div class="workflow-step-title">Choose Method</div>
+      </div>
+      <div class="workflow-step" data-step="streak" role="tab" tabindex="-1" aria-selected="false">
+        <div class="workflow-step-number">3</div>
+        <div class="workflow-step-title">Streak Plate</div>
+      </div>
+      <div class="workflow-step" data-step="incubate" role="tab" tabindex="-1" aria-selected="false">
+        <div class="workflow-step-number">4</div>
+        <div class="workflow-step-title">Incubate</div>
+      </div>
+      <div class="workflow-step" data-step="evaluate" role="tab" tabindex="-1" aria-selected="false">
+        <div class="workflow-step-number">5</div>
+        <div class="workflow-step-title">Evaluate</div>
+      </div>
+    </div>
+
+    <!-- Main diagram -->
+    <div id="diagram-container">
+      <!-- Step 1: Retrieve -->
+      <div id="retrieve" class="diagram-section active">
+        <h2 style="color: var(--text-primary); margin-bottom: 1.5rem;">1. Retrieve Freezer Stock</h2>
+
+        <div class="safety-warning">
+          <h4>⚠️ Key Handling Tips</h4>
+          <p><strong>Transport on ice</strong> to minimize thaw/refreeze cycles. Work quickly and return the vial to −80°C immediately if using the scrape method. Repeated freeze-thaw cycles reduce viability.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
+          <div class="method-details">
+            <h4>✓ Quick Retrieval Steps</h4>
+            <ol>
+              <li>Locate vial in −80°C freezer</li>
+              <li>Transport on ice or work quickly</li>
+              <li>Determine inoculation method (next step)</li>
+            </ol>
+          </div>
+          <div class="method-details">
+            <h4>📋 What You'll Need</h4>
+            <ul>
+              <li>Agar plates (R2A, BHI, or TSA)</li>
+              <li>Sterile inoculating loops</li>
+              <li>Micropipette with sterile tips</li>
+              <li>Permanent marker or labels</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Choose Method -->
+      <div id="method" class="diagram-section">
+        <h2 style="color: var(--text-primary); margin-bottom: 1.5rem;">2. Choose Inoculation Method</h2>
+
+        <div class="method-tabs">
+          <button class="method-tab active" data-method="frozen">Frozen (Scrape)</button>
+          <button class="method-tab" data-method="thawed">Thawed (Pipette)</button>
+        </div>
+
+        <div id="frozen" class="method-content active">
+          <div class="method-details">
+            <h4>✓ Use When:</h4>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">You want to preserve the stock for many future uses, or the vial is still frozen solid.</p>
+          </div>
+
+          <div class="method-details">
+            <h4>Steps:</h4>
+            <ol>
+              <li>Open vial briefly in Biosafety Cabinet</li>
+              <li>Using sterile inoculating loop, scrape a <strong>small amount</strong> of frozen culture from surface</li>
+              <li><strong>Return vial to −80°C immediately</strong></li>
+              <li>Proceed to streak plate (next section)</li>
+            </ol>
+          </div>
+
+          <div class="danger-note">
+            <strong>⚠️ Critical:</strong> Do not allow entire stock to thaw. Return immediately after scraping. Freeze-thaw cycles damage viability.
+          </div>
+        </div>
+
+        <div id="thawed" class="method-content">
+          <div class="method-details">
+            <h4>✓ Use When:</h4>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">The vial has already thawed, or when you need a measured inoculum amount.</p>
+          </div>
+
+          <div class="method-details">
+            <h4>Steps:</h4>
+            <ol>
+              <li>Gently vortex or invert thawed vial to resuspend cells</li>
+              <li>Pipette <strong>10–50 µL</strong> onto agar plate near one edge</li>
+              <li>Use sterile loop to spread and streak (see next section)</li>
+              <li>Return stock vial to −80°C if reusing, or discard</li>
+            </ol>
+          </div>
+
+          <div class="method-details" style="background-color: var(--accent-light); border: 1px solid var(--accent);">
+            <h4>💡 Tip:</h4>
+            <p style="color: var(--text-secondary);">Gently vortexing resuspends settled cells for more even inoculation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Streak Plate -->
+      <div id="streak" class="diagram-section">
+        <h2 style="color: var(--text-primary); margin-bottom: 1.5rem;">3. Streak for Isolation</h2>
+
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Use a standard <strong>3-zone streak technique</strong> to dilute inoculum and isolate individual colonies. Click each zone to see details.</p>
+
+        <div class="plate-container">
+          <svg class="plate" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <!-- Plate outline -->
+            <circle cx="200" cy="200" r="190" fill="var(--bg)" stroke="var(--border)" stroke-width="2"/>
+
+            <!-- Zone 1: Heavy inoculum -->
+            <g class="plate-zone" data-zone="1" role="button" tabindex="0" aria-label="Zone 1: Heavy inoculum">
+              <path d="M 200 200 L 200 10 A 190 190 0 0 1 334.4 65.6 Z"
+                    fill="#ffcccc" fill-opacity="0.3" stroke="var(--danger)" stroke-width="2"/>
+              <!-- Dense streaks for Zone 1 -->
+              <line x1="210" y1="30" x2="210" y2="180" stroke="var(--danger)" stroke-width="1.5" opacity="0.6"/>
+              <line x1="220" y1="25" x2="225" y2="185" stroke="var(--danger)" stroke-width="1.5" opacity="0.6"/>
+              <line x1="230" y1="22" x2="235" y2="185" stroke="var(--danger)" stroke-width="1.5" opacity="0.6"/>
+              <line x1="240" y1="20" x2="245" y2="184" stroke="var(--danger)" stroke-width="1.5" opacity="0.6"/>
+              <line x1="250" y1="20" x2="253" y2="183" stroke="var(--danger)" stroke-width="1.5" opacity="0.6"/>
+              <line x1="260" y1="22" x2="260" y2="182" stroke="var(--danger)" stroke-width="1.5" opacity="0.6"/>
+              <line x1="270" y1="25" x2="268" y2="181" stroke="var(--danger)" stroke-width="1.5" opacity="0.6"/>
+              <line x1="280" y1="30" x2="275" y2="180" stroke="var(--danger)" stroke-width="1.5" opacity="0.6"/>
+              <line x1="290" y1="38" x2="280" y2="178" stroke="var(--danger)" stroke-width="1.5" opacity="0.6"/>
+              <line x1="300" y1="50" x2="285" y2="175" stroke="var(--danger)" stroke-width="1.5" opacity="0.6"/>
+              <line x1="310" y1="65" x2="290" y2="172" stroke="var(--danger)" stroke-width="1.5" opacity="0.6"/>
+              <text x="270" y="100" font-size="24" font-weight="bold" fill="var(--danger)" opacity="0.5">1</text>
+            </g>
+
+            <!-- Zone 2: Medium density -->
+            <g class="plate-zone" data-zone="2" role="button" tabindex="0" aria-label="Zone 2: Medium density">
+              <path d="M 334.4 65.6 A 190 190 0 0 1 334.4 334.4 L 200 200 Z"
+                    fill="#ffffcc" fill-opacity="0.3" stroke="var(--warning)" stroke-width="2"/>
+              <!-- Medium-spaced streaks for Zone 2 -->
+              <line x1="280" y1="178" x2="350" y2="150" stroke="var(--warning)" stroke-width="1.5" opacity="0.5"/>
+              <line x1="275" y1="190" x2="350" y2="180" stroke="var(--warning)" stroke-width="1.5" opacity="0.5"/>
+              <line x1="270" y1="202" x2="345" y2="210" stroke="var(--warning)" stroke-width="1.5" opacity="0.5"/>
+              <line x1="268" y1="215" x2="340" y2="240" stroke="var(--warning)" stroke-width="1.5" opacity="0.5"/>
+              <line x1="268" y1="228" x2="335" y2="270" stroke="var(--warning)" stroke-width="1.5" opacity="0.5"/>
+              <line x1="272" y1="242" x2="330" y2="300" stroke="var(--warning)" stroke-width="1.5" opacity="0.5"/>
+              <line x1="280" y1="255" x2="325" y2="320" stroke="var(--warning)" stroke-width="1.5" opacity="0.5"/>
+              <text x="310" y="250" font-size="24" font-weight="bold" fill="var(--warning)" opacity="0.5">2</text>
+            </g>
+
+            <!-- Zone 3: Sparse -->
+            <g class="plate-zone" data-zone="3" role="button" tabindex="0" aria-label="Zone 3: Sparse, isolated colonies">
+              <path d="M 200 200 L 334.4 334.4 A 190 190 0 0 1 65.6 334.4 Z"
+                    fill="#ccffcc" fill-opacity="0.3" stroke="var(--accent)" stroke-width="2"/>
+              <!-- Sparse streaks and dots for Zone 3 -->
+              <line x1="290" y1="280" x2="320" y2="330" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
+              <line x1="270" y1="300" x2="295" y2="350" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
+              <line x1="240" y1="310" x2="260" y2="360" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
+              <line x1="200" y1="312" x2="210" y2="365" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
+              <line x1="160" y1="310" x2="150" y2="365" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
+              <line x1="120" y1="300" x2="110" y2="355" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
+              <!-- Individual colony dots -->
+              <circle cx="310" cy="310" r="4" fill="var(--accent)" opacity="0.6"/>
+              <circle cx="280" cy="330" r="3.5" fill="var(--accent)" opacity="0.6"/>
+              <circle cx="250" cy="340" r="4" fill="var(--accent)" opacity="0.6"/>
+              <circle cx="200" cy="350" r="3.5" fill="var(--accent)" opacity="0.6"/>
+              <circle cx="150" cy="330" r="4" fill="var(--accent)" opacity="0.6"/>
+              <circle cx="120" cy="310" r="3.5" fill="var(--accent)" opacity="0.6"/>
+              <text x="200" y="290" font-size="24" font-weight="bold" fill="var(--accent)" opacity="0.5">3</text>
+            </g>
+
+            <!-- Arrows showing streaking direction and rotation -->
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="var(--accent)" opacity="0.7"/>
+              </marker>
+              <marker id="arrowhead-warn" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="var(--warning)" opacity="0.7"/>
+              </marker>
+            </defs>
+
+            <!-- Rotation indicators -->
+            <text x="30" y="200" font-size="12" fill="var(--text-secondary)" opacity="0.6">Rotate 90°</text>
+            <text x="340" y="380" font-size="12" fill="var(--text-secondary)" opacity="0.6">Rotate 90°</text>
+          </svg>
+        </div>
+
+        <div class="zone-info">
+          <div class="zone-title">Zone 1: Heavy Inoculum</div>
+          <div class="zone-description">
+            The initial heavy streak containing most of the inoculum.
+          </div>
+          <div class="zone-instructions">
+            <strong>Step 1:</strong> Streak the inoculum back and forth across ~1/3 of the plate. This establishes the initial bacterial concentration.
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; padding: 1rem; background-color: var(--bg); border: 2px solid var(--border); border-radius: 8px;">
+          <div style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem;">
+            <strong>General Procedure for Zones 2 & 3:</strong>
+          </div>
+          <ol style="margin-left: 1.5rem; color: var(--text-secondary); font-size: 0.95rem;">
+            <li style="margin-bottom: 0.75rem;"><strong>Flame or discard</strong> the loop to sterilize</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Rotate plate ~90°</strong> to a fresh area</li>
+            <li><strong>Streak through the edge</strong> of the previous zone, then into fresh agar</li>
+          </ol>
+          <p style="margin-top: 1rem; color: var(--text-secondary); font-style: italic; font-size: 0.95rem;">
+            This dilution series progressively reduces bacterial density, yielding isolated colonies by Zone 3.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 4: Incubate -->
+      <div id="incubate" class="diagram-section">
+        <h2 style="color: var(--text-primary); margin-bottom: 1.5rem;">4. Incubate Plates</h2>
+
+        <div class="method-details">
+          <h4>✓ Labeling Your Plates (Critical)</h4>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem;">Use permanent marker on the <strong>agar side</strong> (bottom) of the plate:</p>
+          <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+            <li>Organism/strain name</li>
+            <li>Medium type (R2A, BHI, etc.)</li>
+            <li>Date</li>
+            <li>Initials</li>
+            <li>Incubation temperature</li>
+          </ul>
+        </div>
+
+        <div class="temperature-guide">
+          <div class="temp-card">
+            <h4>Mesophiles</h4>
+            <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">e.g., <em>Sporosarcina pasteurii</em></p>
+            <div class="temp-value">30°C</div>
+            <div class="temp-time">Expected growth: <strong>1–2 days</strong></div>
+          </div>
+          <div class="temp-card">
+            <h4>Cold-adapted Isolates</h4>
+            <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">Environmental, slow growers</p>
+            <div class="temp-value">15°C or 4°C</div>
+            <div class="temp-time">Expected growth: <strong>3–7+ days</strong></div>
+          </div>
+        </div>
+
+        <div class="method-details">
+          <h4>Incubation Setup</h4>
+          <ol>
+            <li style="margin-bottom: 0.75rem;">Place plates <strong>inverted</strong> (agar side up, lid side down) in incubator</li>
+            <li style="margin-bottom: 0.75rem;">Optionally seal plate edge with Parafilm to prevent desiccation during long incubations</li>
+            <li>Check plates <strong>daily</strong> for colony growth</li>
+          </ol>
+          <p style="margin-top: 1rem; color: var(--text-secondary); font-style: italic;">For cold-adapted isolates growing slowly, allow up to 1–2 weeks before concluding no growth.</p>
+        </div>
+      </div>
+
+      <!-- Step 5: Evaluate -->
+      <div id="evaluate" class="diagram-section">
+        <h2 style="color: var(--text-primary); margin-bottom: 1.5rem;">5. After Growth: Evaluate & Store</h2>
+
+        <div class="method-details">
+          <h4>✓ What to Look For</h4>
+          <ul class="after-growth-list">
+            <li><strong>Isolated colonies:</strong> Discrete, well-separated colonies in Zone 3 confirm successful isolation</li>
+            <li><strong>Colony morphology:</strong> Confirm appearance matches expected strain characteristics</li>
+            <li><strong>Lawn growth:</strong> If entire plate is covered, re-streak from a single colony onto fresh plate</li>
+          </ul>
+        </div>
+
+        <div class="method-details">
+          <h4>✓ Next Steps from Isolated Colonies</h4>
+          <ul class="after-growth-list">
+            <li>Pick colonies for liquid cultures or starter cultures</li>
+            <li>Create new freezer stocks for long-term storage</li>
+            <li>Confirm strain purity by visual inspection or 16S sequencing</li>
+            <li>Use as inoculum for additional experiments</li>
+          </ul>
+        </div>
+
+        <div class="method-details">
+          <h4>✓ Storage & Shelf Life</h4>
+          <ul class="after-growth-list">
+            <li><strong>Temperature:</strong> Store working plates at 4°C</li>
+            <li><strong>Sealing:</strong> Seal with Parafilm to prevent desiccation</li>
+            <li><strong>Usable window:</strong> Within <strong>2–4 weeks</strong> of growth</li>
+            <li><strong>Long-term:</strong> Create freezer stocks (−80°C with glycerol) for preservation</li>
+          </ul>
+        </div>
+
+        <div class="safety-warning" style="margin-top: 2rem;">
+          <h4>💡 Pro Tips</h4>
+          <p><strong>Cross-contamination:</strong> When plating multiple strains in one session, change gloves or decontaminate between strains.</p>
+          <p style="margin-top: 0.75rem;"><strong>No growth?</strong> Ensure correct incubation temperature and allow adequate time (especially for slow growers at 4°C or 15°C).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Section -->
+    <div class="details-section">
+      <h3>Medium Selection Guide</h3>
+      <div style="background-color: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background-color: var(--accent-light); border-bottom: 2px solid var(--border);">
+              <th style="padding: 1rem; text-align: left; color: var(--accent); font-weight: 600;">Organism Type</th>
+              <th style="padding: 1rem; text-align: left; color: var(--accent); font-weight: 600;">Recommended Agar</th>
+              <th style="padding: 1rem; text-align: left; color: var(--accent); font-weight: 600;">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 1rem; color: var(--text-secondary);">Cold-adapted environmental isolates</td>
+              <td style="padding: 1rem; color: var(--text-secondary); font-weight: 500;">R2A agar</td>
+              <td style="padding: 1rem; color: var(--text-secondary);">Low-nutrient, supports slow growers</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 1rem; color: var(--text-secondary);"><em>Sporosarcina pasteurii</em></td>
+              <td style="padding: 1rem; color: var(--text-secondary); font-weight: 500;">BHI agar</td>
+              <td style="padding: 1rem; color: var(--text-secondary);">Rich medium, supports fast growth</td>
+            </tr>
+            <tr>
+              <td style="padding: 1rem; color: var(--text-secondary);">General/unknown</td>
+              <td style="padding: 1rem; color: var(--text-secondary); font-weight: 500;">R2A or TSA</td>
+              <td style="padding: 1rem; color: var(--text-secondary);">Broad-spectrum options</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Interactive protocol diagram • Based on Plating Bacterial Cultures from Freezer Stocks SOP</p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.7;">Use in Biosafety Cabinet • Follow institutional safety guidelines</p>
+  </footer>
+
+  <script>
+    // Workflow navigation
+    const workflowSteps = document.querySelectorAll('.workflow-step');
+    const diagramSections = document.querySelectorAll('.diagram-section');
+
+    workflowSteps.forEach(step => {
+      step.addEventListener('click', () => {
+        const stepId = step.getAttribute('data-step');
+        showSection(stepId);
+        updateWorkflow(step);
+      });
+
+      step.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          step.click();
+        }
+      });
+    });
+
+    function showSection(sectionId) {
+      diagramSections.forEach(section => section.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+
+    function updateWorkflow(activeStep) {
+      workflowSteps.forEach((step, index) => {
+        step.classList.remove('active');
+        step.setAttribute('aria-selected', 'false');
+        step.setAttribute('tabindex', '-1');
+      });
+      activeStep.classList.add('active');
+      activeStep.setAttribute('aria-selected', 'true');
+      activeStep.setAttribute('tabindex', '0');
+    }
+
+    // Method tabs
+    const methodTabs = document.querySelectorAll('.method-tab');
+    methodTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const method = tab.getAttribute('data-method');
+        showMethod(method);
+        updateMethodTab(tab);
+      });
+    });
+
+    function showMethod(methodId) {
+      const contents = document.querySelectorAll('.method-content');
+      contents.forEach(content => content.classList.remove('active'));
+      document.getElementById(methodId).classList.add('active');
+    }
+
+    function updateMethodTab(activeTab) {
+      methodTabs.forEach(tab => tab.classList.remove('active'));
+      activeTab.classList.add('active');
+    }
+
+    // Plate zones interaction
+    const plateZones = document.querySelectorAll('.plate-zone');
+    const zoneInfo = document.querySelector('.zone-info');
+
+    const zoneData = {
+      '1': {
+        title: 'Zone 1: Heavy Inoculum',
+        description: 'The initial heavy streak containing most of the inoculum. Dense bacterial concentration.',
+        instructions: '<strong>Step 1:</strong> Streak the inoculum back and forth across ~1/3 of the plate. This establishes the initial bacterial concentration and covers the area thoroughly.'
+      },
+      '2': {
+        title: 'Zone 2: Medium Density',
+        description: 'Medium-density bacterial area created by streaking from Zone 1 after flaming the loop.',
+        instructions: '<strong>Step 2:</strong> Flame or discard the loop, rotate plate ~90°, then streak through the edge of Zone 1 into a fresh area. This dilutes the inoculum further.'
+      },
+      '3': {
+        title: 'Zone 3: Sparse (Isolated Colonies)',
+        description: 'Low-density area with discrete, well-separated colonies suitable for single-colony selection.',
+        instructions: '<strong>Step 3:</strong> Flame or discard the loop, rotate plate ~90°, then streak through the edge of Zone 2 into the remaining area. Individual colonies will grow here.'
+      }
+    };
+
+    plateZones.forEach(zone => {
+      zone.addEventListener('click', () => {
+        const zoneNum = zone.getAttribute('data-zone');
+        highlightZone(zone, zoneNum);
+        updateZoneInfo(zoneNum);
+      });
+
+      zone.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          zone.click();
+        }
+      });
+    });
+
+    function highlightZone(zone, zoneNum) {
+      plateZones.forEach(z => z.classList.remove('active'));
+      zone.classList.add('active');
+    }
+
+    function updateZoneInfo(zoneNum) {
+      const data = zoneData[zoneNum];
+      zoneInfo.innerHTML = `
+        <div class="zone-title">${data.title}</div>
+        <div class="zone-description">${data.description}</div>
+        <div class="zone-instructions">${data.instructions}</div>
+      `;
+    }
+
+    // Default zone info on load
+    window.addEventListener('load', () => {
+      updateZoneInfo('1');
+    });
+
+    // Export function
+    document.getElementById('exportBtn').addEventListener('click', async () => {
+      try {
+        const { default: html2canvas } = await import(
+          'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/+esm'
+        );
+        const el = document.getElementById('diagram-container');
+        const canvas = await html2canvas(el, { scale: 2, useCORS: true });
+        const link = document.createElement('a');
+        link.download = 'plating-from-freezer-stock-diagram.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      } catch (error) {
+        alert('Export failed. Please try again or take a screenshot instead.');
+        console.error('Export error:', error);
+      }
+    });
+
+    // Keyboard navigation for workflow
+    document.addEventListener('keydown', (e) => {
+      const current = document.querySelector('.workflow-step.active');
+      const steps = Array.from(document.querySelectorAll('.workflow-step'));
+      const currentIndex = steps.indexOf(current);
+
+      if (e.key === 'ArrowRight' && currentIndex < steps.length - 1) {
+        steps[currentIndex + 1].focus();
+        steps[currentIndex + 1].click();
+      } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+        steps[currentIndex - 1].focus();
+        steps[currentIndex - 1].click();
+      }
+    });
+  </script>
+</body>
+</html>
